@@ -41,4 +41,4 @@ replay_*.log
 
 # cache
 
-src/main/generated/.cache
+src/main/generated/.cache/
