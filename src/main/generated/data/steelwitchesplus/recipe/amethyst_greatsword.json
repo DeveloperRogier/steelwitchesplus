@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " AA",
+    "AAA",
+    "SA "
+  ],
+  "result": {
+    "count": 1,
+    "id": "steelwitchesplus:amethyst_greatsword"
+  }
+}

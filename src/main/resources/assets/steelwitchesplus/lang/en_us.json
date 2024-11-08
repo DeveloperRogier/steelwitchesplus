@@ -1,0 +1,30 @@
+{
+  "item.steelwitchesplus.aethereal_feather": "Aethereal Feather",
+  "item.steelwitchesplus.aethereal_elytra": "Aethereal Elytra",
+  "item.steelwitchesplus.amethyst_greatsword": "Amethyst Greatsword",
+  "item.steelwitchesplus.quartz_sword": "Quartz Sword",
+  "item.steelwitchesplus.wither_sword": "Wither Sword",
+
+  "item.steelwitchesplus.quartz_helmet": "Quartz Helmet",
+  "item.steelwitchesplus.quartz_chestplate": "Quartz Chestplate",
+  "item.steelwitchesplus.quartz_leggings": "Quartz Leggings",
+  "item.steelwitchesplus.quartz_boots": "Quartz Boots",
+
+  "item.steelwitchesplus.aethereal_elytra.tooltip.1": "§6Divine§r wings of yore.",
+  "item.steelwitchesplus.aethereal_elytra.tooltip.2": "They do not suffer any damage.",
+  "item.steelwitchesplus.aethereal_elytra.tooltip.3": "Only to be worn by those of §3aethereal§r descent.",
+  "item.steelwitchesplus.aethereal_feather.tooltip.1": "Feathers of §3aethereal§r origin.",
+  "item.steelwitchesplus.aethereal_feather.tooltip.2": "These feathers may exalt a certain item",
+  "item.steelwitchesplus.aethereal_feather.tooltip.3": "to §6divine§r status...",
+  "item.steelwitchesplus.amethyst_greatsword.tooltip.1": "In addition to its physical damage,",
+  "item.steelwitchesplus.amethyst_greatsword.tooltip.2": "this weapon deals 8 §l§5magic§r damage.",
+  "item.steelwitchesplus.wither_sword.tooltip.1": "This wretched sword harbors the power of the §4infernal§r skeletons.",
+  "item.steelwitchesplus.wither_sword.tooltip.2": "It inflicts §l§8Wither III§r for 5 seconds.",
+  "item.steelwitchesplus.quartz_armor.tooltip.1": "A full set of this §4infernal§r armor",
+  "item.steelwitchesplus.quartz_armor.tooltip.2": "grants §l§cfire resistance§r.",
+
+  "block.steelwitchesplus.trim_quartz_block": "Trim Quartz Block",
+  "block.steelwitchesplus.quartz_wall": "Quartz Wall",
+
+  "itemgroup.steelwitchesplus": "Steel Witches Plus"
+}

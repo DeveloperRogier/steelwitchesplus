@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "Q": {
+      "item": "minecraft:quartz"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " Q ",
+    " Q ",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "steelwitchesplus:quartz_sword"
+  }
+}

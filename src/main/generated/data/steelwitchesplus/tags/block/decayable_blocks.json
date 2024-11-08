@@ -1,0 +1,9 @@
+{
+  "values": [
+    "minecraft:fern",
+    "#minecraft:leaves",
+    "#minecraft:flowers",
+    "#minecraft:small_flowers",
+    "#minecraft:tall_flowers"
+  ]
+}

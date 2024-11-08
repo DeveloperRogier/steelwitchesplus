@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "steelwitchesplus:block/trim_quartz_block_top",
+    "side": "steelwitchesplus:block/trim_quartz_block"
+  }
+}

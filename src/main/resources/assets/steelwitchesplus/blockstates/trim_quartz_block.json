@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "steelwitchesplus:block/trim_quartz_block_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "steelwitchesplus:block/trim_quartz_block"
+    },
+    "axis=z": {
+      "model": "steelwitchesplus:block/trim_quartz_block_horizontal",
+      "x": 90
+    }
+  }
+}
