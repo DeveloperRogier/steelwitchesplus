@@ -12,12 +12,13 @@ import net.sneezewipe.steelwitchesplus.item.custom.*;
 
 public class ModItems {
     public static final Item AETHEREAL_ELYTRA = registerItem("aethereal_elytra", new AetherealElytraItem(new Item.Settings().rarity(Rarity.RARE).maxDamage(100000)));
-    public static final Item AETHEREAL_FEATHER = registerItem("aethereal_feather", new AetherealFeather(new Item.Settings()));
+    public static final Item AETHEREAL_FEATHER = registerItem("aethereal_feather", new AetherealFeatherItem(new Item.Settings()));
 
     public static final Item AMETHYST_GREATSWORD = registerItem("amethyst_greatsword", new AmethystGreatswordItem(ModToolMaterials.AMETHYST, 1, 8.0f,-3.0f, new Item.Settings()));
     public static final Item QUARTZ_SWORD = registerItem("quartz_sword",
             new QuartzSwordItem(ModToolMaterials.QUARTZ,
                     new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.QUARTZ, 3, -2.2f))));
+    public static final Item WICCAN_SANDS = registerItem("wiccan_sands", new WiccanSandsItem(new Item.Settings().rarity(Rarity.UNCOMMON).maxDamage(9)));
     public static final Item WITHER_SWORD = registerItem("wither_sword",
             new WitherSwordItem(ToolMaterials.NETHERITE,
                     new Item.Settings().rarity(Rarity.UNCOMMON).attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.NETHERITE, -3, -2.4f))));

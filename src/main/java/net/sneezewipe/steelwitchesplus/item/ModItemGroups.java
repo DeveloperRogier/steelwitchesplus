@@ -21,6 +21,7 @@ public class ModItemGroups {
 
                         entries.add(ModItems.AMETHYST_GREATSWORD);
                         entries.add(ModItems.QUARTZ_SWORD);
+                        entries.add(ModItems.WICCAN_SANDS);
                         entries.add(ModItems.WITHER_SWORD);
 
                         entries.add(ModItems.QUARTZ_HELMET);

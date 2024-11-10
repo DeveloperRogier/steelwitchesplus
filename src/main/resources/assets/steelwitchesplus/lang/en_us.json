@@ -3,6 +3,7 @@
   "item.steelwitchesplus.aethereal_elytra": "Aethereal Elytra",
   "item.steelwitchesplus.amethyst_greatsword": "Amethyst Greatsword",
   "item.steelwitchesplus.quartz_sword": "Quartz Sword",
+  "item.steelwitchesplus.wiccan_sands": "Wiccan Sands",
   "item.steelwitchesplus.wither_sword": "Wither Sword",
 
   "item.steelwitchesplus.quartz_helmet": "Quartz Helmet",
@@ -18,6 +19,8 @@
   "item.steelwitchesplus.aethereal_feather.tooltip.3": "to §6divine§r status...",
   "item.steelwitchesplus.amethyst_greatsword.tooltip.1": "In addition to its physical damage,",
   "item.steelwitchesplus.amethyst_greatsword.tooltip.2": "this weapon deals 8 §l§5magic§r damage.",
+  "item.steelwitchesplus.wiccan_sands.tooltip.1": "§oThe §e§l§oWiccan Sands§r§o shift tirelessly in their crystal cage,§r",
+  "item.steelwitchesplus.wiccan_sands.tooltip.2": "§oawaiting wretched wielding by wicked witches...§r",
   "item.steelwitchesplus.wither_sword.tooltip.1": "This wretched sword harbors the power of the §4infernal§r skeletons.",
   "item.steelwitchesplus.wither_sword.tooltip.2": "It inflicts §l§8Wither III§r for 5 seconds.",
   "item.steelwitchesplus.quartz_armor.tooltip.1": "A full set of this §4infernal§r armor",

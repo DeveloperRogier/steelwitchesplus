@@ -7,7 +7,6 @@ import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.item.ArmorItem;
-import net.minecraft.item.Item;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
@@ -26,6 +25,7 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.AETHEREAL_ELYTRA, Models.GENERATED);
         itemModelGenerator.register(ModItems.AETHEREAL_FEATHER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WICCAN_SANDS, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.QUARTZ_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WITHER_SWORD, Models.HANDHELD);

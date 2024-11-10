@@ -8,8 +8,8 @@ import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 
 import java.util.List;
 
-public class AetherealFeather extends Item {
-    public AetherealFeather(Settings settings) {
+public class AetherealFeatherItem extends Item {
+    public AetherealFeatherItem(Settings settings) {
         super(settings);
     }
 
