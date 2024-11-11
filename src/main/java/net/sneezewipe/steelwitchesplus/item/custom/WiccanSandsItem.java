@@ -18,9 +18,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-// Currently lacks a crafting recipe.
+// TODO: add a crafting recipe.
+// TODO: fix the fact that the item does not properly end its use process when the player scrolls away from the item
+// TODO:    in the hotbar while using it.
 public class WiccanSandsItem extends Item {
-    private static final int MAX_USE_TIME = 200;
+    private static final int MAX_USE_TIME = 72000; // 1 hour
     private static final String OBJECTIVE_NAME = "night_skip_ritual";
     private static final Text OBJECTIVE_DISPLAY_NAME = Text.of("Occult Dawn Ritual");
 
@@ -40,33 +42,36 @@ public class WiccanSandsItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if (world.isClient) {
-            return TypedActionResult.pass(user.getStackInHand(hand));
-        }
-        SteelWitchesPlus.LOGGER.info(String.format("started using hourglass %s", user.getStackInHand(hand)));
-
-        Scoreboard scoreboard = world.getScoreboard();
-        ScoreboardObjective objective = getOrCreateScoreboardObjective(scoreboard, OBJECTIVE_NAME);
-        ScoreAccess scoreAccess = scoreboard.getOrCreateScore(ScoreHolder.WILDCARD, objective, true);
-
-        if (world.isDay()) {
-            scoreAccess.setScore(0); // Prevent score from persisting if used during daytime
+        if (world.isClient && world.isDay()) {
             return TypedActionResult.fail(user.getStackInHand(hand));
         }
 
-        int score = scoreAccess.getScore(); // Current number of players partaking in the "ritual"
-        int requiredScore = getRequiredScore(world);
-        if (++score >= requiredScore) {
-            scoreAccess.setScore(0);
-            ((ServerWorld) world).setTimeOfDay(0);
-            showHudMessage(world, "The coven has ordained the dawn breaketh...");
-        } else {
-            scoreAccess.lock(); // All possible race conditions might not be prevented by this...
-            scoreAccess.incrementScore();
-            scoreAccess.unlock();
-            showScoreOnHud(world, score, requiredScore);
+        if (!world.isClient) {
+            SteelWitchesPlus.LOGGER.info(String.format("started using hourglass %s", user.getStackInHand(hand)));
+
+            Scoreboard scoreboard = world.getScoreboard();
+            ScoreboardObjective objective = getOrCreateScoreboardObjective(scoreboard, OBJECTIVE_NAME);
+            ScoreAccess scoreAccess = scoreboard.getOrCreateScore(ScoreHolder.WILDCARD, objective, true);
+
+            if (world.isDay()) {
+                scoreAccess.resetScore(); // Prevent score from persisting if used during daytime
+                return TypedActionResult.fail(user.getStackInHand(hand));
+            }
+
+            int score = scoreAccess.getScore(); // Current number of players partaking in the "ritual"
+            int requiredScore = getRequiredScore(world);
+            if (++score >= requiredScore) {
+                scoreAccess.resetScore();
+                ((ServerWorld) world).setTimeOfDay(0);
+                showHudMessage(world, "The coven has ordained the dawn breaketh...");
+            } else {
+                scoreAccess.lock(); // All possible race conditions might not be prevented by this...
+                scoreAccess.incrementScore();
+                scoreAccess.unlock();
+                showScoreOnHud(world, score, requiredScore);
+            }
         }
-//        return TypedActionResult.success(user.getStackInHand(hand), world.isClient());
+
         return ItemUsage.consumeHeldItem(world, user, hand);
     }
 
@@ -81,23 +86,6 @@ public class WiccanSandsItem extends Item {
         SteelWitchesPlus.LOGGER.info(String.format("onStoppedUsing call for %s", stack));
         stopUsing(stack, world);
     }
-
-    //    @Override
-//    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-//        if (world.isClient || world.isDay()) {
-//            return TypedActionResult.pass(user.getStackInHand(hand));
-//        }
-//
-//        user.getStackInHand(hand).damage(1, (ServerWorld) world, (ServerPlayerEntity) user,
-//                item -> user.sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
-//        ((ServerWorld) world).setTimeOfDay(0L);
-//        Text text = Text.translatable("The coven has ordained the dawn breaketh...");
-//        for (PlayerEntity serverPlayerEntity : world.getPlayers()) {
-//            serverPlayerEntity.sendMessage(text, true);
-//        }
-////        user.sleep(user.getBlockPos()); // Shit don't work
-//        return TypedActionResult.success(user.getStackInHand(hand), world.isClient());
-//    }
 
     @Override
     public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
@@ -140,13 +128,20 @@ public class WiccanSandsItem extends Item {
     }
 
     private ItemStack stopUsing(ItemStack stack, World world) {
-        Scoreboard scoreboard = world.getScoreboard();
-        ScoreboardObjective objective = getOrCreateScoreboardObjective(scoreboard, OBJECTIVE_NAME);
-        ScoreAccess scoreAccess = scoreboard.getOrCreateScore(ScoreHolder.WILDCARD, objective, true);
-        scoreAccess.lock();
-        scoreAccess.incrementScore(-1);
-        scoreAccess.unlock();
-        showScoreOnHud(world, scoreAccess.getScore(), getRequiredScore(world));
+        if (!world.isClient) {
+            SteelWitchesPlus.LOGGER.info(String.format("decrementing scoreboard for %s", stack));
+            Scoreboard scoreboard = world.getScoreboard();
+            ScoreboardObjective objective = getOrCreateScoreboardObjective(scoreboard, OBJECTIVE_NAME);
+            ScoreAccess scoreAccess = scoreboard.getOrCreateScore(ScoreHolder.WILDCARD, objective, true);
+            scoreAccess.lock();
+            if (scoreAccess.getScore() <= 0) {
+                scoreAccess.resetScore();
+            } else {
+                scoreAccess.incrementScore(-1);
+            }
+            scoreAccess.unlock();
+            showScoreOnHud(world, scoreAccess.getScore(), getRequiredScore(world));
+        }
         return stack;
     }
 }
