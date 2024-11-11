@@ -26,6 +26,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         /* Shaped recipes items */
         generateRecipeAetherealElytra(exporter);
         generateRecipeAmethystGreatsword(exporter);
+        generateRecipeClayJar(exporter);
         generateRecipeGlassJar(exporter);
         generateRecipeQuartzArmor(exporter);
         generateRecipeQuartzSword(exporter);
@@ -69,6 +70,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('A', Items.AMETHYST_SHARD).input('S', Items.STICK)
                 .criterion(hasItem(Items.AMETHYST_SHARD), conditionsFromItem(Items.AMETHYST_SHARD))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModItems.AMETHYST_GREATSWORD)));
+    }
+
+    private void generateRecipeClayJar(RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BREWING, ModItems.CLAY_JAR, 1)
+                .pattern(" C ")
+                .pattern("C C")
+                .pattern(" C ")
+                .input('C', Items.CLAY_BALL)
+                .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.CLAY_JAR)));
     }
 
     private void generateRecipeGlassJar(RecipeExporter exporter) {
