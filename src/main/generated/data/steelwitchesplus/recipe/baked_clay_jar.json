@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 1.2,
+  "ingredient": {
+    "item": "steelwitchesplus:clay_jar"
+  },
+  "result": {
+    "id": "steelwitchesplus:baked_clay_jar"
+  }
+}

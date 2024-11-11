@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 300,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "minecraft:weeping_vines"
+  },
+  "result": {
+    "id": "steelwitchesplus:weeping_powder"
+  }
+}

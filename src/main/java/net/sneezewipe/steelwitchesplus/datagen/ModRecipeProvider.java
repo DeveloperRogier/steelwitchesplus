@@ -3,10 +3,8 @@ package net.sneezewipe.steelwitchesplus.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.StonecuttingRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.*;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -15,6 +13,7 @@ import net.minecraft.util.Identifier;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
+import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
@@ -27,19 +26,28 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         /* Shaped recipes items */
         generateRecipeAetherealElytra(exporter);
         generateRecipeAmethystGreatsword(exporter);
+        generateRecipeGlassJar(exporter);
         generateRecipeQuartzArmor(exporter);
         generateRecipeQuartzSword(exporter);
 
         /* Shaped recipes blocks */
         generateRecipeQuartzWall(exporter);
 
-        /* Shapeless recipes items*/
+        /* Shapeless recipes items */
         generateRecipeAetherFeather(exporter);
         generateRecipeWitherSword(exporter);
 
         /* Shapeless recipes blocks */
         generateStonecutterRecipeQuartzTrimBlock(exporter);
         generateStonecutterRecipeQuartzWall(exporter);
+
+        /* (Blast) furnace recipes */
+        generateBlastFurnaceRecipeWitchesPowders(exporter, Map.of(
+                Items.AMETHYST_SHARD, ModItems.AMETHYST_DUST,
+                Items.WEEPING_VINES, ModItems.WEEPING_POWDER,
+                Items.ECHO_SHARD, ModItems.SCULK_POWDER
+        ));
+        generateFurnaceRecipeBakedClayJar(exporter);
     }
 
     /* Shaped recipes */
@@ -61,6 +69,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('A', Items.AMETHYST_SHARD).input('S', Items.STICK)
                 .criterion(hasItem(Items.AMETHYST_SHARD), conditionsFromItem(Items.AMETHYST_SHARD))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModItems.AMETHYST_GREATSWORD)));
+    }
+
+    private void generateRecipeGlassJar(RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.BREWING, ModItems.GLASS_JAR, 5)
+                .pattern("G G")
+                .pattern("GGG")
+                .input('G', Items.GLASS)
+                .criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.GLASS_JAR)));
     }
 
     private void generateRecipeQuartzArmor(RecipeExporter exporter) {
@@ -126,11 +143,28 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     private void generateStonecutterRecipeQuartzTrimBlock(RecipeExporter exporter) {
         StonecuttingRecipeJsonBuilder.createStonecutting(
-                    Ingredient.ofItems(Blocks.QUARTZ_BLOCK), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TRIM_QUARTZ_BLOCK, 1)
+                Ingredient.ofItems(Blocks.QUARTZ_BLOCK), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TRIM_QUARTZ_BLOCK, 1)
                 .criterion(hasItem(Blocks.QUARTZ_BLOCK), conditionsFromItem(Blocks.QUARTZ_BLOCK))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModBlocks.TRIM_QUARTZ_BLOCK)+"from_quartz_stonecutting"));
     }
+
     private void generateStonecutterRecipeQuartzWall(RecipeExporter exporter) {
         offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.QUARTZ_WALL, Blocks.QUARTZ_PILLAR);
+    }
+
+    private void generateBlastFurnaceRecipeWitchesPowders(RecipeExporter exporter, Map<Item, Item> ingredientToPowder) {
+        for (Map.Entry<Item, Item> entry : ingredientToPowder.entrySet()) {
+            CookingRecipeJsonBuilder.createBlasting(
+                    Ingredient.ofItems(entry.getKey()), RecipeCategory.MISC, entry.getValue(), 0.5f, 300)
+                    .criterion(hasItem(entry.getKey()), conditionsFromItem(entry.getKey()))
+                    .offerTo(exporter, Identifier.of(getRecipeName(entry.getValue())));
+        }
+    }
+
+    private void generateFurnaceRecipeBakedClayJar(RecipeExporter exporter) {
+        CookingRecipeJsonBuilder.createSmelting(
+                Ingredient.ofItems(ModItems.CLAY_JAR), RecipeCategory.BREWING, ModItems.BAKED_CLAY_JAR, 1.2f, 200)
+                .criterion(hasItem(ModItems.CLAY_JAR), conditionsFromItem(ModItems.CLAY_JAR))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.BAKED_CLAY_JAR)));
     }
 }

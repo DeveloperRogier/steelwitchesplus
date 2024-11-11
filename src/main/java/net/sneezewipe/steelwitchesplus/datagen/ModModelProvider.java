@@ -25,6 +25,15 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.AETHEREAL_ELYTRA, Models.GENERATED);
         itemModelGenerator.register(ModItems.AETHEREAL_FEATHER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.AMETHYST_DUST, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ARTICHOKE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ATTUNED_STONE_DARK, Models.GENERATED);
+        itemModelGenerator.register(ModItems.ATTUNED_STONE_LIGHT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BAKED_CLAY_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CLAY_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SCULK_POWDER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WEEPING_POWDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.WICCAN_SANDS, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.QUARTZ_SWORD, Models.HANDHELD);

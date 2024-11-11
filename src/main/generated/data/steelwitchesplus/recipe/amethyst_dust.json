@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 300,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "minecraft:amethyst_shard"
+  },
+  "result": {
+    "id": "steelwitchesplus:amethyst_dust"
+  }
+}
