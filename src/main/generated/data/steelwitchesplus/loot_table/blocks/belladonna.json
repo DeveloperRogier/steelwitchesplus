@@ -16,18 +16,18 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "steelwitchesplus:artichoke_crop",
+                  "block": "steelwitchesplus:belladonna",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "4"
                   }
                 }
               ],
-              "name": "steelwitchesplus:artichoke"
+              "name": "steelwitchesplus:belladonna"
             },
             {
               "type": "minecraft:item",
-              "name": "steelwitchesplus:artichoke_seeds"
+              "name": "steelwitchesplus:belladonna_seeds"
             }
           ]
         }
@@ -38,7 +38,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "steelwitchesplus:artichoke_crop",
+          "block": "steelwitchesplus:belladonna",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "4"
@@ -59,7 +59,7 @@
               }
             }
           ],
-          "name": "steelwitchesplus:artichoke_seeds"
+          "name": "steelwitchesplus:belladonna_seeds"
         }
       ],
       "rolls": 1.0

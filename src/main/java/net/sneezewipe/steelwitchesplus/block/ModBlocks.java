@@ -9,6 +9,7 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import net.sneezewipe.steelwitchesplus.block.custom.ArtichokeCropBlock;
+import net.sneezewipe.steelwitchesplus.block.custom.BelladonnaCropBlock;
 import net.sneezewipe.steelwitchesplus.block.custom.GarlicCropBlock;
 
 public class ModBlocks {
@@ -19,9 +20,11 @@ public class ModBlocks {
 
     /* CROPS */
     public static final Block ARTICHOKE_CROP = Registry.register(Registries.BLOCK, Identifier.of(SteelWitchesPlus.MOD_ID,
-            "artichoke_crop"), new ArtichokeCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
+            "artichoke"), new ArtichokeCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
     public static final Block GARLIC_CROP = Registry.register(Registries.BLOCK, Identifier.of(SteelWitchesPlus.MOD_ID,
             "garlic"), new GarlicCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
+    public static final Block BELLADONNA_CROP = Registry.register(Registries.BLOCK, Identifier.of(SteelWitchesPlus.MOD_ID,
+            "belladonna"), new BelladonnaCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
 
     /* HELPERS */
     private static Block registerBlock(String name, Block block) {

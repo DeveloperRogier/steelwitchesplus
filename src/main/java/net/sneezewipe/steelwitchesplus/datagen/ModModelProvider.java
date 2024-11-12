@@ -9,6 +9,7 @@ import net.minecraft.data.client.Models;
 import net.minecraft.item.ArmorItem;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.block.custom.ArtichokeCropBlock;
+import net.sneezewipe.steelwitchesplus.block.custom.BelladonnaCropBlock;
 import net.sneezewipe.steelwitchesplus.block.custom.GarlicCropBlock;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
@@ -23,6 +24,7 @@ public class ModModelProvider extends FabricModelProvider {
         quartzPillarPool.wall(ModBlocks.QUARTZ_WALL);
 
         blockStateModelGenerator.registerCrop(ModBlocks.ARTICHOKE_CROP, ArtichokeCropBlock.AGE, 0, 1, 2, 3, 4);
+        blockStateModelGenerator.registerCrop(ModBlocks.BELLADONNA_CROP, BelladonnaCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.GARLIC_CROP, GarlicCropBlock.AGE, 0, 1, 2, 3, 4);
     }
 
@@ -35,6 +37,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ATTUNED_STONE_DARK, Models.GENERATED);
         itemModelGenerator.register(ModItems.ATTUNED_STONE_LIGHT, Models.GENERATED);
         itemModelGenerator.register(ModItems.BAKED_CLAY_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BELLADONNA, Models.GENERATED);
         itemModelGenerator.register(ModItems.GARLIC, Models.GENERATED);
         itemModelGenerator.register(ModItems.CLAY_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);

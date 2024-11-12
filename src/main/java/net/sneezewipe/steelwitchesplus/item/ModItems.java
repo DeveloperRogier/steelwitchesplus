@@ -19,11 +19,13 @@ public class ModItems {
     public static final Item AETHEREAL_FEATHER = registerItem("aethereal_feather", new AetherealFeatherItem(new Item.Settings().maxCount(64)));
     public static final Item AMETHYST_DUST = registerItem("amethyst_dust", new AmethystDustItem(new Item.Settings().maxCount(64)));
     public static final Item ARTICHOKE = registerItem("artichoke", new ArtichokeItem(new Item.Settings().maxCount(64)));
-    public static final Item ARTICHOKE_SEEDS = registerItem("artichoke_seeds", new AliasedBlockItem(ModBlocks.ARTICHOKE_CROP, new Item.Settings().maxCount(64)));
-    public static final Item ATTUNED_STONE_DARK = registerItem("attuned_stone_dark", new AttunedStoneDarkItem(new Item.Settings().rarity(Rarity.UNCOMMON).maxCount(64)));
-    public static final Item ATTUNED_STONE_LIGHT = registerItem("attuned_stone_light", new AttunedStoneLightItem(new Item.Settings().rarity(Rarity.UNCOMMON).maxCount(64)));
+    public static final Item ARTICHOKE_SEEDS = registerItem("artichoke_seeds", new AliasedBlockItem(ModBlocks.ARTICHOKE_CROP, new Item.Settings()));
+    public static final Item ATTUNED_STONE_DARK = registerItem("attuned_stone_dark", new AttunedStoneDarkItem(new Item.Settings().rarity(Rarity.UNCOMMON)));
+    public static final Item ATTUNED_STONE_LIGHT = registerItem("attuned_stone_light", new AttunedStoneLightItem(new Item.Settings().rarity(Rarity.UNCOMMON)));
     public static final Item AMETHYST_GREATSWORD = registerItem("amethyst_greatsword", new AmethystGreatswordItem(ModToolMaterials.AMETHYST, 1, 8.0f,-3.0f, new Item.Settings()));
     public static final Item BAKED_CLAY_JAR = registerItem("baked_clay_jar", new BakedClayJarItem(new Item.Settings().maxCount(16)));
+    public static final Item BELLADONNA = registerItem("belladonna", new BelladonnaItem(new Item.Settings()));
+    public static final Item BELLADONNA_SEEDS = registerItem("belladonna_seeds", new AliasedBlockItem(ModBlocks.BELLADONNA_CROP, new Item.Settings()));
     public static final Item CLAY_JAR = registerItem("clay_jar", new ClayJarItem(new Item.Settings().maxCount(16)));
     public static final Item GARLIC = registerItem("garlic", new GarlicItem(new Item.Settings()));
     public static final Item GARLIC_CLOVE = registerItem("garlic_clove", new AliasedBlockItem(ModBlocks.GARLIC_CROP, new Item.Settings())); // maxCount necessary?
@@ -70,6 +72,7 @@ public class ModItems {
                 ARTICHOKE,
                 AMETHYST_DUST,
                 BAKED_CLAY_JAR,
+                BELLADONNA,
                 CLAY_JAR,
                 GARLIC,
                 GLASS_JAR,
@@ -84,6 +87,7 @@ public class ModItems {
     private static void addItemsToNaturalItemGroup(FabricItemGroupEntries entries) {
         Item[] items = {
                 ARTICHOKE_SEEDS,
+                BELLADONNA_SEEDS,
                 GARLIC_CLOVE,
         };
         for (Item item : items) {
