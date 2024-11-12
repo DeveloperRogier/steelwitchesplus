@@ -74,7 +74,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     private void generateRecipeClayJar(RecipeExporter exporter) {
         ShapedRecipeJsonBuilder.create(RecipeCategory.BREWING, ModItems.CLAY_JAR, 1)
-                .pattern(" C ")
                 .pattern("C C")
                 .pattern(" C ")
                 .input('C', Items.CLAY_BALL)
