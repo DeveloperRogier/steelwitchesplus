@@ -8,6 +8,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
+import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.item.custom.*;
 
 public class ModItems {
@@ -18,11 +19,14 @@ public class ModItems {
     public static final Item AETHEREAL_FEATHER = registerItem("aethereal_feather", new AetherealFeatherItem(new Item.Settings().maxCount(64)));
     public static final Item AMETHYST_DUST = registerItem("amethyst_dust", new AmethystDustItem(new Item.Settings().maxCount(64)));
     public static final Item ARTICHOKE = registerItem("artichoke", new ArtichokeItem(new Item.Settings().maxCount(64)));
+    public static final Item ARTICHOKE_SEEDS = registerItem("artichoke_seeds", new AliasedBlockItem(ModBlocks.ARTICHOKE_CROP, new Item.Settings().maxCount(64)));
     public static final Item ATTUNED_STONE_DARK = registerItem("attuned_stone_dark", new AttunedStoneDarkItem(new Item.Settings().rarity(Rarity.UNCOMMON).maxCount(64)));
     public static final Item ATTUNED_STONE_LIGHT = registerItem("attuned_stone_light", new AttunedStoneLightItem(new Item.Settings().rarity(Rarity.UNCOMMON).maxCount(64)));
     public static final Item AMETHYST_GREATSWORD = registerItem("amethyst_greatsword", new AmethystGreatswordItem(ModToolMaterials.AMETHYST, 1, 8.0f,-3.0f, new Item.Settings()));
     public static final Item BAKED_CLAY_JAR = registerItem("baked_clay_jar", new BakedClayJarItem(new Item.Settings().maxCount(16)));
     public static final Item CLAY_JAR = registerItem("clay_jar", new ClayJarItem(new Item.Settings().maxCount(16)));
+    public static final Item GARLIC = registerItem("garlic", new GarlicItem(new Item.Settings()));
+    public static final Item GARLIC_CLOVE = registerItem("garlic_clove", new AliasedBlockItem(ModBlocks.GARLIC_CROP, new Item.Settings())); // maxCount necessary?
     public static final Item GLASS_JAR = registerItem("glass_jar", new GlassJarItem(new Item.Settings().maxCount(64)));
     public static final Item QUARTZ_SWORD = registerItem("quartz_sword",
             new QuartzSwordItem(ModToolMaterials.QUARTZ,
@@ -49,6 +53,7 @@ public class ModItems {
             new ArmorItem(ModArmorMaterials.QUARTZ, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(12)));
 
     /* Add an item to the item group indicated by one of the following functions' names. */
+    /* To be clear, since these are vanilla groups, these are not handled in ModItemGroups.java. */
     private static void addItemsToToolsItemGroup(FabricItemGroupEntries entries) {
         Item[] items = {
                 AETHEREAL_ELYTRA,
@@ -58,6 +63,7 @@ public class ModItems {
             entries.add(item);
         }
     }
+
     private static void addItemsToIngredientsItemGroup(FabricItemGroupEntries entries) {
         Item[] items = {
                 AETHEREAL_FEATHER,
@@ -65,9 +71,20 @@ public class ModItems {
                 AMETHYST_DUST,
                 BAKED_CLAY_JAR,
                 CLAY_JAR,
+                GARLIC,
                 GLASS_JAR,
                 SCULK_POWDER,
                 WEEPING_POWDER,
+        };
+        for (Item item : items) {
+            entries.add(item);
+        }
+    }
+
+    private static void addItemsToNaturalItemGroup(FabricItemGroupEntries entries) {
+        Item[] items = {
+                ARTICHOKE_SEEDS,
+                GARLIC_CLOVE,
         };
         for (Item item : items) {
             entries.add(item);
@@ -96,6 +113,7 @@ public class ModItems {
         SteelWitchesPlus.LOGGER.info(String.format("Registering items for %s", SteelWitchesPlus.MOD_ID));
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(ModItems::addItemsToToolsItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientsItemGroup);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(ModItems::addItemsToNaturalItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToCombatItemGroup);
     }
 }

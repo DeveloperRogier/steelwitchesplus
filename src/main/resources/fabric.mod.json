@@ -8,8 +8,8 @@
 		"Sneezewipe"
 	],
 	"contact": {
-		"homepage": "https://gitlab.com/Sneezewipe/minecraft-modding",
-		"sources": "https://gitlab.com/Sneezewipe/minecraft-modding"
+		"homepage": "https://github.com/DeveloperRogier/steelwitchesplus",
+		"sources": "https://github.com/DeveloperRogier/steelwitchesplus"
 	},
 	"license": "MIT",
 	"icon": "assets/steelwitchesplus/icon.png",
@@ -21,7 +21,7 @@
 		"fabric-datagen": [
 			"net.sneezewipe.steelwitchesplus.SteelWitchesPlusDataGenerator"
 		],
-		"client-entrypoint": [
+		"client": [
 			"net.sneezewipe.steelwitchesplus.SteelWitchesPlusClient"
 		]
 	},

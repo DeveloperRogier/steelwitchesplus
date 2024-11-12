@@ -36,6 +36,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
         /* Shapeless recipes items */
         generateRecipeAetherFeather(exporter);
+        generateRecipeGarlicClove(exporter);
         generateRecipeWitherSword(exporter);
 
         /* Shapeless recipes blocks */
@@ -142,7 +143,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.AETHEREAL_FEATHER, 1)
                 .input(Items.FEATHER).input(Items.BLAZE_POWDER)
                 .criterion(hasItem(Items.FEATHER), conditionsFromItem(Items.FEATHER))
-                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.AETHEREAL_FEATHER)));}
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.AETHEREAL_FEATHER)));
+    }
+
+    private void generateRecipeGarlicClove(RecipeExporter exporter) {
+        ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.GARLIC_CLOVE, 3)
+                .input(ModItems.GARLIC)
+                .criterion(hasItem(ModItems.GARLIC), conditionsFromItem(ModItems.GARLIC))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.GARLIC)));
+    }
 
     private void generateRecipeWitherSword(RecipeExporter exporter) {
         ShapelessRecipeJsonBuilder.create(RecipeCategory.COMBAT, ModItems.WITHER_SWORD, 1)
