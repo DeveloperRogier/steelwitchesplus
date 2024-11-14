@@ -27,9 +27,11 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         generateRecipeAetherealElytra(exporter);
         generateRecipeAmethystGreatsword(exporter);
         generateRecipeClayJar(exporter);
+        generateRecipeForestEssence(exporter);
         generateRecipeGlassJar(exporter);
         generateRecipeQuartzArmor(exporter);
         generateRecipeQuartzSword(exporter);
+        generateRecipeWiccanSands(exporter);
 
         /* Shaped recipes blocks */
         generateRecipeQuartzWall(exporter);
@@ -80,6 +82,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('C', Items.CLAY_BALL)
                 .criterion(hasItem(Items.CLAY_BALL), conditionsFromItem(Items.CLAY_BALL))
                 .offerTo(exporter, Identifier.of(getRecipeName(ModItems.CLAY_JAR)));
+    }
+
+    private void generateRecipeForestEssence(RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.FOREST_ESSENCE, 1)
+                .pattern("SMS")
+                .pattern("MFM")
+                .pattern("SMS")
+                .input('S', Items.SHORT_GRASS).input('M', Items.MOSS_BLOCK).input('F', Items.FERN)
+                .criterion(hasItem(Items.MOSS_BLOCK), conditionsFromItem(Items.MOSS_BLOCK))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.FOREST_ESSENCE)));
     }
 
     private void generateRecipeGlassJar(RecipeExporter exporter) {
@@ -135,6 +147,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
     private void generateRecipeQuartzWall(RecipeExporter exporter) {
         offerWallRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, ModBlocks.QUARTZ_WALL, Blocks.QUARTZ_PILLAR);
+    }
+
+    private void generateRecipeWiccanSands(RecipeExporter exporter) {
+        ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.WICCAN_SANDS, 1)
+                .pattern("GLG")
+                .pattern("GSG")
+                .pattern("GDG")
+                .input('G', Items.GOLD_INGOT).input('L', ModItems.ATTUNED_STONE_LIGHT)
+                .input('D', ModItems.ATTUNED_STONE_DARK).input('S', Items.SAND)
+                .criterion(hasItem(Items.GOLD_INGOT), conditionsFromItem(Items.GOLD_INGOT))
+                .offerTo(exporter, Identifier.of(getRecipeName(ModItems.WICCAN_SANDS)));
     }
 
 

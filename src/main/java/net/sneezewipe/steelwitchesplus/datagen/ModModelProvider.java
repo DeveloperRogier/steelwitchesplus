@@ -24,7 +24,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCrop(ModBlocks.ARTICHOKE_CROP, ArtichokeCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.BELLADONNA_CROP, BelladonnaCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.GARLIC_CROP, GarlicCropBlock.AGE, 0, 1, 2, 3, 4);
-        blockStateModelGenerator.registerCrop(ModBlocks.WOLFSBANE_CROP, WolfsbaneCropBlock.AGE, 0, 1, 2, 3, 4);
+        blockStateModelGenerator.registerCrop(ModBlocks.SOLANDRA_CROP, SolandraCropBlock.AGE, 0, 1, 2, 3, 4);
+        blockStateModelGenerator.registerCrop(ModBlocks.WOLFSBANE_CROP, WolfsbaneCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
         blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_EMBER_CROP, BlockStateModelGenerator.TintType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_WILD_CROP, BlockStateModelGenerator.TintType.NOT_TINTED);
@@ -41,10 +42,12 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ATTUNED_STONE_LIGHT, Models.GENERATED);
         itemModelGenerator.register(ModItems.BAKED_CLAY_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.BELLADONNA, Models.GENERATED);
-        itemModelGenerator.register(ModItems.GARLIC, Models.GENERATED);
         itemModelGenerator.register(ModItems.CLAY_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.FOREST_ESSENCE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.GARLIC, Models.GENERATED);
         itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCULK_POWDER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.SOLANDRA, Models.GENERATED);
         itemModelGenerator.register(ModItems.WEEPING_POWDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.WOLFSBANE, Models.GENERATED);
         itemModelGenerator.register(ModItems.WICCAN_SANDS, Models.GENERATED);

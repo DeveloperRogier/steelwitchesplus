@@ -30,6 +30,7 @@ public class SteelWitchesPlusClient implements ClientModInitializer {
                 ModBlocks.BRAMBLE_WILD_CROP,
                 ModBlocks.GARLIC_CROP,
                 ModBlocks.SKYWORT_CROP,
+                ModBlocks.SOLANDRA_CROP,
                 ModBlocks.WOLFSBANE_CROP);
         registerFeatureRenderers();
     }

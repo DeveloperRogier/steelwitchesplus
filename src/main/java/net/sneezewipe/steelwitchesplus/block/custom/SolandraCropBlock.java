@@ -9,17 +9,17 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
-public class WolfsbaneCropBlock extends CropBlock {
-    public static final int MAX_AGE = 5;
-    public static final IntProperty AGE = Properties.AGE_5;
+public class SolandraCropBlock extends CropBlock {
+    public static final int MAX_AGE = 4;
+    public static final IntProperty AGE = Properties.AGE_4;
 
-    public WolfsbaneCropBlock(Settings settings) {
+    public SolandraCropBlock(Settings settings) {
         super(settings);
     }
 
     @Override
     protected ItemConvertible getSeedsItem() {
-        return ModItems.WOLFSBANE_SEEDS;
+        return ModItems.SOLANDRA_SEEDS;
     }
 
     @Override

@@ -16,18 +16,18 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "steelwitchesplus:wolfsbane",
+                  "block": "steelwitchesplus:solandra",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "age": "5"
+                    "age": "4"
                   }
                 }
               ],
-              "name": "steelwitchesplus:wolfsbane"
+              "name": "steelwitchesplus:solandra"
             },
             {
               "type": "minecraft:item",
-              "name": "steelwitchesplus:wolfsbane_seeds"
+              "name": "steelwitchesplus:solandra_seeds"
             }
           ]
         }
@@ -38,10 +38,10 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "steelwitchesplus:wolfsbane",
+          "block": "steelwitchesplus:solandra",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "age": "5"
+            "age": "4"
           }
         }
       ],
@@ -59,7 +59,7 @@
               }
             }
           ],
-          "name": "steelwitchesplus:wolfsbane_seeds"
+          "name": "steelwitchesplus:solandra_seeds"
         }
       ],
       "rolls": 1.0

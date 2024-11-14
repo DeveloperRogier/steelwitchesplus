@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "D": {
+      "item": "steelwitchesplus:attuned_stone_dark"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "L": {
+      "item": "steelwitchesplus:attuned_stone_light"
+    },
+    "S": {
+      "item": "minecraft:sand"
+    }
+  },
+  "pattern": [
+    "GLG",
+    "GSG",
+    "GDG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "steelwitchesplus:wiccan_sands"
+  }
+}

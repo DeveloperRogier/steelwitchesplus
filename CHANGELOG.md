@@ -14,6 +14,7 @@
 * New crops and seeds:
   * Artichoke
   * Belladonna
+  * Solandra
   * Wolfsbane
   * Three new types of cane: wild bramble, ember bramble, and skywort
 

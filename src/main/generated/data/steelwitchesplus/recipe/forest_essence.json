@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "minecraft:fern"
+    },
+    "M": {
+      "item": "minecraft:moss_block"
+    },
+    "S": {
+      "item": "minecraft:short_grass"
+    }
+  },
+  "pattern": [
+    "SMS",
+    "MFM",
+    "SMS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "steelwitchesplus:forest_essence"
+  }
+}
