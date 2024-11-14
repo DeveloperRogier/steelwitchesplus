@@ -16,9 +16,9 @@ public class ModItems {
      * ITEMS
      */
     public static final Item AETHEREAL_ELYTRA = registerItem("aethereal_elytra", new AetherealElytraItem(new Item.Settings().rarity(Rarity.RARE).maxDamage(100000)));
-    public static final Item AETHEREAL_FEATHER = registerItem("aethereal_feather", new AetherealFeatherItem(new Item.Settings().maxCount(64)));
-    public static final Item AMETHYST_DUST = registerItem("amethyst_dust", new AmethystDustItem(new Item.Settings().maxCount(64)));
-    public static final Item ARTICHOKE = registerItem("artichoke", new ArtichokeItem(new Item.Settings().maxCount(64)));
+    public static final Item AETHEREAL_FEATHER = registerItem("aethereal_feather", new AetherealFeatherItem(new Item.Settings()));
+    public static final Item AMETHYST_DUST = registerItem("amethyst_dust", new AmethystDustItem(new Item.Settings()));
+    public static final Item ARTICHOKE = registerItem("artichoke", new ArtichokeItem(new Item.Settings()));
     public static final Item ARTICHOKE_SEEDS = registerItem("artichoke_seeds", new AliasedBlockItem(ModBlocks.ARTICHOKE_CROP, new Item.Settings()));
     public static final Item ATTUNED_STONE_DARK = registerItem("attuned_stone_dark", new AttunedStoneDarkItem(new Item.Settings().rarity(Rarity.UNCOMMON)));
     public static final Item ATTUNED_STONE_LIGHT = registerItem("attuned_stone_light", new AttunedStoneLightItem(new Item.Settings().rarity(Rarity.UNCOMMON)));
@@ -29,12 +29,14 @@ public class ModItems {
     public static final Item CLAY_JAR = registerItem("clay_jar", new ClayJarItem(new Item.Settings().maxCount(16)));
     public static final Item GARLIC = registerItem("garlic", new GarlicItem(new Item.Settings()));
     public static final Item GARLIC_CLOVE = registerItem("garlic_clove", new AliasedBlockItem(ModBlocks.GARLIC_CROP, new Item.Settings())); // maxCount necessary?
-    public static final Item GLASS_JAR = registerItem("glass_jar", new GlassJarItem(new Item.Settings().maxCount(64)));
+    public static final Item GLASS_JAR = registerItem("glass_jar", new GlassJarItem(new Item.Settings()));
     public static final Item QUARTZ_SWORD = registerItem("quartz_sword",
             new QuartzSwordItem(ModToolMaterials.QUARTZ,
                     new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.QUARTZ, 3, -2.2f))));
-    public static final Item SCULK_POWDER = registerItem("sculk_powder", new SculkPowderItem(new Item.Settings().maxCount(64)));
-    public static final Item WEEPING_POWDER = registerItem("weeping_powder", new WeepingPowderItem(new Item.Settings().maxCount(64)));
+    public static final Item SCULK_POWDER = registerItem("sculk_powder", new SculkPowderItem(new Item.Settings()));
+    public static final Item WEEPING_POWDER = registerItem("weeping_powder", new WeepingPowderItem(new Item.Settings()));
+    public static final Item WOLFSBANE = registerItem("wolfsbane", new WolfsbaneItem(new Item.Settings()));
+    public static final Item WOLFSBANE_SEEDS = registerItem("wolfsbane_seeds", new AliasedBlockItem(ModBlocks.WOLFSBANE_CROP, new Item.Settings()));
     public static final Item WICCAN_SANDS = registerItem("wiccan_sands", new WiccanSandsItem(new Item.Settings().rarity(Rarity.UNCOMMON)));
     public static final Item WITHER_SWORD = registerItem("wither_sword",
             new WitherSwordItem(ToolMaterials.NETHERITE,
@@ -78,6 +80,7 @@ public class ModItems {
                 GLASS_JAR,
                 SCULK_POWDER,
                 WEEPING_POWDER,
+                WOLFSBANE,
         };
         for (Item item : items) {
             entries.add(item);
@@ -88,7 +91,9 @@ public class ModItems {
         Item[] items = {
                 ARTICHOKE_SEEDS,
                 BELLADONNA_SEEDS,
+//                BRAMBLE_WILD,
                 GARLIC_CLOVE,
+                WOLFSBANE_SEEDS,
         };
         for (Item item : items) {
             entries.add(item);

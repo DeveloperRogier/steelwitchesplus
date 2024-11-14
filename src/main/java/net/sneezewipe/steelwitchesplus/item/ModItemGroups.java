@@ -39,14 +39,19 @@ public class ModItemGroups {
                                 ModItems.QUARTZ_SWORD,
                                 ModItems.WICCAN_SANDS,
                                 ModItems.WITHER_SWORD,
+                                ModItems.WOLFSBANE,
+                                ModItems.WOLFSBANE_SEEDS,
                                 ModItems.QUARTZ_HELMET,
                                 ModItems.QUARTZ_CHESTPLATE,
                                 ModItems.QUARTZ_LEGGINGS,
                                 ModItems.QUARTZ_BOOTS,
 
                                 /* Blocks */
-                                ModBlocks.TRIM_QUARTZ_BLOCK,
+                                ModBlocks.BRAMBLE_EMBER_CROP,
+                                ModBlocks.BRAMBLE_WILD_CROP,
                                 ModBlocks.QUARTZ_WALL,
+                                ModBlocks.SKYWORT_CROP,
+                                ModBlocks.TRIM_QUARTZ_BLOCK,
                         };
                         for (ItemConvertible item : items) {
                             entries.add(item);

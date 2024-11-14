@@ -18,6 +18,8 @@
   "item.steelwitchesplus.sculk_powder": "Sculk Powder",
   "item.steelwitchesplus.weeping_powder": "Weeping Powder",
   "item.steelwitchesplus.wiccan_sands": "Wiccan Sands",
+  "item.steelwitchesplus.wolfsbane": "Wolfsbane",
+  "item.steelwitchesplus.wolfsbane_seeds": "Wolfsbane Seeds",
   "item.steelwitchesplus.wither_sword": "Wither Sword",
 
   "item.steelwitchesplus.quartz_helmet": "Quartz Helmet",
@@ -40,7 +42,10 @@
   "item.steelwitchesplus.quartz_armor.tooltip.1": "A full set of this §4infernal§r armor",
   "item.steelwitchesplus.quartz_armor.tooltip.2": "grants §l§cfire resistance§r.",
 
+  "block.steelwitchesplus.bramble_ember": "Ember Bramble",
+  "block.steelwitchesplus.bramble_wild": "Wild Bramble",
   "block.steelwitchesplus.trim_quartz_block": "Trim Quartz Block",
+  "block.steelwitchesplus.skywort": "Skywort",
   "block.steelwitchesplus.quartz_wall": "Quartz Wall",
 
   "itemgroup.steelwitchesplus": "Steel Witches Plus"

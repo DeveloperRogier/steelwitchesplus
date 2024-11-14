@@ -10,6 +10,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.block.custom.ArtichokeCropBlock;
 import net.sneezewipe.steelwitchesplus.block.custom.GarlicCropBlock;
+import net.sneezewipe.steelwitchesplus.block.custom.WolfsbaneCropBlock;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -22,7 +23,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
     @Override
     public void generate() {
         Block[] blocks = {
+                ModBlocks.BRAMBLE_EMBER_CROP,
+                ModBlocks.BRAMBLE_WILD_CROP,
                 ModBlocks.TRIM_QUARTZ_BLOCK,
+                ModBlocks.SKYWORT_CROP,
                 ModBlocks.QUARTZ_WALL,
         };
         for (Block block : blocks) {
@@ -41,5 +45,9 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         BlockStatePropertyLootCondition.Builder builderBelladonna = BlockStatePropertyLootCondition.builder(ModBlocks.BELLADONNA_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(GarlicCropBlock.AGE, GarlicCropBlock.MAX_AGE));
         addDrop(ModBlocks.BELLADONNA_CROP, cropDrops(ModBlocks.BELLADONNA_CROP, ModItems.BELLADONNA, ModItems.BELLADONNA_SEEDS, builderBelladonna));
+
+        BlockStatePropertyLootCondition.Builder builderWolfsbane = BlockStatePropertyLootCondition.builder(ModBlocks.WOLFSBANE_CROP)
+                .properties(StatePredicate.Builder.create().exactMatch(WolfsbaneCropBlock.AGE, WolfsbaneCropBlock.MAX_AGE));
+        addDrop(ModBlocks.WOLFSBANE_CROP, cropDrops(ModBlocks.WOLFSBANE_CROP, ModItems.WOLFSBANE, ModItems.WOLFSBANE_SEEDS, builderWolfsbane));
     }
 }

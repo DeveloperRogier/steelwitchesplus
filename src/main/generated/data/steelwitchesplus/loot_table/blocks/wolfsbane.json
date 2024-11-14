@@ -16,7 +16,7 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "steelwitchesplus:belladonna",
+                  "block": "steelwitchesplus:wolfsbane",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "4"
@@ -27,7 +27,7 @@
             },
             {
               "type": "minecraft:item",
-              "name": "steelwitchesplus:belladonna_seeds"
+              "name": "steelwitchesplus:wolfsbane_seeds"
             }
           ]
         }
@@ -38,7 +38,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "steelwitchesplus:belladonna",
+          "block": "steelwitchesplus:wolfsbane",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "4"
@@ -59,7 +59,7 @@
               }
             }
           ],
-          "name": "steelwitchesplus:belladonna_seeds"
+          "name": "steelwitchesplus:wolfsbane_seeds"
         }
       ],
       "rolls": 1.0

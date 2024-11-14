@@ -26,7 +26,11 @@ public class SteelWitchesPlusClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
                 ModBlocks.ARTICHOKE_CROP,
                 ModBlocks.BELLADONNA_CROP,
-                ModBlocks.GARLIC_CROP);
+                ModBlocks.BRAMBLE_EMBER_CROP,
+                ModBlocks.BRAMBLE_WILD_CROP,
+                ModBlocks.GARLIC_CROP,
+                ModBlocks.SKYWORT_CROP,
+                ModBlocks.WOLFSBANE_CROP);
         registerFeatureRenderers();
     }
 

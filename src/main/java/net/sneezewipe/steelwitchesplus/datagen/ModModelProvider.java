@@ -8,9 +8,7 @@ import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
 import net.minecraft.item.ArmorItem;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
-import net.sneezewipe.steelwitchesplus.block.custom.ArtichokeCropBlock;
-import net.sneezewipe.steelwitchesplus.block.custom.BelladonnaCropBlock;
-import net.sneezewipe.steelwitchesplus.block.custom.GarlicCropBlock;
+import net.sneezewipe.steelwitchesplus.block.custom.*;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -26,6 +24,11 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCrop(ModBlocks.ARTICHOKE_CROP, ArtichokeCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.BELLADONNA_CROP, BelladonnaCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.GARLIC_CROP, GarlicCropBlock.AGE, 0, 1, 2, 3, 4);
+        blockStateModelGenerator.registerCrop(ModBlocks.WOLFSBANE_CROP, WolfsbaneCropBlock.AGE, 0, 1, 2, 3, 4);
+
+        blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_EMBER_CROP, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_WILD_CROP, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.SKYWORT_CROP, BlockStateModelGenerator.TintType.NOT_TINTED);
     }
 
     @Override
@@ -43,6 +46,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCULK_POWDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.WEEPING_POWDER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WOLFSBANE, Models.GENERATED);
         itemModelGenerator.register(ModItems.WICCAN_SANDS, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.QUARTZ_SWORD, Models.HANDHELD);
