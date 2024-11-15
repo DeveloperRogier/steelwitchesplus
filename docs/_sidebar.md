@@ -1,0 +1,3 @@
+- [Lexica Arcana](/#lexica-arcana)
+- Tools
+  - [Wiccan Sands](tools/wiccan_sands.md)
