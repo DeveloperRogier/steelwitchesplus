@@ -28,6 +28,7 @@ public class ModItems {
     public static final Item BELLADONNA_SEEDS = registerItem("belladonna_seeds", new AliasedBlockItem(ModBlocks.BELLADONNA_CROP, new Item.Settings()));
     public static final Item CLAY_JAR = registerItem("clay_jar", new ClayJarItem(new Item.Settings().maxCount(16)));
     public static final Item FOREST_ESSENCE = registerItem("forest_essence", new Item(new Item.Settings()));
+    public static final Item FROG_TOE = registerItem("frog_toe", new Item(new Item.Settings()));
     public static final Item GARLIC = registerItem("garlic", new GarlicItem(new Item.Settings()));
     public static final Item GARLIC_CLOVE = registerItem("garlic_clove", new AliasedBlockItem(ModBlocks.GARLIC_CROP, new Item.Settings())); // maxCount necessary?
     public static final Item GLASS_JAR = registerItem("glass_jar", new GlassJarItem(new Item.Settings()));
@@ -80,6 +81,7 @@ public class ModItems {
                 BELLADONNA,
                 CLAY_JAR,
                 FOREST_ESSENCE,
+                FROG_TOE,
                 GARLIC,
                 GLASS_JAR,
                 SCULK_POWDER,

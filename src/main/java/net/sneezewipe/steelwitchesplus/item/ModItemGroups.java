@@ -32,6 +32,7 @@ public class ModItemGroups {
                                 ModItems.BELLADONNA_SEEDS,
                                 ModItems.CLAY_JAR,
                                 ModItems.FOREST_ESSENCE,
+                                ModItems.FROG_TOE,
                                 ModItems.GARLIC,
                                 ModItems.GARLIC_CLOVE,
                                 ModItems.GLASS_JAR,
