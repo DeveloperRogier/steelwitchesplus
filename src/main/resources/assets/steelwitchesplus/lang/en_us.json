@@ -31,6 +31,9 @@
   "item.steelwitchesplus.quartz_leggings": "Quartz Leggings",
   "item.steelwitchesplus.quartz_boots": "Quartz Boots",
 
+  "item.steelwitchesplus.potion_big_regeneration": "Big Potion of Regeneration",
+  "item.minecraft.potion.effect.potion_big_regeneration": "Big Potion of Regeneration",
+
   "item.steelwitchesplus.aethereal_elytra.tooltip.1": "§6Divine§r wings of yore.",
   "item.steelwitchesplus.aethereal_elytra.tooltip.2": "They do not suffer any damage.",
   "item.steelwitchesplus.aethereal_elytra.tooltip.3": "Only to be worn by those of §3aethereal§r descent.",
