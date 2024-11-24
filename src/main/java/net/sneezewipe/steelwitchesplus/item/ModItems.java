@@ -15,30 +15,32 @@ public class ModItems {
     /*
      * ITEMS
      */
+    // TODO: check if custom item classes are necessary for the crop items like ArtichokeItem
     public static final Item AETHEREAL_ELYTRA = registerItem("aethereal_elytra", new AetherealElytraItem(new Item.Settings().rarity(Rarity.RARE).maxDamage(100000)));
     public static final Item AETHEREAL_FEATHER = registerItem("aethereal_feather", new AetherealFeatherItem(new Item.Settings()));
-    public static final Item AMETHYST_DUST = registerItem("amethyst_dust", new AmethystDustItem(new Item.Settings()));
+    public static final Item AMETHYST_DUST = registerItem("amethyst_dust", new Item(new Item.Settings()));
     public static final Item ARTICHOKE = registerItem("artichoke", new ArtichokeItem(new Item.Settings()));
     public static final Item ARTICHOKE_SEEDS = registerItem("artichoke_seeds", new AliasedBlockItem(ModBlocks.ARTICHOKE_CROP, new Item.Settings()));
     public static final Item ATTUNED_STONE_DARK = registerItem("attuned_stone_dark", new AttunedStoneDarkItem(new Item.Settings().rarity(Rarity.UNCOMMON)));
     public static final Item ATTUNED_STONE_LIGHT = registerItem("attuned_stone_light", new AttunedStoneLightItem(new Item.Settings().rarity(Rarity.UNCOMMON)));
     public static final Item AMETHYST_GREATSWORD = registerItem("amethyst_greatsword", new AmethystGreatswordItem(ModToolMaterials.AMETHYST, 1, 8.0f,-3.0f, new Item.Settings()));
-    public static final Item BAKED_CLAY_JAR = registerItem("baked_clay_jar", new BakedClayJarItem(new Item.Settings().maxCount(16)));
+    public static final Item BAKED_CLAY_JAR = registerItem("baked_clay_jar", new BakedClayJarItem(new Item.Settings().maxCount(16))); // Custom class necessary?
     public static final Item BELLADONNA = registerItem("belladonna", new BelladonnaItem(new Item.Settings()));
     public static final Item BELLADONNA_SEEDS = registerItem("belladonna_seeds", new AliasedBlockItem(ModBlocks.BELLADONNA_CROP, new Item.Settings()));
     public static final Item CLAY_JAR = registerItem("clay_jar", new ClayJarItem(new Item.Settings().maxCount(16)));
     public static final Item FOREST_ESSENCE = registerItem("forest_essence", new Item(new Item.Settings()));
     public static final Item FROG_TOE = registerItem("frog_toe", new Item(new Item.Settings()));
-    public static final Item GARLIC = registerItem("garlic", new GarlicItem(new Item.Settings()));
-    public static final Item GARLIC_CLOVE = registerItem("garlic_clove", new AliasedBlockItem(ModBlocks.GARLIC_CROP, new Item.Settings())); // maxCount necessary?
+    public static final Item GARLIC = registerItem("garlic", new Item(new Item.Settings()));
+    public static final Item GARLIC_CLOVE = registerItem("garlic_clove", new AliasedBlockItem(ModBlocks.GARLIC_CROP, new Item.Settings()));
     public static final Item GLASS_JAR = registerItem("glass_jar", new Item(new Item.Settings()));
+    public static final Item POTION_ESSENCE_BERRY_MIX = registerItem("potion_essence_berry_mix", new Item(new Item.Settings()));
     public static final Item QUARTZ_SWORD = registerItem("quartz_sword",
             new QuartzSwordItem(ModToolMaterials.QUARTZ,
                     new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.QUARTZ, 3, -2.2f))));
-    public static final Item SCULK_POWDER = registerItem("sculk_powder", new SculkPowderItem(new Item.Settings()));
+    public static final Item SCULK_POWDER = registerItem("sculk_powder", new Item(new Item.Settings()));
     public static final Item SOLANDRA = registerItem("solandra", new SolandraItem(new Item.Settings()));
     public static final Item SOLANDRA_SEEDS = registerItem("solandra_seeds", new AliasedBlockItem(ModBlocks.SOLANDRA_CROP, new Item.Settings()));
-    public static final Item WEEPING_POWDER = registerItem("weeping_powder", new WeepingPowderItem(new Item.Settings()));
+    public static final Item WEEPING_POWDER = registerItem("weeping_powder", new Item(new Item.Settings()));
     public static final Item WICCAN_SANDS = registerItem("wiccan_sands", new WiccanSandsItem(new Item.Settings().rarity(Rarity.UNCOMMON)));
     public static final Item WOLFSBANE = registerItem("wolfsbane", new WolfsbaneItem(new Item.Settings()));
     public static final Item WOLFSBANE_SEEDS = registerItem("wolfsbane_seeds", new AliasedBlockItem(ModBlocks.WOLFSBANE_CROP, new Item.Settings()));
@@ -84,6 +86,7 @@ public class ModItems {
                 FROG_TOE,
                 GARLIC,
                 GLASS_JAR,
+                POTION_ESSENCE_BERRY_MIX,
                 SCULK_POWDER,
                 SOLANDRA,
                 WEEPING_POWDER,

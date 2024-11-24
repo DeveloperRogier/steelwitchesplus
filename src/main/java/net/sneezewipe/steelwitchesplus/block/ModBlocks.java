@@ -15,6 +15,8 @@ public class ModBlocks {
             new SugarCaneBlock(AbstractBlock.Settings.copy(Blocks.SUGAR_CANE)));
     public static final Block BRAMBLE_EMBER_CROP = registerBlock("bramble_ember",
             new SugarCaneBlock(AbstractBlock.Settings.copy(Blocks.SUGAR_CANE)));
+    public static final DistilleryBlock DISTILLERY_BLOCK = registerBlock("distillery_block", // TODO: recipe & texture
+            new DistilleryBlock(AbstractBlock.Settings.create().strength(1.5F, 6.0F).requiresTool()));
     public static final Block QUARTZ_WALL = registerBlock("quartz_wall",
             new WallBlock(AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK)));
     public static final Block SKYWORT_CROP = registerBlock("skywort",
@@ -35,7 +37,7 @@ public class ModBlocks {
             "wolfsbane"), new WolfsbaneCropBlock(AbstractBlock.Settings.copy(Blocks.WHEAT)));
 
     /* HELPERS */
-    private static Block registerBlock(String name, Block block) {
+    private static <T extends Block> T registerBlock(String name, T block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(SteelWitchesPlus.MOD_ID, name), block);
     }
@@ -44,6 +46,7 @@ public class ModBlocks {
         return Registry.register(Registries.ITEM, Identifier.of(SteelWitchesPlus.MOD_ID, name),
                 new BlockItem(block, new Item.Settings()));
     }
+
     public static void registerModBlocks() {
         SteelWitchesPlus.LOGGER.info(String.format("Registering blocks for %s", SteelWitchesPlus.MOD_ID));
     }

@@ -13,6 +13,7 @@ import net.minecraft.loot.LootTables;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
+import net.sneezewipe.steelwitchesplus.block.ModBlockEntityTypes;
 import net.sneezewipe.steelwitchesplus.item.ModItemGroups;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
@@ -30,6 +31,7 @@ public class SteelWitchesPlus implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModBlockEntityTypes.registerBlockEntityTypes();
 		ModPotions.registerPotions();
 
 		registerLootTableListener(EntityType.FROG, ModItems.FROG_TOE);

@@ -53,6 +53,7 @@ public class ModItemGroups {
                                 /* Blocks */
                                 ModBlocks.BRAMBLE_EMBER_CROP,
                                 ModBlocks.BRAMBLE_WILD_CROP,
+                                ModBlocks.DISTILLERY_BLOCK,
                                 ModBlocks.QUARTZ_WALL,
                                 ModBlocks.SKYWORT_CROP,
                                 ModBlocks.TRIM_QUARTZ_BLOCK,

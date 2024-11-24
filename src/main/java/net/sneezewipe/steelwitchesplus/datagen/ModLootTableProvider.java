@@ -25,6 +25,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         Block[] blocks = {
                 ModBlocks.BRAMBLE_EMBER_CROP,
                 ModBlocks.BRAMBLE_WILD_CROP,
+                ModBlocks.DISTILLERY_BLOCK,
                 ModBlocks.TRIM_QUARTZ_BLOCK,
                 ModBlocks.SKYWORT_CROP,
                 ModBlocks.QUARTZ_WALL,

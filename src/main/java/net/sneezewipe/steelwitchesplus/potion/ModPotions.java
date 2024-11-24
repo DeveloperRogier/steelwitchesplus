@@ -13,8 +13,8 @@ import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
 public class ModPotions {
-    public static final RegistryEntry<Potion> POTION_BIG_REGENERATION = registerPotion("potion_big_regeneration",
-            new Potion(new StatusEffectInstance(StatusEffects.REGENERATION, 900, 1)));
+//    public static final RegistryEntry<Potion> POTION_BIG_REGENERATION = registerPotion("potion_big_regeneration",
+//            new Potion(new StatusEffectInstance(StatusEffects.REGENERATION, 900, 1)));
 
     private static RegistryEntry<Potion> registerPotion(String name, Potion potion) {
         return Registry.registerReference(Registries.POTION, Identifier.of(SteelWitchesPlus.MOD_ID, name), potion);
@@ -27,8 +27,8 @@ public class ModPotions {
 
     private static void registerPotionRecipes() {
         /* Example recipe registration */
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
-            builder.registerPotionRecipe(Potions.WATER, ModItems.BELLADONNA, ModPotions.POTION_BIG_REGENERATION);
-        });
+//        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+//            builder.registerPotionRecipe(Potions.WATER, ModItems.BELLADONNA, ModPotions.POTION_BIG_REGENERATION);
+//        });
     }
 }
