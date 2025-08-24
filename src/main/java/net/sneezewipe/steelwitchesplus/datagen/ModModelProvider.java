@@ -6,9 +6,13 @@ import net.minecraft.block.Blocks;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
+import net.minecraft.util.Identifier;
+import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.block.custom.*;
+import net.sneezewipe.steelwitchesplus.item.ModArmorMaterials;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -58,9 +62,29 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.QUARTZ_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WITHER_SWORD, Models.HANDHELD);
 
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.QUARTZ_HELMET);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.QUARTZ_CHESTPLATE);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.QUARTZ_LEGGINGS);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.QUARTZ_BOOTS);
+        itemModelGenerator.registerArmor(
+                (ArmorItem) ModItems.QUARTZ_HELMET,
+                Identifier.of(SteelWitchesPlus.MOD_ID, "quartz"),
+                ModArmorMaterials.QUARTZ,
+                EquipmentSlot.HEAD
+        );
+        itemModelGenerator.registerArmor(
+                (ArmorItem) ModItems.QUARTZ_CHESTPLATE,
+                Identifier.of(SteelWitchesPlus.MOD_ID, "quartz"),
+                ModArmorMaterials.QUARTZ,
+                EquipmentSlot.CHEST
+        );
+        itemModelGenerator.registerArmor(
+                (ArmorItem) ModItems.QUARTZ_LEGGINGS,
+                Identifier.of(SteelWitchesPlus.MOD_ID, "quartz"),
+                ModArmorMaterials.QUARTZ,
+                EquipmentSlot.LEGS
+        );
+        itemModelGenerator.registerArmor(
+                (ArmorItem) ModItems.QUARTZ_BOOTS,
+                Identifier.of(SteelWitchesPlus.MOD_ID, "quartz"),
+                ModArmorMaterials.QUARTZ,
+                EquipmentSlot.FEET
+        );
     }
 }

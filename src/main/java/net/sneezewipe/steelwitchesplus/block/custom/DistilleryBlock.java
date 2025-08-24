@@ -32,7 +32,7 @@ public class DistilleryBlock extends Block implements BlockEntityProvider {
         }
 
         // Swing hand on client but not on server
-        return ActionResult.success(world.isClient);
+        return ActionResult.SUCCESS;
     }
 
     @Nullable

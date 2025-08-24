@@ -14,7 +14,7 @@ import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 
 public class ModItemGroups {
     public static final ItemGroup STEELWITCHESPLUS_GROUP = Registry.register(Registries.ITEM_GROUP,
-            Identifier.of(SteelWitchesPlus.MOD_ID, "amethyst_greatsword"),
+            Identifier.of(SteelWitchesPlus.MOD_ID, "amethyst_dust"),
             FabricItemGroup.builder().displayName(Text.translatable(String.format("itemgroup.%s", SteelWitchesPlus.MOD_ID)))
                     .icon(() -> new ItemStack(ModItems.AMETHYST_DUST)).entries((displayContext, entries) -> {
                         ItemConvertible[] items = {

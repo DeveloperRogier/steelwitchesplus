@@ -8,8 +8,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextParameters;
+import net.minecraft.loot.context.LootWorldContext;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
@@ -18,7 +18,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.sneezewipe.steelwitchesplus.block.ModBlockEntityTypes;
 import net.sneezewipe.steelwitchesplus.util.TickableBlockEntity;
-import org.apache.logging.log4j.core.jmx.Server;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +50,7 @@ public class DistilleryBlockEntity extends BlockEntity implements TickableBlockE
             }
 
             List<ItemStack> drops = new ArrayList<>(state.getDroppedStacks(
-                    new LootContextParameterSet.Builder((ServerWorld) this.world)
+                    new LootWorldContext.Builder((ServerWorld) this.world) // was originally LootContextParameterSet, might be brokey now
                             .add(LootContextParameters.TOOL, Items.DIAMOND_PICKAXE.getDefaultStack())
                             .add(LootContextParameters.ORIGIN, this.miningPos.toCenterPos())
                             .addOptional(LootContextParameters.BLOCK_ENTITY, this)

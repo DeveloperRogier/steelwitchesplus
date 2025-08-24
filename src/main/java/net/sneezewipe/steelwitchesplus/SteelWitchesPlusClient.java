@@ -36,10 +36,10 @@ public class SteelWitchesPlusClient implements ClientModInitializer {
     }
 
     private void registerFeatureRenderers() {
-        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
-            if (entityRenderer instanceof PlayerEntityRenderer) {
-                registrationHelper.register(new AetherealElytraFeatureRenderer<>(entityRenderer, context.getModelLoader()));
-            }
-        });
+//        LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, entityRenderer, registrationHelper, context) -> {
+//            if (entityRenderer instanceof PlayerEntityRenderer) {
+//                registrationHelper.register(new AetherealElytraFeatureRenderer<>(entityRenderer, context.getModelLoader()));
+//            }
+//        });
     }
 }

@@ -19,8 +19,8 @@ import net.sneezewipe.steelwitchesplus.util.ModTags;
 import java.util.List;
 
 public class WitherSwordItem extends SwordItem {
-    public WitherSwordItem(ToolMaterial toolMaterial, Settings settings) {
-        super(toolMaterial, settings);
+    public WitherSwordItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
+        super(material, attackDamage, attackSpeed, settings);
     }
 
     @Override
