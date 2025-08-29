@@ -10,7 +10,10 @@
   "item.steelwitchesplus.baked_clay_jar": "Baked Clay Jar",
   "item.steelwitchesplus.belladonna": "Belladonna",
   "item.steelwitchesplus.belladonna_seeds": "Belladonna Seeds",
+  "item.steelwitchesplus.bramble_ember": "Ember Bramble",
+  "item.steelwitchesplus.bramble_wild": "Wild Bramble",
   "item.steelwitchesplus.clay_jar": "Clay Jar",
+  "item.steelwitchesplus.distillery_block": "Distillery",
   "item.steelwitchesplus.forest_essence": "Forest Essence",
   "item.steelwitchesplus.frog_toe": "Toe of Frog",
   "item.steelwitchesplus.garlic": "Garlic",
@@ -18,8 +21,11 @@
   "item.steelwitchesplus.glass_jar": "Glass Jar",
   "item.steelwitchesplus.quartz_sword": "Quartz Sword",
   "item.steelwitchesplus.sculk_powder": "Sculk Powder",
+  "item.steelwitchesplus.skywort": "Skywort",
   "item.steelwitchesplus.solandra": "Solandra",
   "item.steelwitchesplus.solandra_seeds": "Solandra Seeds",
+  "item.steelwitchesplus.trim_quartz_block": "Trim Quartz Block",
+  "item.steelwitchesplus.quartz_wall": "Quartz Wall",
   "item.steelwitchesplus.weeping_powder": "Weeping Powder",
   "item.steelwitchesplus.wiccan_sands": "Wiccan Sands",
   "item.steelwitchesplus.wolfsbane": "Wolfsbane",
@@ -45,13 +51,6 @@
   "item.steelwitchesplus.wither_sword.tooltip.2": "It inflicts §l§8Wither III§r for 5 seconds.",
   "item.steelwitchesplus.quartz_armor.tooltip.1": "A full set of this §4infernal§r armor",
   "item.steelwitchesplus.quartz_armor.tooltip.2": "grants §l§cfire resistance§r.",
-
-  "block.steelwitchesplus.bramble_ember": "Ember Bramble",
-  "block.steelwitchesplus.bramble_wild": "Wild Bramble",
-  "block.steelwitchesplus.distillery_block": "Distillery",
-  "block.steelwitchesplus.trim_quartz_block": "Trim Quartz Block",
-  "block.steelwitchesplus.skywort": "Skywort",
-  "block.steelwitchesplus.quartz_wall": "Quartz Wall",
 
   "itemgroup.steelwitchesplus": "Steel Witches Plus"
 }
