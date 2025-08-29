@@ -22,34 +22,35 @@ public class ModItems {
      */
     // TODO: check if custom item classes are necessary for the crop items like ArtichokeItem
 //    public static final Item AETHEREAL_ELYTRA = registerItem("aethereal_elytra", new AetherealElytraItem(new Item.Settings().rarity(Rarity.RARE).maxDamage(100000)));
-    public static final Item AETHEREAL_FEATHER = registerItem("aethereal_feather", AetherealFeatherItem::new);
-    public static final Item AMETHYST_DUST = registerItem("amethyst_dust", Item::new);
-    public static final Item ARTICHOKE = registerItem("artichoke", ArtichokeItem::new);
+    public static final Item AETHEREAL_FEATHER = register("aethereal_feather", AetherealFeatherItem::new, new Item.Settings());
+    public static final Item AMETHYST_DUST = register("amethyst_dust", Item::new, new Item.Settings());
+    public static final Item ARTICHOKE = register("artichoke", Item::new, new Item.Settings()); // TODO: delete artichoke class
     public static final Item ARTICHOKE_SEEDS = register("artichoke_seeds", settings -> new BlockItem(ModBlocks.ARTICHOKE_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
-    public static final Item ATTUNED_STONE_DARK = registerItem("attuned_stone_dark", settings -> new AttunedStoneDarkItem(settings.rarity(Rarity.UNCOMMON)));
-    public static final Item ATTUNED_STONE_LIGHT = registerItem("attuned_stone_light", settings -> new AttunedStoneLightItem(settings.rarity(Rarity.UNCOMMON)));
-    public static final Item AMETHYST_GREATSWORD = registerItem("amethyst_greatsword", settings -> new AmethystGreatswordItem(ModToolMaterials.AMETHYST, 1, 8.0f,-3.0f, settings));
-    public static final Item BAKED_CLAY_JAR = registerItem("baked_clay_jar", settings -> new BakedClayJarItem(settings.maxCount(16))); // Custom class necessary?
-    public static final Item BELLADONNA = registerItem("belladonna", BelladonnaItem::new);
+    public static final Item ATTUNED_STONE_DARK = register("attuned_stone_dark", AttunedStoneDarkItem::new, new Item.Settings().rarity(Rarity.UNCOMMON));
+    public static final Item ATTUNED_STONE_LIGHT = register("attuned_stone_light", AttunedStoneLightItem::new, new Item.Settings().rarity(Rarity.UNCOMMON));
+    public static final Item AMETHYST_GREATSWORD = register("amethyst_greatsword",
+            settings -> new AmethystGreatswordItem(ModToolMaterials.AMETHYST, 1, 8.0f,-3.0f, settings), new Item.Settings());
+    public static final Item BAKED_CLAY_JAR = register("baked_clay_jar", BakedClayJarItem::new, new Item.Settings().maxCount(16)); // Custom class necessary?
+    public static final Item BELLADONNA = register("belladonna", Item::new, new Item.Settings()); // TODO: delete artichoke class
     public static final Item BELLADONNA_SEEDS = register("belladonna_seeds", settings -> new BlockItem(ModBlocks.BELLADONNA_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
-    public static final Item CLAY_JAR = registerItem("clay_jar", settings -> new ClayJarItem(settings.maxCount(16)));
-    public static final Item FOREST_ESSENCE = registerItem("forest_essence", Item::new);
-    public static final Item FROG_TOE = registerItem("frog_toe", Item::new);
-    public static final Item GARLIC = registerItem("garlic", Item::new);
+    public static final Item CLAY_JAR = register("clay_jar", ClayJarItem::new, new Item.Settings().maxCount(16)); // Custom class necessary?
+    public static final Item FOREST_ESSENCE = register("forest_essence", Item::new, new Item.Settings());
+    public static final Item FROG_TOE = register("frog_toe", Item::new, new Item.Settings());
+    public static final Item GARLIC = register("garlic", Item::new, new Item.Settings());
     public static final Item GARLIC_CLOVE = register("garlic_clove", settings -> new BlockItem(ModBlocks.GARLIC_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
-    public static final Item GLASS_JAR = registerItem("glass_jar", Item::new);
-    public static final Item POTION_ESSENCE_BERRY_MIX = registerItem("potion_essence_berry_mix", Item::new);
-    public static final Item QUARTZ_SWORD = registerItem("quartz_sword",
-            settings -> new QuartzSwordItem(ModToolMaterials.QUARTZ, 3, -2.2f, settings));
-    public static final Item SCULK_POWDER = registerItem("sculk_powder", Item::new);
-    public static final Item SOLANDRA = registerItem("solandra", SolandraItem::new);
+    public static final Item GLASS_JAR = register("glass_jar", Item::new, new Item.Settings());
+    public static final Item POTION_ESSENCE_BERRY_MIX = register("potion_essence_berry_mix", Item::new, new Item.Settings());
+    public static final Item QUARTZ_SWORD = register("quartz_sword",
+            settings -> new QuartzSwordItem(ModToolMaterials.QUARTZ, 3, -2.2f, settings), new Item.Settings());
+    public static final Item SCULK_POWDER = register("sculk_powder", Item::new, new Item.Settings());
+    public static final Item SOLANDRA = register("solandra", SolandraItem::new, new Item.Settings());
     public static final Item SOLANDRA_SEEDS = register("solandra_seeds", settings -> new BlockItem(ModBlocks.SOLANDRA_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
-    public static final Item WEEPING_POWDER = registerItem("weeping_powder", Item::new);
-    public static final Item WICCAN_SANDS = registerItem("wiccan_sands", settings -> new WiccanSandsItem(settings.rarity(Rarity.UNCOMMON)));
-    public static final Item WOLFSBANE = registerItem("wolfsbane", WolfsbaneItem::new);
+    public static final Item WEEPING_POWDER = register("weeping_powder", Item::new, new Item.Settings());
+    public static final Item WICCAN_SANDS = register("wiccan_sands", WiccanSandsItem::new, new Item.Settings().rarity(Rarity.UNCOMMON));
+    public static final Item WOLFSBANE = register("wolfsbane", WolfsbaneItem::new, new Item.Settings());
     public static final Item WOLFSBANE_SEEDS = register("wolfsbane_seeds", settings -> new BlockItem(ModBlocks.WOLFSBANE_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
-    public static final Item WITHER_SWORD = registerItem("wither_sword",
-            settings -> new WitherSwordItem(ToolMaterial.NETHERITE, -3, -2.4f, settings.rarity(Rarity.UNCOMMON)));
+    public static final Item WITHER_SWORD = register("wither_sword",
+            settings -> new WitherSwordItem(ToolMaterial.NETHERITE, -3, -2.4f, settings.rarity(Rarity.UNCOMMON)), new Item.Settings());
 
     /*
      * ARMOR
