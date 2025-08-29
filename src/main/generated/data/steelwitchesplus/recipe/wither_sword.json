@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "equipment",
   "ingredients": [
-    {
-      "item": "minecraft:wither_rose"
-    },
-    {
-      "item": "minecraft:wither_skeleton_skull"
-    },
-    {
-      "item": "minecraft:netherite_sword"
-    }
+    "minecraft:wither_rose",
+    "minecraft:wither_skeleton_skull",
+    "minecraft:netherite_sword"
   ],
   "result": {
     "count": 1,

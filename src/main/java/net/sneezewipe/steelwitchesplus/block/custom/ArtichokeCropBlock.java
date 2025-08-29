@@ -1,10 +1,9 @@
 package net.sneezewipe.steelwitchesplus.block.custom;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CropBlock;
+import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
@@ -16,8 +15,8 @@ public class ArtichokeCropBlock extends CropBlock {
     public static final int MAX_AGE = 4;
     public static final IntProperty AGE = Properties.AGE_4;
 
-    public ArtichokeCropBlock(Settings settings) {
-        super(settings);
+    public ArtichokeCropBlock(AbstractBlock.Settings settings) {
+        super(settings.mapColor(MapColor.DARK_GREEN).nonOpaque().noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY));
     }
 
     @Override

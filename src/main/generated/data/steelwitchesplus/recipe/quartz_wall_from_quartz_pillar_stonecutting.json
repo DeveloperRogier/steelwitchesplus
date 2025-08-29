@@ -1,8 +1,6 @@
 {
   "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "minecraft:quartz_pillar"
-  },
+  "ingredient": "minecraft:quartz_pillar",
   "result": {
     "count": 1,
     "id": "steelwitchesplus:quartz_wall"

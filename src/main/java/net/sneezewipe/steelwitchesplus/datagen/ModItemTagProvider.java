@@ -19,7 +19,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup arg) {
         getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.QUARTZ_HELMET, ModItems.QUARTZ_CHESTPLATE, ModItems.QUARTZ_LEGGINGS, ModItems.QUARTZ_BOOTS);
-
         getOrCreateTagBuilder(ModTags.Items.QUARTZ_REPAIR).add(Items.QUARTZ);
+        getOrCreateTagBuilder(ModTags.Items.AMETHYST_REPAIR).add(Items.AMETHYST_SHARD);
     }
 }

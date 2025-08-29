@@ -20,7 +20,7 @@ public class ModItemGroups {
                         ItemConvertible[] items = {
                                 /* Items */
                                 ModItems.AETHEREAL_FEATHER,
-                                ModItems.AETHEREAL_ELYTRA,
+//                                ModItems.AETHEREAL_ELYTRA,
                                 ModItems.AMETHYST_DUST,
                                 ModItems.AMETHYST_GREATSWORD,
                                 ModItems.ARTICHOKE,

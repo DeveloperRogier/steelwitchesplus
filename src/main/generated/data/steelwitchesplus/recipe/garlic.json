@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "steelwitchesplus:garlic"
-    }
+    "steelwitchesplus:garlic"
   ],
   "result": {
     "count": 3,

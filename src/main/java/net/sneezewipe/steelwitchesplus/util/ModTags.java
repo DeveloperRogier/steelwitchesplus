@@ -17,6 +17,7 @@ public class ModTags {
 
     public static class Items {
         public static final TagKey<Item> QUARTZ_REPAIR = createTag("quartz_repair");
+        public static final TagKey<Item> AMETHYST_REPAIR = createTag("amethyst_repair");
 
         private static TagKey<Item> createTag(String name) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(SteelWitchesPlus.MOD_ID, name));

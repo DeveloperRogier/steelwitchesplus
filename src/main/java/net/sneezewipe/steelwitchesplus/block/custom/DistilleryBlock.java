@@ -1,8 +1,10 @@
 package net.sneezewipe.steelwitchesplus.block.custom;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -17,9 +19,15 @@ import net.sneezewipe.steelwitchesplus.block.entity.DistilleryBlockEntity;
 import net.sneezewipe.steelwitchesplus.util.TickableBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
-public class DistilleryBlock extends Block implements BlockEntityProvider {
+public class DistilleryBlock extends BlockWithEntity implements BlockEntityProvider {
+    public static final MapCodec<DistilleryBlock> CODEC = DistilleryBlock.createCodec(DistilleryBlock::new);
     public DistilleryBlock(Settings settings) {
         super(settings);
+    }
+
+    @Override
+    protected MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override

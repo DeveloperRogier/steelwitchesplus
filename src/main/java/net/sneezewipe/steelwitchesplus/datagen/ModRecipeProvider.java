@@ -29,7 +29,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             @Override
             public void generate() {
                 /* Shaped recipes items */
-                generateRecipeAetherealElytra(recipeExporter);
+//                generateRecipeAetherealElytra(recipeExporter);
                 generateRecipeAmethystGreatsword(recipeExporter);
                 generateRecipeClayJar(recipeExporter);
                 generateRecipeForestEssence(recipeExporter);
@@ -60,15 +60,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             }
 
             /* Shaped recipes */
-            private void generateRecipeAetherealElytra(RecipeExporter exporter) {
-                createShaped(RecipeCategory.TRANSPORTATION, ModItems.AETHEREAL_ELYTRA, 1)
-                        .pattern("F F")
-                        .pattern("FEF")
-                        .pattern("F F")
-                        .input('E', Items.ELYTRA).input('F', ModItems.AETHEREAL_FEATHER)
-                        .criterion(hasItem(Items.ELYTRA), conditionsFromItem(Items.ELYTRA))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.AETHEREAL_ELYTRA))));
-            }
+//            private void generateRecipeAetherealElytra(RecipeExporter exporter) {
+//                createShaped(RecipeCategory.TRANSPORTATION, ModItems.AETHEREAL_ELYTRA, 1)
+//                        .pattern("F F")
+//                        .pattern("FEF")
+//                        .pattern("F F")
+//                        .input('E', Items.ELYTRA).input('F', ModItems.AETHEREAL_FEATHER)
+//                        .criterion(hasItem(Items.ELYTRA), conditionsFromItem(Items.ELYTRA))
+//                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.AETHEREAL_ELYTRA))));
+//            }
 
             private void generateRecipeAmethystGreatsword(RecipeExporter exporter) {
                 createShaped(RecipeCategory.COMBAT, ModItems.AMETHYST_GREATSWORD, 1)

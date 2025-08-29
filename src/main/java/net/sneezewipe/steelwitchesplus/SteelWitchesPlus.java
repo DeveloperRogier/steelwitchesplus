@@ -39,7 +39,7 @@ public class SteelWitchesPlus implements ModInitializer {
 
 	private void registerLootTableListener(EntityType entity, Item newDrop) {
 		LootTableEvents.MODIFY.register(((registryKey, builder, lootTableSource, wrapperLookup) -> {
-			if (lootTableSource.isBuiltin() && registryKey.equals(entity.getLootTableId())) {
+			if (lootTableSource.isBuiltin() && registryKey.equals(entity.getLootTableKey())) {
 				LootPool.Builder poolBuilder = LootPool.builder().with(ItemEntry.builder(newDrop));
 				builder.pool(poolBuilder);
 			}

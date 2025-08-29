@@ -1,12 +1,14 @@
 package net.sneezewipe.steelwitchesplus.block.custom;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.CropBlock;
+import net.minecraft.block.*;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.BlockView;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
 public class BelladonnaCropBlock extends CropBlock {
@@ -14,7 +16,7 @@ public class BelladonnaCropBlock extends CropBlock {
     public static final IntProperty AGE = Properties.AGE_4;
 
     public BelladonnaCropBlock(Settings settings) {
-        super(settings);
+        super(settings.mapColor(MapColor.PURPLE).nonOpaque().noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY));
     }
 
     @Override

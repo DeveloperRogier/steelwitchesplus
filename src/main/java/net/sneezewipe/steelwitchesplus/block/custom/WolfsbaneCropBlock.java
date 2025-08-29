@@ -3,7 +3,10 @@ package net.sneezewipe.steelwitchesplus.block.custom;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
+import net.minecraft.block.MapColor;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
@@ -14,7 +17,7 @@ public class WolfsbaneCropBlock extends CropBlock {
     public static final IntProperty AGE = Properties.AGE_5;
 
     public WolfsbaneCropBlock(Settings settings) {
-        super(settings);
+        super(settings.mapColor(MapColor.MAGENTA).nonOpaque().noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.CROP).pistonBehavior(PistonBehavior.DESTROY));;
     }
 
     @Override
