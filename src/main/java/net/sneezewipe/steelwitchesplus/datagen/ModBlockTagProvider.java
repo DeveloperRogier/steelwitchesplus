@@ -24,7 +24,6 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(Blocks.FERN)
                 .forceAddTag(BlockTags.LEAVES)
                 .forceAddTag(BlockTags.FLOWERS)
-                .forceAddTag(BlockTags.SMALL_FLOWERS)
-                .forceAddTag(BlockTags.TALL_FLOWERS);
+                .forceAddTag(BlockTags.SMALL_FLOWERS);
     }
 }
