@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:aethereal_feather"
+        "recipe": "steelwitchesplus:aethereal_feather"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:aethereal_feather"
+      "steelwitchesplus:aethereal_feather"
     ]
   }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:sculk_powder"
+        "recipe": "steelwitchesplus:sculk_powder"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:sculk_powder"
+      "steelwitchesplus:sculk_powder"
     ]
   }
 }

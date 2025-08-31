@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "F": {
-      "item": "minecraft:fern"
-    },
-    "M": {
-      "item": "minecraft:moss_block"
-    },
-    "S": {
-      "item": "minecraft:short_grass"
-    }
+    "F": "minecraft:fern",
+    "M": "minecraft:moss_block",
+    "S": "minecraft:short_grass"
   },
   "pattern": [
     "SMS",

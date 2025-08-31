@@ -3,9 +3,7 @@
   "category": "misc",
   "cookingtime": 300,
   "experience": 0.5,
-  "ingredient": {
-    "item": "minecraft:echo_shard"
-  },
+  "ingredient": "minecraft:echo_shard",
   "result": {
     "id": "steelwitchesplus:sculk_powder"
   }

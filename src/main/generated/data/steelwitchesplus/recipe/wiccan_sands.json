@@ -2,18 +2,10 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "D": {
-      "item": "steelwitchesplus:attuned_stone_dark"
-    },
-    "G": {
-      "item": "minecraft:gold_ingot"
-    },
-    "L": {
-      "item": "steelwitchesplus:attuned_stone_light"
-    },
-    "S": {
-      "item": "minecraft:sand"
-    }
+    "D": "steelwitchesplus:attuned_stone_dark",
+    "G": "minecraft:gold_ingot",
+    "L": "steelwitchesplus:attuned_stone_light",
+    "S": "minecraft:sand"
   },
   "pattern": [
     "GLG",

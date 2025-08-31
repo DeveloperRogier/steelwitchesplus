@@ -1,22 +1,24 @@
 package net.sneezewipe.steelwitchesplus.item.custom;
 
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
+import net.minecraft.item.consume.UseAction;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.scoreboard.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 // TODO: add a crafting recipe.
 // TODO: fix the fact that the item does not properly end its use process when the player scrolls away from the item
@@ -41,9 +43,9 @@ public class WiccanSandsItem extends Item {
     }
 
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+    public ActionResult use(World world, PlayerEntity user, Hand hand) {
         if (world.isClient && world.isDay()) {
-            return TypedActionResult.fail(user.getStackInHand(hand));
+            return ActionResult.FAIL;
         }
 
         if (!world.isClient) {
@@ -55,7 +57,7 @@ public class WiccanSandsItem extends Item {
 
             if (world.isDay()) {
                 scoreAccess.resetScore(); // Prevent score from persisting if used during daytime
-                return TypedActionResult.fail(user.getStackInHand(hand));
+                return ActionResult.FAIL;
             }
 
             int score = scoreAccess.getScore(); // Current number of players partaking in the "ritual"
@@ -82,16 +84,17 @@ public class WiccanSandsItem extends Item {
     }
 
     @Override
-    public void onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
+    public boolean onStoppedUsing(ItemStack stack, World world, LivingEntity user, int remainingUseTicks) {
         SteelWitchesPlus.LOGGER.info(String.format("onStoppedUsing call for %s", stack));
         stopUsing(stack, world);
+        return false;
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable(String.format("item.%s.wiccan_sands.tooltip.1", SteelWitchesPlus.MOD_ID)));
-        tooltip.add(Text.translatable(String.format("item.%s.wiccan_sands.tooltip.2", SteelWitchesPlus.MOD_ID)));
-        super.appendTooltip(stack, context, tooltip, type);
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+        textConsumer.accept(Text.translatable(String.format("item.%s.wiccan_sands.tooltip.1", SteelWitchesPlus.MOD_ID)));
+        textConsumer.accept(Text.translatable(String.format("item.%s.wiccan_sands.tooltip.2", SteelWitchesPlus.MOD_ID)));
+        super.appendTooltip(stack, context, displayComponent, textConsumer, type);
     }
 
     /**

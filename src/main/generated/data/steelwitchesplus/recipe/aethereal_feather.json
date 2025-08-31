@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:feather"
-    },
-    {
-      "item": "minecraft:blaze_powder"
-    }
+    "minecraft:feather",
+    "minecraft:blaze_powder"
   ],
   "result": {
     "count": 1,

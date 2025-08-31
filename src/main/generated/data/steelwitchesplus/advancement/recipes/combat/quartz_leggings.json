@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:quartz_leggings"
+        "recipe": "steelwitchesplus:quartz_leggings"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:quartz_leggings"
+      "steelwitchesplus:quartz_leggings"
     ]
   }
 }

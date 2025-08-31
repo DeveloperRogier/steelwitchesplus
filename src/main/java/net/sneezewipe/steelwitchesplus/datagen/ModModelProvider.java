@@ -1,14 +1,15 @@
 package net.sneezewipe.steelwitchesplus.datagen;
 
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
-import net.minecraft.data.client.Models;
-import net.minecraft.item.ArmorItem;
+import net.minecraft.client.data.BlockStateModelGenerator;
+import net.minecraft.client.data.ItemModelGenerator;
+import net.minecraft.client.data.Models;
+import net.minecraft.client.data.TexturedModel;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.block.custom.*;
+import net.sneezewipe.steelwitchesplus.item.ModArmorMaterials;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
 public class ModModelProvider extends FabricModelProvider {
@@ -29,14 +30,14 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCrop(ModBlocks.SOLANDRA_CROP, SolandraCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.WOLFSBANE_CROP, WolfsbaneCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
-        blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_EMBER_CROP, BlockStateModelGenerator.TintType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_WILD_CROP, BlockStateModelGenerator.TintType.NOT_TINTED);
-        blockStateModelGenerator.registerTintableCross(ModBlocks.SKYWORT_CROP, BlockStateModelGenerator.TintType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_EMBER_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_WILD_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.SKYWORT_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        itemModelGenerator.register(ModItems.AETHEREAL_ELYTRA, Models.GENERATED);
+//        itemModelGenerator.register(ModItems.AETHEREAL_ELYTRA, Models.GENERATED);
         itemModelGenerator.register(ModItems.AETHEREAL_FEATHER, Models.GENERATED);
         itemModelGenerator.register(ModItems.AMETHYST_DUST, Models.GENERATED);
         itemModelGenerator.register(ModItems.ARTICHOKE, Models.GENERATED);
@@ -58,9 +59,13 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.QUARTZ_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WITHER_SWORD, Models.HANDHELD);
 
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.QUARTZ_HELMET);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.QUARTZ_CHESTPLATE);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.QUARTZ_LEGGINGS);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.QUARTZ_BOOTS);
+        itemModelGenerator.registerArmor(ModItems.QUARTZ_HELMET, ModArmorMaterials.QUARTZ_KEY,
+                ItemModelGenerator.HELMET_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.QUARTZ_CHESTPLATE, ModArmorMaterials.QUARTZ_KEY,
+                ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.QUARTZ_LEGGINGS, ModArmorMaterials.QUARTZ_KEY,
+                ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.QUARTZ_BOOTS, ModArmorMaterials.QUARTZ_KEY,
+                ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
     }
 }
