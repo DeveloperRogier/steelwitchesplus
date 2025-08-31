@@ -60,11 +60,11 @@ public class ModItems {
     public static final Item QUARTZ_HELMET = registerItem("quartz_helmet",
             settings -> new ModArmorItem(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL, EquipmentType.HELMET, settings.maxDamage(12)));
     public static final Item QUARTZ_CHESTPLATE = registerItem("quartz_chestplate",
-            settings -> new ArmorItem(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL, EquipmentType.CHESTPLATE, settings.maxDamage(12)));
+            settings -> new ModArmorItem(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL, EquipmentType.CHESTPLATE, settings.maxDamage(12)));
     public static final Item QUARTZ_LEGGINGS = registerItem("quartz_leggings",
-            settings -> new ArmorItem(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL, EquipmentType.LEGGINGS, settings.maxDamage(12)));
+            settings -> new ModArmorItem(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL, EquipmentType.LEGGINGS, settings.maxDamage(12)));
     public static final Item QUARTZ_BOOTS = registerItem("quartz_boots",
-            settings -> new ArmorItem(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL, EquipmentType.BOOTS, settings.maxDamage(12)));
+            settings -> new ModArmorItem(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL, EquipmentType.BOOTS, settings.maxDamage(12)));
 
     /* Add an item to the item group indicated by one of the following functions' names. */
     /* To be clear, since these are vanilla groups, these are not handled in ModItemGroups.java. */

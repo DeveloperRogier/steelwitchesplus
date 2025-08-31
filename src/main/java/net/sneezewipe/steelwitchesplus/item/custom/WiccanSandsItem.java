@@ -1,5 +1,6 @@
 package net.sneezewipe.steelwitchesplus.item.custom;
 
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -17,6 +18,7 @@ import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 // TODO: add a crafting recipe.
 // TODO: fix the fact that the item does not properly end its use process when the player scrolls away from the item
@@ -89,10 +91,10 @@ public class WiccanSandsItem extends Item {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable(String.format("item.%s.wiccan_sands.tooltip.1", SteelWitchesPlus.MOD_ID)));
-        tooltip.add(Text.translatable(String.format("item.%s.wiccan_sands.tooltip.2", SteelWitchesPlus.MOD_ID)));
-        super.appendTooltip(stack, context, tooltip, type);
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+        textConsumer.accept(Text.translatable(String.format("item.%s.wiccan_sands.tooltip.1", SteelWitchesPlus.MOD_ID)));
+        textConsumer.accept(Text.translatable(String.format("item.%s.wiccan_sands.tooltip.2", SteelWitchesPlus.MOD_ID)));
+        super.appendTooltip(stack, context, displayComponent, textConsumer, type);
     }
 
     /**

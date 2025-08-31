@@ -6,7 +6,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
-import net.minecraft.item.ArmorItem;
+import net.minecraft.client.data.TexturedModel;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.block.custom.*;
 import net.sneezewipe.steelwitchesplus.item.ModArmorMaterials;
@@ -59,13 +59,13 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.QUARTZ_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WITHER_SWORD, Models.HANDHELD);
 
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.QUARTZ_HELMET, ModArmorMaterials.QUARTZ_KEY,
-                "helmet", false);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.QUARTZ_CHESTPLATE, ModArmorMaterials.QUARTZ_KEY,
-                "chestplate", false);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.QUARTZ_LEGGINGS, ModArmorMaterials.QUARTZ_KEY,
-                "leggings", false);
-        itemModelGenerator.registerArmor((ArmorItem) ModItems.QUARTZ_BOOTS, ModArmorMaterials.QUARTZ_KEY,
-                "boots", false);
+        itemModelGenerator.registerArmor(ModItems.QUARTZ_HELMET, ModArmorMaterials.QUARTZ_KEY,
+                ItemModelGenerator.HELMET_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.QUARTZ_CHESTPLATE, ModArmorMaterials.QUARTZ_KEY,
+                ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.QUARTZ_LEGGINGS, ModArmorMaterials.QUARTZ_KEY,
+                ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.QUARTZ_BOOTS, ModArmorMaterials.QUARTZ_KEY,
+                ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
     }
 }

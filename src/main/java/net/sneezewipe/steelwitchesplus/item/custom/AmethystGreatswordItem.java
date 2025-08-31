@@ -1,29 +1,26 @@
 package net.sneezewipe.steelwitchesplus.item.custom;
 
-import net.minecraft.component.type.AttributeModifiersComponent;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
-import net.minecraft.world.World;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
-import net.sneezewipe.steelwitchesplus.item.ModToolMaterials;
 
-import java.util.List;
+import java.util.function.Consumer;
 
-public class AmethystGreatswordItem extends SwordItem {
+public class AmethystGreatswordItem extends Item {
     private final float magicDamage;
 
 //    public AmethystGreatswordItem(ToolMaterial toolMaterial, int attackDamage, float magicDamage, float attackSpeed, Settings settings) {
 public AmethystGreatswordItem(ToolMaterial toolMaterial, int attackDamage, float magicDamage, float attackSpeed, Settings settings) {
 //        super(toolMaterial, attackDamage, attackSpeed, settings);
 //        super(toolMaterial, settings.attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.AMETHYST, attackDamage, attackSpeed)));
-        super(toolMaterial, attackDamage, attackSpeed, settings);
+        super(settings.sword(toolMaterial, attackDamage, attackSpeed));
         this.magicDamage = magicDamage;
     }
 
@@ -36,17 +33,16 @@ public AmethystGreatswordItem(ToolMaterial toolMaterial, int attackDamage, float
 //    }
 
     @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         ServerWorld world = (ServerWorld)target.getWorld();
         stack.damage(1, attacker, EquipmentSlot.MAINHAND);
         target.damage(world, world.getDamageSources().magic(), this.magicDamage);
-        return true;
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable(String.format("item.%s.amethyst_greatsword.tooltip.1", SteelWitchesPlus.MOD_ID)));
-        tooltip.add(Text.translatable(String.format("item.%s.amethyst_greatsword.tooltip.2", SteelWitchesPlus.MOD_ID)));
-        super.appendTooltip(stack, context, tooltip, type);
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+        textConsumer.accept(Text.translatable(String.format("item.%s.amethyst_greatsword.tooltip.1", SteelWitchesPlus.MOD_ID)));
+        textConsumer.accept(Text.translatable(String.format("item.%s.amethyst_greatsword.tooltip.2", SteelWitchesPlus.MOD_ID)));
+        super.appendTooltip(stack, context, displayComponent, textConsumer, type);
     }
 }

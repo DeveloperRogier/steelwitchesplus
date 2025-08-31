@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:quartz_chestplate"
+        "recipe": "steelwitchesplus:quartz_chestplate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:quartz_chestplate"
+      "steelwitchesplus:quartz_chestplate"
     ]
   }
 }

@@ -1,11 +1,16 @@
 package net.sneezewipe.steelwitchesplus.item.custom;
 
-import net.minecraft.block.*;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.PlantBlock;
+import net.minecraft.component.type.TooltipDisplayComponent;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
+import net.minecraft.item.ToolMaterial;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
@@ -16,20 +21,19 @@ import net.minecraft.world.World;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import net.sneezewipe.steelwitchesplus.util.ModTags;
 
-import java.util.List;
+import java.util.function.Consumer;
 
-public class WitherSwordItem extends SwordItem {
+public class WitherSwordItem extends Item {
     public WitherSwordItem(ToolMaterial material, float attackDamage, float attackSpeed, Item.Settings settings) {
-        super(material, attackDamage, attackSpeed, settings);
+        super(settings.sword(material, attackDamage, attackSpeed));
     }
 
     @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+    public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         stack.damage(1, attacker, EquipmentSlot.MAINHAND);
         if (!target.hasStatusEffect(StatusEffects.WITHER))
             // This effect is pretty hard to balance. Server feedback?
             target.setStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 100, 2), attacker);
-        return true;
     }
 
     @Override
@@ -47,7 +51,7 @@ public class WitherSwordItem extends SwordItem {
 
                 for (int i = 0; i < 360; i++) {
                     if (i % 20 == 0) {
-                        world.addParticle(effect, blockPos.getX() + 0.5d, blockPos.getY(), blockPos.getZ() + 0.5d,
+                        world.addParticleClient(effect, blockPos.getX() + 0.5d, blockPos.getY(), blockPos.getZ() + 0.5d,
                                 0.0, -1.0, 0.0);
                     }
                 }
@@ -59,9 +63,9 @@ public class WitherSwordItem extends SwordItem {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType type) {
-        tooltip.add(Text.translatable(String.format("item.%s.wither_sword.tooltip.1", SteelWitchesPlus.MOD_ID)));
-        tooltip.add(Text.translatable(String.format("item.%s.wither_sword.tooltip.2", SteelWitchesPlus.MOD_ID)));
-        super.appendTooltip(stack, context, tooltip, type);
+    public void appendTooltip(ItemStack stack, Item.TooltipContext context, TooltipDisplayComponent displayComponent, Consumer<Text> textConsumer, TooltipType type) {
+        textConsumer.accept(Text.translatable(String.format("item.%s.wither_sword.tooltip.1", SteelWitchesPlus.MOD_ID)));
+        textConsumer.accept(Text.translatable(String.format("item.%s.wither_sword.tooltip.2", SteelWitchesPlus.MOD_ID)));
+        super.appendTooltip(stack, context, displayComponent, textConsumer, type);
     }
 }

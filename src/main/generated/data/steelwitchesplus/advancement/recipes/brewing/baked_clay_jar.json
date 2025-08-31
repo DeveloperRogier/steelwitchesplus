@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:baked_clay_jar"
+        "recipe": "steelwitchesplus:baked_clay_jar"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:baked_clay_jar"
+      "steelwitchesplus:baked_clay_jar"
     ]
   }
 }

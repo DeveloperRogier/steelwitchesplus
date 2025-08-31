@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:quartz_wall_from_quartz_pillar_stonecutting"
+        "recipe": "steelwitchesplus:quartz_wall_from_quartz_pillar_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:quartz_wall_from_quartz_pillar_stonecutting"
+      "steelwitchesplus:quartz_wall_from_quartz_pillar_stonecutting"
     ]
   }
 }

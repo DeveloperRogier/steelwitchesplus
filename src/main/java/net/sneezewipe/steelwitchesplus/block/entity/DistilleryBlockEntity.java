@@ -106,8 +106,8 @@ public class DistilleryBlockEntity extends BlockEntity implements TickableBlockE
         }*/
 
         super.readNbt(nbt, registryLookup);
-        this.ticks = nbt.getInt("ticks");
-        this.miningPos = BlockPos.fromLong(nbt.getLong("miningPos"));
+        this.ticks = nbt.getInt("ticks").get();
+        this.miningPos = BlockPos.fromLong(nbt.getLong("miningPos").get());
     }
 
     @Override
