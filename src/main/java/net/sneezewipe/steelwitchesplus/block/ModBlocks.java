@@ -66,40 +66,6 @@ public class ModBlocks {
         return RegistryKey.of(RegistryKeys.ITEM, Identifier.of(SteelWitchesPlus.MOD_ID, name));
     }
 
-//    private static Block registerBlock(String path, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
-//        final Block block = registerBlockWithoutItem(path, factory, settings);
-//        Items.register(block);
-//        return block;
-//    }
-//
-//    private static Block registerBlockWithoutItem(String path, Function<AbstractBlock.Settings, Block> factory, AbstractBlock.Settings settings) {
-//        final Identifier identifier = Identifier.of(SteelWitchesPlus.MOD_ID, path);
-//        final RegistryKey<Block> registryKey = RegistryKey.of(RegistryKeys.BLOCK, identifier);
-//        return Blocks.register(registryKey, factory, settings);
-//    }
-
-//    Old Kaupenjoe func
-//    private static Block registerBlock(String name, Function<AbstractBlock.Settings, Block> function) {
-//        Block toRegister = function.apply(AbstractBlock.Settings.create()
-//                .registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(SteelWitchesPlus.MOD_ID, name))));
-//        registerBlockItem(name, toRegister);
-//        return Registry.register(Registries.BLOCK, Identifier.of(SteelWitchesPlus.MOD_ID, name), toRegister);
-//    }
-
-//    Old Kaupenjoe func
-//    private static void registerBlockItem(String name, Block block) {
-//        Registry.register(Registries.ITEM, Identifier.of(SteelWitchesPlus.MOD_ID, name),
-//                new BlockItem(block, new Item.Settings().useBlockPrefixedTranslationKey()
-//                        .registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(SteelWitchesPlus.MOD_ID, name)))));
-//    }
-
-    //    Old Kaupenjoe func
-//    private static Block register(String name, Function<AbstractBlock.Settings, Block> function) {
-//        return Registry.register(Registries.BLOCK, Identifier.of(SteelWitchesPlus.MOD_ID, name),
-//                function.apply(AbstractBlock.Settings.create()
-//                        .registryKey(RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(SteelWitchesPlus.MOD_ID, name)))));
-//    }
-
     public static void registerModBlocks() {
         SteelWitchesPlus.LOGGER.info(String.format("Registering blocks for %s", SteelWitchesPlus.MOD_ID));
     }
