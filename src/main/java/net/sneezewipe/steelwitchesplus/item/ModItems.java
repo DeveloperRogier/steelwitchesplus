@@ -39,6 +39,7 @@ public class ModItems {
     public static final Item GARLIC = register("garlic", Item::new, new Item.Settings());
     public static final Item GARLIC_CLOVE = register("garlic_clove", settings -> new BlockItem(ModBlocks.GARLIC_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item GLASS_JAR = register("glass_jar", Item::new, new Item.Settings());
+    public static final Item PALLID_APPLE = register("pallid_apple", Item::new, new Item.Settings());
     public static final Item POTION_ESSENCE_BERRY_MIX = register("potion_essence_berry_mix", Item::new, new Item.Settings());
     public static final Item QUARTZ_SWORD = register("quartz_sword",
             settings -> new QuartzSwordItem(ModToolMaterials.QUARTZ, 3, -2.2f, settings), new Item.Settings());
@@ -101,6 +102,15 @@ public class ModItems {
         }
     }
 
+    private static void addItemsToFoodDrinkItemGroup(FabricItemGroupEntries entries) {
+        Item[] items = {
+                PALLID_APPLE,
+        };
+        for (Item item : items) {
+            entries.add(item);
+        }
+    }
+
     private static void addItemsToNaturalItemGroup(FabricItemGroupEntries entries) {
         Item[] items = {
                 ARTICHOKE_SEEDS,
@@ -145,5 +155,6 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientsItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(ModItems::addItemsToNaturalItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToCombatItemGroup);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(ModItems::addItemsToFoodDrinkItemGroup);
     }
 }

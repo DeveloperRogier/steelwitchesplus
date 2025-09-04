@@ -50,6 +50,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FROG_TOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GARLIC, Models.GENERATED);
         itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PALLID_APPLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCULK_POWDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.SOLANDRA, Models.GENERATED);
         itemModelGenerator.register(ModItems.WEEPING_POWDER, Models.GENERATED);
