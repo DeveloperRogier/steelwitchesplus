@@ -13,7 +13,7 @@ import net.sneezewipe.steelwitchesplus.util.ModTags;
 import java.util.Map;
 
 public class ModArmorMaterials {
-    public static final int BASE_DURABILITY = 800;
+    public static final int BASE_DURABILITY = 15; // Same as iron.
     static RegistryKey<? extends Registry<EquipmentAsset>> REGISTRY_KEY = RegistryKey.ofRegistry(Identifier.ofVanilla("equipment_asset"));
     public static final RegistryKey<EquipmentAsset> QUARTZ_KEY = RegistryKey.of(REGISTRY_KEY, Identifier.of(SteelWitchesPlus.MOD_ID, "quartz"));
 

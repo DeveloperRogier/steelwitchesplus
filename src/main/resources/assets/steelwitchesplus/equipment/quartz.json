@@ -2,12 +2,12 @@
   "layers": {
     "humanoid": [
       {
-        "texture": "fabric-docs-reference:quartz"
+        "texture": "steelwitchesplus:quartz"
       }
     ],
     "humanoid_leggings": [
       {
-        "texture": "fabric-docs-reference:quartz"
+        "texture": "steelwitchesplus:quartz"
       }
     ]
   }

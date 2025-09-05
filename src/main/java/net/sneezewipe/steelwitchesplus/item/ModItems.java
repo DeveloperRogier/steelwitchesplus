@@ -55,8 +55,6 @@ public class ModItems {
     /*
      * ARMOR
      */
-    /* Only one armor item in the set needs to be a ModArmorItem, because a player needs to wear the full set
-     * to receive the status effect anyway. This way, we can save computing resources. */
     public static final Item QUARTZ_HELMET = register("quartz_helmet",
             settings -> new ModArmorItem(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL, EquipmentType.HELMET, settings),
             new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.BASE_DURABILITY)));
