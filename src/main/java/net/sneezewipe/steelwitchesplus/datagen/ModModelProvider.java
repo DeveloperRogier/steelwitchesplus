@@ -1,5 +1,7 @@
 package net.sneezewipe.steelwitchesplus.datagen;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.block.Blocks;
@@ -12,6 +14,7 @@ import net.sneezewipe.steelwitchesplus.block.custom.*;
 import net.sneezewipe.steelwitchesplus.item.ModArmorMaterials;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
+@Environment(EnvType.CLIENT)
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricDataOutput output) {
         super(output);

@@ -37,14 +37,11 @@ public class ModArmorItem extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, ServerWorld world, Entity entity, @Nullable EquipmentSlot slot) {
-        if(!world.isClient()) {
-            if(entity instanceof PlayerEntity player) {
-                if(hasFullSuitOfArmorOn(player)) {
-                    evaluateArmorEffects(player);
-                }
+        if (!world.isClient() && entity instanceof PlayerEntity player) {
+            if (isWearingFullArmor(player)) {
+                evaluateArmorEffects(player);
             }
         }
-
         super.inventoryTick(stack, world, entity, slot);
     }
 
@@ -53,7 +50,7 @@ public class ModArmorItem extends Item {
             ArmorMaterial mapArmorMaterial = entry.getKey();
             List<StatusEffectInstance> mapStatusEffects = entry.getValue();
 
-            if(hasCorrectArmorOn(mapArmorMaterial, player)) {
+            if(isWearingCorrectArmor(mapArmorMaterial, player)) {
                 addStatusEffectForMaterial(player, mapArmorMaterial, mapStatusEffects);
             }
         }
@@ -70,29 +67,34 @@ public class ModArmorItem extends Item {
         }
     }
 
-    private boolean hasFullSuitOfArmorOn(PlayerEntity player) {
-        ItemStack boots = player.getInventory().getStack(EquipmentSlot.FEET.getIndex());
-        ItemStack leggings = player.getInventory().getStack(EquipmentSlot.LEGS.getIndex());
-        ItemStack breastplate = player.getInventory().getStack(EquipmentSlot.CHEST.getIndex());
-        ItemStack helmet = player.getInventory().getStack(EquipmentSlot.HEAD.getIndex());
-
-        return !helmet.isEmpty() && !breastplate.isEmpty()
-                && !leggings.isEmpty() && !boots.isEmpty();
+    private boolean isWearingFullArmor(PlayerEntity player) {
+        ItemStack[] armor = getPlayerArmor(player);
+        for (ItemStack armorPiece : armor) {
+            if (armorPiece.isEmpty()) {
+                return false;
+            }
+        }
+        return true;
     }
 
-    private boolean hasCorrectArmorOn(ArmorMaterial material, PlayerEntity player) {
-        ItemStack boots = player.getInventory().getStack(EquipmentSlot.FEET.getIndex());
-        ItemStack leggings = player.getInventory().getStack(EquipmentSlot.LEGS.getIndex());
-        ItemStack breastplate = player.getInventory().getStack(EquipmentSlot.CHEST.getIndex());
-        ItemStack helmet = player.getInventory().getStack(EquipmentSlot.HEAD.getIndex());
+    private boolean isWearingCorrectArmor(ArmorMaterial material, PlayerEntity player) {
+        ItemStack[] armor = getPlayerArmor(player);
+        for (ItemStack armorPiece : armor) {
+            EquippableComponent equippableComponent = armorPiece.getComponents().get(DataComponentTypes.EQUIPPABLE);
+            if (equippableComponent == null || !equippableComponent.assetId().get().equals(material.assetId())) {
+                return false;
+            }
+        }
+        return true;
+    }
 
-        EquippableComponent equippableComponentBoots = boots.getComponents().get(DataComponentTypes.EQUIPPABLE);
-        EquippableComponent equippableComponentLeggings = leggings.getComponents().get(DataComponentTypes.EQUIPPABLE);
-        EquippableComponent equippableComponentBreastplate = breastplate.getComponents().get(DataComponentTypes.EQUIPPABLE);
-        EquippableComponent equippableComponentHelmet = helmet.getComponents().get(DataComponentTypes.EQUIPPABLE);
-
-        return equippableComponentBoots.assetId().get().equals(material.assetId()) && equippableComponentLeggings.assetId().get().equals(material.assetId()) &&
-                equippableComponentBreastplate.assetId().get().equals(material.assetId()) && equippableComponentHelmet.assetId().get().equals(material.assetId());
+    private ItemStack[] getPlayerArmor(PlayerEntity player) {
+        return new ItemStack[]{
+                player.getEquippedStack(EquipmentSlot.FEET),
+                player.getEquippedStack(EquipmentSlot.LEGS),
+                player.getEquippedStack(EquipmentSlot.CHEST),
+                player.getEquippedStack(EquipmentSlot.HEAD)
+        };
     }
 
     @Override
