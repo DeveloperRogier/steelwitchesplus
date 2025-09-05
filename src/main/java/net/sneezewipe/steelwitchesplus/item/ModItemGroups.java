@@ -30,12 +30,14 @@ public class ModItemGroups {
                                 ModItems.BAKED_CLAY_JAR,
                                 ModItems.BELLADONNA,
                                 ModItems.BELLADONNA_SEEDS,
+                                ModItems.BLEAK_BERRIES,
                                 ModItems.CLAY_JAR,
                                 ModItems.FOREST_ESSENCE,
                                 ModItems.FROG_TOE,
                                 ModItems.GARLIC,
                                 ModItems.GARLIC_CLOVE,
                                 ModItems.GLASS_JAR,
+                                ModItems.PALLID_APPLE,
                                 ModItems.SCULK_POWDER,
                                 ModItems.WEEPING_POWDER,
                                 ModItems.QUARTZ_SWORD,
@@ -57,6 +59,7 @@ public class ModItemGroups {
                                 ModBlocks.QUARTZ_WALL,
                                 ModBlocks.SKYWORT_CROP,
                                 ModBlocks.TRIM_QUARTZ_BLOCK,
+                                ModBlocks.WISP_WEED,
                         };
                         for (ItemConvertible item : items) {
                             entries.add(item);

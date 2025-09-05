@@ -29,6 +29,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 ModBlocks.TRIM_QUARTZ_BLOCK,
                 ModBlocks.SKYWORT_CROP,
                 ModBlocks.QUARTZ_WALL,
+                ModBlocks.WISP_WEED,
         };
         for (Block block : blocks) {
             addDrop(block);

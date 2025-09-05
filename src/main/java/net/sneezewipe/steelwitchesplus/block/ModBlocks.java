@@ -1,8 +1,10 @@
 package net.sneezewipe.steelwitchesplus.block;
 
 import net.minecraft.block.*;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -38,6 +40,11 @@ public class ModBlocks {
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
     public static final Block WOLFSBANE_CROP = register("wolfsbane", WolfsbaneCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
+
+    /* FLOWERS */
+    public static final Block WISP_WEED = register("wisp_weed", (settings) -> new FlowerBlock(
+            StatusEffects.NAUSEA,1.5F, settings),
+            AbstractBlock.Settings.copy(Blocks.DANDELION), true);
 
     /* HELPERS */
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {

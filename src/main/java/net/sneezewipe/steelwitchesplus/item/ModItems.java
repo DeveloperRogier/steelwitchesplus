@@ -1,8 +1,16 @@
 package net.sneezewipe.steelwitchesplus.item;
 
+import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.component.type.ConsumableComponent;
+import net.minecraft.component.type.ConsumableComponents;
+import net.minecraft.component.type.FoodComponent;
+import net.minecraft.component.type.FoodComponents;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
+import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -66,6 +74,34 @@ public class ModItems {
     public static final Item QUARTZ_BOOTS = registerItem("quartz_boots",
             settings -> new ModArmorItem(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL, EquipmentType.BOOTS, settings.maxDamage(12)));
 
+    /*
+     * FOOD
+     */
+    public static final ConsumableComponent WEAKNESS_FOOD_CONSUMABLE_COMPONENT = ConsumableComponents.food()
+            .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 10*20,0),1.0F))
+            .build();
+    public static final FoodComponent WEAKNESS_FOOD_COMPONENT = new FoodComponent.Builder()
+            .nutrition(5)
+            .saturationModifier(0.4F)
+            .build();
+    public static final Item PALLID_APPLE = register(
+            "pallid_apple",
+            Item::new,
+            new Item.Settings().food(WEAKNESS_FOOD_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
+            );
+
+    public static final FoodComponent WEAKNESS_BERRY_COMPONENT = new FoodComponent.Builder()
+            .nutrition(3)
+            .saturationModifier(0.2F)
+            .alwaysEdible()
+            .build();
+    public static final Item BLEAK_BERRIES = register(
+            "bleak_berries",
+            Item::new,
+            new Item.Settings().food(WEAKNESS_BERRY_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
+    );
+
+
     /* Add an item to the item group indicated by one of the following functions' names. */
     /* To be clear, since these are vanilla groups, these are not handled in ModItemGroups.java. */
     private static void addItemsToToolsItemGroup(FabricItemGroupEntries entries) {
@@ -108,6 +144,10 @@ public class ModItems {
                 GARLIC_CLOVE,
                 SOLANDRA_SEEDS,
                 WOLFSBANE_SEEDS,
+                ModBlocks.WISP_WEED.asItem(),
+                PALLID_APPLE,
+                BLEAK_BERRIES,
+
         };
         for (Item item : items) {
             entries.add(item);

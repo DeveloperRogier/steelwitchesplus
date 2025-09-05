@@ -11,6 +11,7 @@ import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 public class SteelWitchesPlusClient implements ClientModInitializer {
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+        /* Crops*/
                 ModBlocks.ARTICHOKE_CROP,
                 ModBlocks.BELLADONNA_CROP,
                 ModBlocks.BRAMBLE_EMBER_CROP,
@@ -18,7 +19,12 @@ public class SteelWitchesPlusClient implements ClientModInitializer {
                 ModBlocks.GARLIC_CROP,
                 ModBlocks.SKYWORT_CROP,
                 ModBlocks.SOLANDRA_CROP,
-                ModBlocks.WOLFSBANE_CROP);
+                ModBlocks.WOLFSBANE_CROP,
+
+        /* Flowers */
+                ModBlocks.WISP_WEED
+
+        );
         registerFeatureRenderers();
     }
 
