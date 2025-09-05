@@ -91,8 +91,14 @@ public class ModArmorItem extends Item {
         EquippableComponent equippableComponentBreastplate = breastplate.getComponents().get(DataComponentTypes.EQUIPPABLE);
         EquippableComponent equippableComponentHelmet = helmet.getComponents().get(DataComponentTypes.EQUIPPABLE);
 
-        return equippableComponentBoots.assetId().get().equals(material.assetId()) && equippableComponentLeggings.assetId().get().equals(material.assetId()) &&
-                equippableComponentBreastplate.assetId().get().equals(material.assetId()) && equippableComponentHelmet.assetId().get().equals(material.assetId());
+        return equippableComponentBoots != null &&
+                equippableComponentLeggings != null &&
+                equippableComponentBreastplate != null &&
+                equippableComponentHelmet != null &&
+                equippableComponentBoots.assetId().get().equals(material.assetId()) &&
+                equippableComponentLeggings.assetId().get().equals(material.assetId()) &&
+                equippableComponentBreastplate.assetId().get().equals(material.assetId()) &&
+                equippableComponentHelmet.assetId().get().equals(material.assetId());
     }
 
     @Override
