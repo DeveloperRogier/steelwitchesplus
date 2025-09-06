@@ -26,6 +26,9 @@ public class ModModelProvider extends FabricModelProvider {
         quartzPillarPool.wall(ModBlocks.QUARTZ_WALL);
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DISTILLERY_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_RUBY_ORE);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RUBY_BLOCK);
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RUBY_ORE);
 
         blockStateModelGenerator.registerCrop(ModBlocks.ARTICHOKE_CROP, ArtichokeCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.BELLADONNA_CROP, BelladonnaCropBlock.AGE, 0, 1, 2, 3, 4);
@@ -53,6 +56,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FROG_TOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GARLIC, Models.GENERATED);
         itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCULK_POWDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.SOLANDRA, Models.GENERATED);
         itemModelGenerator.register(ModItems.WEEPING_POWDER, Models.GENERATED);

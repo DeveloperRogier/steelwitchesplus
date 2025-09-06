@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "steelwitchesplus:block/ruby_ore"
+  }
+}

@@ -1,13 +1,16 @@
 package net.sneezewipe.steelwitchesplus.block;
 
 import net.minecraft.block.*;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import net.sneezewipe.steelwitchesplus.block.custom.*;
 
@@ -22,6 +25,21 @@ public class ModBlocks {
             DistilleryBlock::new, AbstractBlock.Settings.create().strength(1.5F, 6.0F).requiresTool(), true);
     public static final Block QUARTZ_WALL = register("quartz_wall",
             WallBlock::new, AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK), true);
+    public static final Block RUBY_BLOCK = register("ruby_block",
+            Block::new,
+            AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_RED).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL),
+            true
+    );
+    public static final Block RUBY_ORE = register("ruby_ore",
+            settings -> new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), settings),
+            AbstractBlock.Settings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(5.0F, 6.0F),
+            true
+    );
+    public static final Block DEEPSLATE_RUBY_ORE = register("deepslate_ruby_ore",
+            settings -> new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), settings),
+            AbstractBlock.Settings.copy(RUBY_ORE).mapColor(MapColor.DEEPSLATE_GRAY).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE),
+            true
+    );
     public static final Block SKYWORT_CROP = register("skywort",
             SugarCaneBlock::new, AbstractBlock.Settings.copy(Blocks.SUGAR_CANE), true);
     public static final Block TRIM_QUARTZ_BLOCK = register("trim_quartz_block",

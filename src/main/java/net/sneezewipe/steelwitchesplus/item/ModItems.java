@@ -42,6 +42,7 @@ public class ModItems {
     public static final Item POTION_ESSENCE_BERRY_MIX = register("potion_essence_berry_mix", Item::new, new Item.Settings());
     public static final Item QUARTZ_SWORD = register("quartz_sword",
             settings -> new QuartzSwordItem(ModToolMaterials.QUARTZ, 3, -2.2f, settings), new Item.Settings());
+    public static final Item RUBY = register("ruby", Item::new, new Item.Settings());
     public static final Item SCULK_POWDER = register("sculk_powder", Item::new, new Item.Settings());
     public static final Item SOLANDRA = register("solandra", SolandraItem::new, new Item.Settings());
     public static final Item SOLANDRA_SEEDS = register("solandra_seeds", settings -> new BlockItem(ModBlocks.SOLANDRA_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
@@ -93,6 +94,7 @@ public class ModItems {
                 GARLIC,
                 GLASS_JAR,
                 POTION_ESSENCE_BERRY_MIX,
+                RUBY,
                 SCULK_POWDER,
                 SOLANDRA,
                 WEEPING_POWDER,
@@ -110,6 +112,9 @@ public class ModItems {
                 GARLIC_CLOVE,
                 SOLANDRA_SEEDS,
                 WOLFSBANE_SEEDS,
+
+                ModBlocks.DEEPSLATE_RUBY_ORE.asItem(),
+                ModBlocks.RUBY_ORE.asItem(),
         };
         for (Item item : items) {
             entries.add(item);
@@ -131,9 +136,13 @@ public class ModItems {
         }
     }
 
-    private static Item registerItem(String name, Function<Item.Settings, Item> function) {
-        return Registry.register(Registries.ITEM, Identifier.of(SteelWitchesPlus.MOD_ID, name),
-                function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(SteelWitchesPlus.MOD_ID, name)))));
+    private static void addItemsToBuildingBlocksItemGroup(FabricItemGroupEntries entries) {
+        Item[] items = {
+                ModBlocks.RUBY_BLOCK.asItem(),
+        };
+        for (Item item : items) {
+            entries.add(item);
+        }
     }
 
     public static Item register(String path, Function<Item.Settings, Item> factory, Item.Settings settings) {
@@ -147,5 +156,6 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientsItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(ModItems::addItemsToNaturalItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToCombatItemGroup);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(ModItems::addItemsToBuildingBlocksItemGroup);
     }
 }
