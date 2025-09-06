@@ -2,7 +2,6 @@
   "values": [
     "steelwitchesplus:ruby_block",
     "steelwitchesplus:deepslate_ruby_ore",
-    "steelwitchesplus:ruby_ore",
-    "steelwitchesplus:trim_quartz_block"
+    "steelwitchesplus:ruby_ore"
   ]
 }

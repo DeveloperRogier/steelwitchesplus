@@ -18,6 +18,7 @@ import net.sneezewipe.steelwitchesplus.item.ModItemGroups;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.potion.ModPotions;
+import net.sneezewipe.steelwitchesplus.worldgen.ModBiomeModification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,6 +34,7 @@ public class SteelWitchesPlus implements ModInitializer {
 		ModBlocks.registerModBlocks();
 		ModBlockEntityTypes.registerBlockEntityTypes();
 		ModPotions.registerPotions();
+		ModBiomeModification.registerBiomeModifications();
 
 		registerLootTableListener(EntityType.FROG, ModItems.FROG_TOE);
 	}

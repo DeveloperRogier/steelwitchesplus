@@ -43,6 +43,7 @@ public class ModItemGroups {
                                 ModItems.QUARTZ_CHESTPLATE,
                                 ModItems.QUARTZ_LEGGINGS,
                                 ModItems.QUARTZ_BOOTS,
+                                ModItems.RUBY,
                                 ModItems.SOLANDRA,
                                 ModItems.SOLANDRA_SEEDS,
                                 ModItems.WICCAN_SANDS,
@@ -53,8 +54,11 @@ public class ModItemGroups {
                                 /* Blocks */
                                 ModBlocks.BRAMBLE_EMBER_CROP,
                                 ModBlocks.BRAMBLE_WILD_CROP,
+                                ModBlocks.DEEPSLATE_RUBY_ORE,
                                 ModBlocks.DISTILLERY_BLOCK,
                                 ModBlocks.QUARTZ_WALL,
+                                ModBlocks.RUBY_BLOCK,
+                                ModBlocks.RUBY_ORE,
                                 ModBlocks.SKYWORT_CROP,
                                 ModBlocks.TRIM_QUARTZ_BLOCK,
                         };

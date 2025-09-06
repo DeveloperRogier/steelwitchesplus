@@ -3,8 +3,18 @@ package net.sneezewipe.steelwitchesplus.datagen;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.item.Item;
+import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LeafEntry;
+import net.minecraft.loot.function.ApplyBonusLootFunction;
+import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.block.custom.ArtichokeCropBlock;
@@ -26,6 +36,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 ModBlocks.BRAMBLE_EMBER_CROP,
                 ModBlocks.BRAMBLE_WILD_CROP,
                 ModBlocks.DISTILLERY_BLOCK,
+                ModBlocks.RUBY_BLOCK,
                 ModBlocks.TRIM_QUARTZ_BLOCK,
                 ModBlocks.SKYWORT_CROP,
                 ModBlocks.QUARTZ_WALL,
@@ -33,6 +44,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         for (Block block : blocks) {
             addDrop(block);
         }
+
+        /* ORE DROPS */
+        addDrop(ModBlocks.RUBY_ORE, multipleOreDrops(ModBlocks.RUBY_ORE, ModItems.RUBY, 1, 1));
+        addDrop(ModBlocks.DEEPSLATE_RUBY_ORE, multipleOreDrops(ModBlocks.DEEPSLATE_RUBY_ORE, ModItems.RUBY, 1, 1));
 
         /* SPECIAL DROPS */
         BlockStatePropertyLootCondition.Builder builderArtichoke = BlockStatePropertyLootCondition.builder(ModBlocks.ARTICHOKE_CROP)
@@ -54,5 +69,12 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         BlockStatePropertyLootCondition.Builder builderWolfsbane = BlockStatePropertyLootCondition.builder(ModBlocks.WOLFSBANE_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(WolfsbaneCropBlock.AGE, WolfsbaneCropBlock.MAX_AGE));
         addDrop(ModBlocks.WOLFSBANE_CROP, cropDrops(ModBlocks.WOLFSBANE_CROP, ModItems.WOLFSBANE, ModItems.WOLFSBANE_SEEDS, builderWolfsbane));
+    }
+
+    public LootTable.Builder multipleOreDrops(Block drop, Item item, float minDrops, float maxDrops) {
+        RegistryWrapper.Impl<Enchantment> impl = this.registries.getOrThrow(RegistryKeys.ENCHANTMENT);
+        return this.dropsWithSilkTouch(drop, this.applyExplosionDecay(drop, ((LeafEntry.Builder<?>)
+                ItemEntry.builder(item).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(minDrops, maxDrops))))
+                .apply(ApplyBonusLootFunction.oreDrops(impl.getOrThrow(Enchantments.FORTUNE)))));
     }
 }
