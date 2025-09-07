@@ -25,6 +25,8 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DISTILLERY_BLOCK);
 
+        blockStateModelGenerator.registerSingleton(ModBlocks.PALE_PUMPKIN, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+
         blockStateModelGenerator.registerCrop(ModBlocks.ARTICHOKE_CROP, ArtichokeCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.BELLADONNA_CROP, BelladonnaCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.GARLIC_CROP, GarlicCropBlock.AGE, 0, 1, 2, 3, 4);
@@ -65,6 +67,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.PALLID_APPLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.BLEAK_BERRIES, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PALE_PUMPKIN_PIE, Models.GENERATED);
 
         itemModelGenerator.registerArmor(ModItems.QUARTZ_HELMET, ModArmorMaterials.QUARTZ_KEY,
                 ItemModelGenerator.HELMET_TRIM_ID_PREFIX, false);

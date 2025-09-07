@@ -28,6 +28,8 @@ public class ModBlocks {
             SugarCaneBlock::new, AbstractBlock.Settings.copy(Blocks.SUGAR_CANE), true);
     public static final Block TRIM_QUARTZ_BLOCK = register("trim_quartz_block",
             PillarBlock::new, AbstractBlock.Settings.copy(Blocks.CHISELED_QUARTZ_BLOCK), true);
+    public static final Block PALE_PUMPKIN = register("pale_pumpkin",
+            PumpkinBlock::new, AbstractBlock.Settings.copy(Blocks.PUMPKIN), true);
 
     /* CROPS */
     public static final Block ARTICHOKE_CROP = register("artichoke", ArtichokeCropBlock::new,

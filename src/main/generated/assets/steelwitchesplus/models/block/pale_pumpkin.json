@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "steelwitchesplus:block/pale_pumpkin_top",
+    "side": "steelwitchesplus:block/pale_pumpkin"
+  }
+}

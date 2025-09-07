@@ -47,6 +47,7 @@ public class ModItems {
     public static final Item GARLIC = register("garlic", Item::new, new Item.Settings());
     public static final Item GARLIC_CLOVE = register("garlic_clove", settings -> new BlockItem(ModBlocks.GARLIC_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item GLASS_JAR = register("glass_jar", Item::new, new Item.Settings());
+    //public static final Item PALE_PUMPKIN_SEEDS = register("pale_pumpkin_seeds")
     public static final Item POTION_ESSENCE_BERRY_MIX = register("potion_essence_berry_mix", Item::new, new Item.Settings());
     public static final Item QUARTZ_SWORD = register("quartz_sword",
             settings -> new QuartzSwordItem(ModToolMaterials.QUARTZ, 3, -2.2f, settings), new Item.Settings());
@@ -78,11 +79,11 @@ public class ModItems {
      * FOOD
      */
     public static final ConsumableComponent WEAKNESS_FOOD_CONSUMABLE_COMPONENT = ConsumableComponents.food()
-            .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 10*20,0),1.0F))
+            .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 10*20,0),0.7F))
             .build();
     public static final FoodComponent WEAKNESS_FOOD_COMPONENT = new FoodComponent.Builder()
             .nutrition(5)
-            .saturationModifier(0.4F)
+            .saturationModifier(0.2F)
             .build();
     public static final Item PALLID_APPLE = register(
             "pallid_apple",
@@ -92,13 +93,23 @@ public class ModItems {
 
     public static final FoodComponent WEAKNESS_BERRY_COMPONENT = new FoodComponent.Builder()
             .nutrition(3)
-            .saturationModifier(0.2F)
+            .saturationModifier(0.05F)
             .alwaysEdible()
             .build();
     public static final Item BLEAK_BERRIES = register(
             "bleak_berries",
             Item::new,
             new Item.Settings().food(WEAKNESS_BERRY_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
+    );
+
+    public static final FoodComponent PALE_PUMPKIN_PIE_COMPONENT = new FoodComponent.Builder()
+            .nutrition(9)
+            .saturationModifier(0.2F)
+            .build();
+    public static final Item PALE_PUMPKIN_PIE = register(
+            "pale_pumpkin_pie",
+            Item::new,
+            new Item.Settings().food(PALE_PUMPKIN_PIE_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
     );
 
 
@@ -126,10 +137,12 @@ public class ModItems {
                 FROG_TOE,
                 GARLIC,
                 GLASS_JAR,
+                ModBlocks.PALE_PUMPKIN.asItem(),
                 POTION_ESSENCE_BERRY_MIX,
                 SCULK_POWDER,
                 SOLANDRA,
                 WEEPING_POWDER,
+                ModBlocks.WISP_WEED.asItem(),
                 WOLFSBANE,
         };
         for (Item item : items) {
@@ -142,12 +155,24 @@ public class ModItems {
                 ARTICHOKE_SEEDS,
                 BELLADONNA_SEEDS,
                 GARLIC_CLOVE,
+                ModBlocks.PALE_PUMPKIN.asItem(),
                 SOLANDRA_SEEDS,
                 WOLFSBANE_SEEDS,
                 ModBlocks.WISP_WEED.asItem(),
                 PALLID_APPLE,
                 BLEAK_BERRIES,
 
+        };
+        for (Item item : items) {
+            entries.add(item);
+        }
+    }
+
+    private static void addItemsToFoodDrinkItemGroup(FabricItemGroupEntries entries) {
+        Item[] items = {
+                BLEAK_BERRIES,
+                PALE_PUMPKIN_PIE,
+                PALLID_APPLE,
         };
         for (Item item : items) {
             entries.add(item);
@@ -185,5 +210,6 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientsItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(ModItems::addItemsToNaturalItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToCombatItemGroup);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(ModItems::addItemsToFoodDrinkItemGroup);
     }
 }
