@@ -1,16 +1,13 @@
-[//]: # (![logo]&#40;_media/icon.png&#41;)
-<img src="_media/logo.png" alt="logo" width="200"/>
+![logo](_media/logo.png)
 
-# Steel Witches Plus
+# Steel Witches Plus <small>1.21.5</small>
 
 > A loose reinterpretation of the famed Bewitchment mod!
 
-- Compatible with Minecraft 1.21.1
-- Requires Fabric 0.107.0+1.21.1
-- Includes a whole bunch of goodies, from new crops to mighty tools of the occult, capable of manipulating the time of day...
+- Compatible with Minecraft 1.21.5
+- Requires Fabric 0.128.2+1.21.5
 
 [GitHub](https://github.com/DeveloperRogier/steelwitchesplus)
 [Documentation](#Lexica-Arcana)
 
-<!-- background image -->
-![](_media/coverpage-background-2.png)
+![cover](_media/bg.png)

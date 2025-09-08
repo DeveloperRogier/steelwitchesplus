@@ -1,3 +1,5 @@
-- [Lexica Arcana](/#lexica-arcana)
-- Tools
-  - [Wiccan Sands](tools/wiccan_sands.md)
+- Gear
+  - [Armor](gear/armor.md)
+  - [Tools](gear/tools.md)
+- [Items](items.md)
+- [Ores](ores.md)
