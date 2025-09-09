@@ -14,6 +14,7 @@ import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.item.custom.*;
 
+import java.util.List;
 import java.util.function.Function;
 
 public class ModItems {
@@ -68,6 +69,21 @@ public class ModItems {
     public static final Item QUARTZ_BOOTS = register("quartz_boots",
             settings -> new ModArmorItem(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL, EquipmentType.BOOTS, settings),
             new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.BASE_DURABILITY)));
+    public static final List<Item> QUARTZ_ARMOR_SET = List.of(QUARTZ_HELMET, QUARTZ_CHESTPLATE, QUARTZ_LEGGINGS, QUARTZ_BOOTS);
+
+    public static final Item RUBY_HELMET = register("ruby_helmet", Item::new,
+            new Item.Settings().armor(ModArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentType.HELMET)
+                    .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
+    public static final Item RUBY_CHESTPLATE = register("ruby_chestplate", Item::new,
+            new Item.Settings().armor(ModArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentType.CHESTPLATE)
+                    .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
+    public static final Item RUBY_LEGGINGS = register("ruby_leggings", Item::new,
+            new Item.Settings().armor(ModArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentType.LEGGINGS)
+                    .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
+    public static final Item RUBY_BOOTS = register("ruby_boots", Item::new,
+            new Item.Settings().armor(ModArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentType.BOOTS)
+                    .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
+    public static final List<Item> RUBY_ARMOR_SET = List.of(RUBY_HELMET, RUBY_CHESTPLATE, RUBY_LEGGINGS, RUBY_BOOTS);
 
     /* Add an item to the item group indicated by one of the following functions' names. */
     /* To be clear, since these are vanilla groups, these are not handled in ModItemGroups.java. */
@@ -129,6 +145,10 @@ public class ModItems {
                 QUARTZ_HELMET,
                 QUARTZ_LEGGINGS,
                 QUARTZ_SWORD,
+                RUBY_BOOTS,
+                RUBY_CHESTPLATE,
+                RUBY_HELMET,
+                RUBY_LEGGINGS,
                 WITHER_SWORD,
         };
         for (Item item : items) {
