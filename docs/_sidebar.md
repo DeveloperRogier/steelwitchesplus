@@ -2,4 +2,4 @@
   - [Armor](gear/armor.md)
   - [Tools](gear/tools.md)
 - [Items](items.md)
-- [Ores](blocks)
+- [Blocks](blocks)
