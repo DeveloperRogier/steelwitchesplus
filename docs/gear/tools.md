@@ -10,7 +10,7 @@ Ingredients:
 * 1x [Light Charged Shard](items#light-charged-shard)
 * 1x [Dark Charged Shard](items#light-charged-shard)
 
-<img style="border-radius:10px;" src="../_media/recipes/recipe_wiccan_sands.png">
+<img style="border-radius:10px;" src="/steelwitchesplus/_media/recipes/recipe_wiccan_sands.png">
 
 # Tool 2
 ## Recipe
