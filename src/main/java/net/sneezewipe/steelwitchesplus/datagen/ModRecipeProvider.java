@@ -18,6 +18,7 @@ import net.minecraft.util.Identifier;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -37,9 +38,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 generateRecipeClayJar(recipeExporter);
                 generateRecipeForestEssence(recipeExporter);
                 generateRecipeGlassJar(recipeExporter);
-                generateRecipeQuartzArmor(recipeExporter);
                 generateRecipeQuartzSword(recipeExporter);
                 generateRecipeWiccanSands(recipeExporter);
+                try {
+                    generateRecipeBasicArmor(recipeExporter, ModItems.QUARTZ_ARMOR_SET, Items.QUARTZ);
+                    generateRecipeBasicArmor(recipeExporter, ModItems.RUBY_ARMOR_SET, ModItems.RUBY);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
 
                 /* Shaped recipes blocks */
                 generateRecipeQuartzWall(recipeExporter);
@@ -111,36 +117,40 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.GLASS_JAR))));
             }
 
-            private void generateRecipeQuartzArmor(RecipeExporter exporter) {
-                createShaped(RecipeCategory.COMBAT, ModItems.QUARTZ_HELMET, 1)
-                        .pattern("QQQ")
-                        .pattern("Q Q")
-                        .input('Q', Items.QUARTZ)
-                        .criterion(hasItem(Items.QUARTZ), conditionsFromItem(Items.QUARTZ))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.QUARTZ_HELMET))));
+            private void generateRecipeBasicArmor(RecipeExporter exporter, List<Item> armorSet, Item ingredient) throws Exception {
+                if (armorSet.size() != 4) {
+                    throw new Exception("parameter `armorSet` must contain exactly 4 elements in order: helmet, chestplate, leggings, boots");
+                }
 
-                createShaped(RecipeCategory.COMBAT, ModItems.QUARTZ_CHESTPLATE, 1)
-                        .pattern("Q Q")
-                        .pattern("QQQ")
-                        .pattern("QQQ")
-                        .input('Q', Items.QUARTZ)
-                        .criterion(hasItem(Items.QUARTZ), conditionsFromItem(Items.QUARTZ))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.QUARTZ_CHESTPLATE))));
+                createShaped(RecipeCategory.COMBAT, armorSet.get(0), 1)
+                        .pattern("###")
+                        .pattern("# #")
+                        .input('#', ingredient)
+                        .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.get(0)))));
 
-                createShaped(RecipeCategory.COMBAT, ModItems.QUARTZ_LEGGINGS, 1)
-                        .pattern("QQQ")
-                        .pattern("Q Q")
-                        .pattern("Q Q")
-                        .input('Q', Items.QUARTZ)
-                        .criterion(hasItem(Items.QUARTZ), conditionsFromItem(Items.QUARTZ))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.QUARTZ_LEGGINGS))));
+                createShaped(RecipeCategory.COMBAT, armorSet.get(1), 1)
+                        .pattern("# #")
+                        .pattern("###")
+                        .pattern("###")
+                        .input('#', ingredient)
+                        .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.get(1)))));
 
-                createShaped(RecipeCategory.COMBAT, ModItems.QUARTZ_BOOTS, 1)
-                        .pattern("Q Q")
-                        .pattern("Q Q")
-                        .input('Q', Items.QUARTZ)
-                        .criterion(hasItem(Items.QUARTZ), conditionsFromItem(Items.QUARTZ))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.QUARTZ_BOOTS))));
+                createShaped(RecipeCategory.COMBAT, armorSet.get(2), 1)
+                        .pattern("###")
+                        .pattern("# #")
+                        .pattern("# #")
+                        .input('#', ingredient)
+                        .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.get(2)))));
+
+                createShaped(RecipeCategory.COMBAT, armorSet.get(3), 1)
+                        .pattern("# #")
+                        .pattern("# #")
+                        .input('#', ingredient)
+                        .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.get(3)))));
             }
 
             private void generateRecipeQuartzSword(RecipeExporter exporter) {
