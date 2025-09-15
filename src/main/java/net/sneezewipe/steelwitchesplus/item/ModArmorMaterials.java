@@ -1,6 +1,7 @@
 package net.sneezewipe.steelwitchesplus.item;
 
 import net.minecraft.item.equipment.ArmorMaterial;
+import net.minecraft.item.equipment.ArmorMaterials;
 import net.minecraft.item.equipment.EquipmentAsset;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registry;
@@ -14,9 +15,11 @@ import java.util.Map;
 
 public class ModArmorMaterials {
     public static final int BASE_DURABILITY = 15; // Same as iron.
+    public static final int RUBINITE_DURABILITY = ArmorMaterials.NETHERITE.durability()*3;
     public static final int RUBY_DURABILITY = BASE_DURABILITY+5;
     static RegistryKey<? extends Registry<EquipmentAsset>> REGISTRY_KEY = RegistryKey.ofRegistry(Identifier.ofVanilla("equipment_asset"));
     public static final RegistryKey<EquipmentAsset> QUARTZ_KEY = RegistryKey.of(REGISTRY_KEY, Identifier.of(SteelWitchesPlus.MOD_ID, "quartz"));
+    public static final RegistryKey<EquipmentAsset> RUBINITE_KEY = RegistryKey.of(REGISTRY_KEY, Identifier.of(SteelWitchesPlus.MOD_ID, "rubinite"));
     public static final RegistryKey<EquipmentAsset> RUBY_KEY = RegistryKey.of(REGISTRY_KEY, Identifier.of(SteelWitchesPlus.MOD_ID, "ruby"));
 
     public static final ArmorMaterial QUARTZ_ARMOR_MATERIAL = new ArmorMaterial(
@@ -33,6 +36,17 @@ public class ModArmorMaterials {
             0, /* knockback resistance*/
             ModTags.Items.QUARTZ_REPAIR,
             QUARTZ_KEY
+    );
+
+    public static final ArmorMaterial RUBINITE_ARMOR_MATERIAL = new ArmorMaterial(
+            RUBINITE_DURABILITY,
+            ArmorMaterials.NETHERITE.defense(),
+            ArmorMaterials.NETHERITE.enchantmentValue()+2,
+            SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
+            ArmorMaterials.NETHERITE.toughness()+5,
+            ArmorMaterials.NETHERITE.knockbackResistance(),
+            ModTags.Items.RUBINITE_REPAIR,
+            RUBINITE_KEY
     );
 
     public static final ArmorMaterial RUBY_ARMOR_MATERIAL = new ArmorMaterial(
