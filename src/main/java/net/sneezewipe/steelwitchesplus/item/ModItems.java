@@ -2,7 +2,13 @@ package net.sneezewipe.steelwitchesplus.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.component.type.ConsumableComponent;
+import net.minecraft.component.type.ConsumableComponents;
+import net.minecraft.component.type.FoodComponent;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
+import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -85,6 +91,43 @@ public class ModItems {
                     .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
     public static final List<Item> RUBY_ARMOR_SET = List.of(RUBY_HELMET, RUBY_CHESTPLATE, RUBY_LEGGINGS, RUBY_BOOTS);
 
+    /*
+     * FOOD
+     */
+    public static final ConsumableComponent WEAKNESS_FOOD_CONSUMABLE_COMPONENT = ConsumableComponents.food()
+            .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 10*20,0),0.7F))
+            .build();
+    public static final FoodComponent WEAKNESS_FOOD_COMPONENT = new FoodComponent.Builder()
+            .nutrition(5)
+            .saturationModifier(0.2F)
+            .build();
+    public static final Item PALLID_APPLE = register(
+            "pallid_apple",
+            Item::new,
+            new Item.Settings().food(WEAKNESS_FOOD_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
+    );
+
+    public static final FoodComponent WEAKNESS_BERRY_COMPONENT = new FoodComponent.Builder()
+            .nutrition(3)
+            .saturationModifier(0.05F)
+            .alwaysEdible()
+            .build();
+    public static final Item BLEAK_BERRIES = register(
+            "bleak_berries",
+            Item::new,
+            new Item.Settings().food(WEAKNESS_BERRY_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
+    );
+
+    public static final FoodComponent PALE_PUMPKIN_PIE_COMPONENT = new FoodComponent.Builder()
+            .nutrition(9)
+            .saturationModifier(0.2F)
+            .build();
+    public static final Item PALE_PUMPKIN_PIE = register(
+            "pale_pumpkin_pie",
+            Item::new,
+            new Item.Settings().food(PALE_PUMPKIN_PIE_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
+    );
+
     /* Add an item to the item group indicated by one of the following functions' names. */
     /* To be clear, since these are vanilla groups, these are not handled in ModItemGroups.java. */
     private static void addItemsToToolsItemGroup(FabricItemGroupEntries entries) {
@@ -104,11 +147,14 @@ public class ModItems {
                 AMETHYST_DUST,
                 BAKED_CLAY_JAR,
                 BELLADONNA,
+                BLEAK_BERRIES,
                 CLAY_JAR,
                 FOREST_ESSENCE,
                 FROG_TOE,
                 GARLIC,
                 GLASS_JAR,
+                ModBlocks.PALE_PUMPKIN.asItem(),
+                PALLID_APPLE,
                 POTION_ESSENCE_BERRY_MIX,
                 RUBY,
                 SCULK_POWDER,
@@ -126,6 +172,7 @@ public class ModItems {
                 ARTICHOKE_SEEDS,
                 BELLADONNA_SEEDS,
                 GARLIC_CLOVE,
+                ModBlocks.PALE_PUMPKIN.asItem(),
                 SOLANDRA_SEEDS,
                 WOLFSBANE_SEEDS,
 
@@ -156,6 +203,17 @@ public class ModItems {
         }
     }
 
+    private static void addItemsToFoodDrinkItemGroup(FabricItemGroupEntries entries) {
+        Item[] items = {
+                BLEAK_BERRIES,
+                PALE_PUMPKIN_PIE,
+                PALLID_APPLE,
+        };
+        for (Item item : items) {
+            entries.add(item);
+        }
+    }
+
     private static void addItemsToBuildingBlocksItemGroup(FabricItemGroupEntries entries) {
         Item[] items = {
                 ModBlocks.RUBY_BLOCK.asItem(),
@@ -175,6 +233,7 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(ModItems::addItemsToToolsItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientsItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(ModItems::addItemsToNaturalItemGroup);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(ModItems::addItemsToFoodDrinkItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToCombatItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(ModItems::addItemsToBuildingBlocksItemGroup);
     }

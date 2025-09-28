@@ -39,6 +39,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_EMBER_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_WILD_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.SKYWORT_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
+
+        blockStateModelGenerator.registerSingleton(ModBlocks.PALE_PUMPKIN, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
     }
 
     @Override
@@ -51,11 +53,14 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ATTUNED_STONE_LIGHT, Models.GENERATED);
         itemModelGenerator.register(ModItems.BAKED_CLAY_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.BELLADONNA, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BLEAK_BERRIES, Models.GENERATED);
         itemModelGenerator.register(ModItems.CLAY_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.FOREST_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.FROG_TOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GARLIC, Models.GENERATED);
         itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PALE_PUMPKIN_PIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PALLID_APPLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCULK_POWDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.SOLANDRA, Models.GENERATED);
