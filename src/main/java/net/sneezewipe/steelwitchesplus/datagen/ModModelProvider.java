@@ -41,6 +41,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(ModBlocks.SKYWORT_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
 
         blockStateModelGenerator.registerSingleton(ModBlocks.PALE_PUMPKIN, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
+
+        blockStateModelGenerator.registerTintableCross(ModBlocks.BLEAK_VINE_BODY, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerTintableCross(ModBlocks.BLEAK_VINE_HEAD, BlockStateModelGenerator.CrossType.NOT_TINTED);
     }
 
     @Override

@@ -18,6 +18,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
+import net.sneezewipe.steelwitchesplus.block.custom.BleakBerryItem;
 import net.sneezewipe.steelwitchesplus.item.custom.*;
 
 import java.util.List;
@@ -114,7 +115,7 @@ public class ModItems {
             .build();
     public static final Item BLEAK_BERRIES = register(
             "bleak_berries",
-            Item::new,
+            BleakBerryItem::new,
             new Item.Settings().food(WEAKNESS_BERRY_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
     );
 
