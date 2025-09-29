@@ -30,11 +30,6 @@ public class ModBlocks {
             AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_RED).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL),
             true
     );
-    public static final Block BLEAK_VINE_HEAD = register("bleak_vine_head", CaveVinesHeadBlock::new,
-            AbstractBlock.Settings.copy(Blocks.CAVE_VINES), true);
-    public static final Block BLEAK_VINE_BODY = register("bleak_vine_body", CaveVinesBodyBlock::new,
-            AbstractBlock.Settings.copy(Blocks.CAVE_VINES_PLANT), true);
-
 
     public static final Block RUBY_ORE = register("ruby_ore",
             settings -> new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), settings),

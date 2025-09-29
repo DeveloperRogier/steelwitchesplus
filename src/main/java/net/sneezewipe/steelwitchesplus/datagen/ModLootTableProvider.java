@@ -38,8 +38,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         Block[] blocks = {
                 ModBlocks.BRAMBLE_EMBER_CROP,
                 ModBlocks.BRAMBLE_WILD_CROP,
-                ModBlocks.BLEAK_VINE_BODY,
-                ModBlocks.BLEAK_VINE_HEAD,
                 ModBlocks.DISTILLERY_BLOCK,
                 ModBlocks.RUBY_BLOCK,
                 ModBlocks.TRIM_QUARTZ_BLOCK,
@@ -53,19 +51,6 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         /* ORE DROPS */
         addDrop(ModBlocks.RUBY_ORE, multipleOreDrops(ModBlocks.RUBY_ORE, ModItems.RUBY, 1, 1));
         addDrop(ModBlocks.DEEPSLATE_RUBY_ORE, multipleOreDrops(ModBlocks.DEEPSLATE_RUBY_ORE, ModItems.RUBY, 1, 1));
-
-        /* VINE DROPS */
-        addDrop(ModBlocks.BLEAK_VINE_BODY);
-        addDrop(ModBlocks.BLEAK_VINE_HEAD,
-                LootTable.builder().pool(
-                    LootPool.builder()
-                        .rolls(ConstantLootNumberProvider.create(1))
-                        .conditionally(BlockStatePropertyLootCondition.builder(ModBlocks.BLEAK_VINE_HEAD)
-                                .properties(StatePredicate.Builder.create()
-                                        .exactMatch(CaveVines.BERRIES, true)))
-                        .with(ItemEntry.builder(ModItems.BLEAK_BERRIES))
-                )
-        );
 
         /* SPECIAL DROPS */
         BlockStatePropertyLootCondition.Builder builderArtichoke = BlockStatePropertyLootCondition.builder(ModBlocks.ARTICHOKE_CROP)

@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "steelwitchesplus:block/bleak_vine_body"
-  }
-}

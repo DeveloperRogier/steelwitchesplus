@@ -10,15 +10,12 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 import net.minecraft.item.equipment.EquipmentType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
-import net.sneezewipe.steelwitchesplus.block.custom.BleakBerryItem;
 import net.sneezewipe.steelwitchesplus.item.custom.*;
 
 import java.util.List;
@@ -115,7 +112,7 @@ public class ModItems {
             .build();
     public static final Item BLEAK_BERRIES = register(
             "bleak_berries",
-            BleakBerryItem::new,
+            Item::new,
             new Item.Settings().food(WEAKNESS_BERRY_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
     );
 
