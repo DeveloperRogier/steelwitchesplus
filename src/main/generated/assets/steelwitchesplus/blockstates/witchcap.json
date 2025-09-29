@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "steelwitchesplus:block/witchcap_stage0"
+    },
+    "age=1": {
+      "model": "steelwitchesplus:block/witchcap_stage1"
+    },
+    "age=2": {
+      "model": "steelwitchesplus:block/witchcap_stage2"
+    },
+    "age=3": {
+      "model": "steelwitchesplus:block/witchcap_stage3"
+    },
+    "age=4": {
+      "model": "steelwitchesplus:block/witchcap_stage4"
+    }
+  }
+}

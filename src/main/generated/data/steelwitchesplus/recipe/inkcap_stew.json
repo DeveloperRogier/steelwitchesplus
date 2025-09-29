@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "steelwitchesplus:inkcap",
+    "steelwitchesplus:witchcap",
+    "minecraft:bowl"
+  ],
+  "result": {
+    "count": 1,
+    "id": "steelwitchesplus:inkcap_stew"
+  }
+}

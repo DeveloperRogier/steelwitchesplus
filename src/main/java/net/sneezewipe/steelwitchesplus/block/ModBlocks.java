@@ -2,6 +2,8 @@ package net.sneezewipe.steelwitchesplus.block;
 
 import net.minecraft.block.*;
 import net.minecraft.block.enums.NoteBlockInstrument;
+import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -23,31 +25,31 @@ public class ModBlocks {
             AbstractBlock.Settings.copy(Blocks.SUGAR_CANE), true);
     public static final Block DISTILLERY_BLOCK = register("distillery_block", // TODO: recipe & texture
             DistilleryBlock::new, AbstractBlock.Settings.create().strength(1.5F, 6.0F).requiresTool(), true);
+    public static final Block PALE_PUMPKIN = register("pale_pumpkin",
+            PumpkinBlock::new, AbstractBlock.Settings.copy(Blocks.PUMPKIN), true);
     public static final Block QUARTZ_WALL = register("quartz_wall",
             WallBlock::new, AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK), true);
     public static final Block RUBY_BLOCK = register("ruby_block",
             Block::new,
             AbstractBlock.Settings.create().mapColor(MapColor.BRIGHT_RED).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL),
-            true
-    );
-
+            true);
     public static final Block RUBY_ORE = register("ruby_ore",
             settings -> new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), settings),
             AbstractBlock.Settings.create().mapColor(MapColor.STONE_GRAY).requiresTool().strength(5.0F, 6.0F),
-            true
-    );
+            true);
     public static final Block DEEPSLATE_RUBY_ORE = register("deepslate_ruby_ore",
             settings -> new ExperienceDroppingBlock(UniformIntProvider.create(3, 7), settings),
             AbstractBlock.Settings.copy(RUBY_ORE).mapColor(MapColor.DEEPSLATE_GRAY).strength(4.5F, 3.0F).sounds(BlockSoundGroup.DEEPSLATE),
-            true
-    );
+            true);
     public static final Block SKYWORT_CROP = register("skywort",
             SugarCaneBlock::new, AbstractBlock.Settings.copy(Blocks.SUGAR_CANE), true);
     public static final Block TRIM_QUARTZ_BLOCK = register("trim_quartz_block",
             PillarBlock::new, AbstractBlock.Settings.copy(Blocks.CHISELED_QUARTZ_BLOCK), true);
 
-    public static final Block PALE_PUMPKIN = register("pale_pumpkin",
-            PumpkinBlock::new, AbstractBlock.Settings.copy(Blocks.PUMPKIN), true);
+    /* FLOWERS */
+    public static final Block INKCAP = register("inkcap", (settings) -> new FlowerBlock(
+            StatusEffects.BLINDNESS, 1.5F, settings),
+            AbstractBlock.Settings.copy(Blocks.CORNFLOWER), true);
 
     /* CROPS */
     public static final Block ARTICHOKE_CROP = register("artichoke", ArtichokeCropBlock::new,
@@ -57,6 +59,8 @@ public class ModBlocks {
     public static final Block GARLIC_CROP = register("garlic", GarlicCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
     public static final Block SOLANDRA_CROP = register("solandra", SolandraCropBlock::new,
+            AbstractBlock.Settings.copy(Blocks.WHEAT), false);
+    public static final Block WITCHCAP_CROP = register("witchcap", WitchcapCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
     public static final Block WOLFSBANE_CROP = register("wolfsbane", WolfsbaneCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
@@ -70,9 +74,7 @@ public class ModBlocks {
                     settings
             ),
             AbstractBlock.Settings.copy(Blocks.PUMPKIN_STEM),
-            false
-    );
-
+            false);
     public static final Block PALE_ATTACHED_PUMPKIN_STEM = register(
             "pale_attached_pumpkin_stem",
             settings -> new AttachedStemBlock(
@@ -82,8 +84,7 @@ public class ModBlocks {
                     settings
             ),
             AbstractBlock.Settings.copy(Blocks.ATTACHED_PUMPKIN_STEM),
-            false
-    );
+            false);
 
     /* HELPERS */
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {

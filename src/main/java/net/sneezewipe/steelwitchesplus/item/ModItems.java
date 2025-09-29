@@ -54,6 +54,8 @@ public class ModItems {
     public static final Item SOLANDRA_SEEDS = register("solandra_seeds", settings -> new BlockItem(ModBlocks.SOLANDRA_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item WEEPING_POWDER = register("weeping_powder", Item::new, new Item.Settings());
     public static final Item WICCAN_SANDS = register("wiccan_sands", WiccanSandsItem::new, new Item.Settings().rarity(Rarity.UNCOMMON));
+    public static final Item WITCHCAP = register("witchcap", Item::new, new Item.Settings());
+    public static final Item WITCHCAP_SPORES = register("witchcap_spores", settings -> new BlockItem(ModBlocks.WITCHCAP_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item WOLFSBANE = register("wolfsbane", WolfsbaneItem::new, new Item.Settings());
     public static final Item WOLFSBANE_SEEDS = register("wolfsbane_seeds", settings -> new BlockItem(ModBlocks.WOLFSBANE_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item WITHER_SWORD = register("wither_sword",
@@ -96,6 +98,7 @@ public class ModItems {
     public static final ConsumableComponent WEAKNESS_FOOD_CONSUMABLE_COMPONENT = ConsumableComponents.food()
             .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 10*20,0),0.7F))
             .build();
+
     public static final FoodComponent WEAKNESS_FOOD_COMPONENT = new FoodComponent.Builder()
             .nutrition(5)
             .saturationModifier(0.2F)
@@ -127,6 +130,16 @@ public class ModItems {
             new Item.Settings().food(PALE_PUMPKIN_PIE_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
     );
 
+    public static final FoodComponent INKCAP_STEW_COMPONENT = new FoodComponent.Builder()
+            .nutrition(5)
+            .saturationModifier(0.1F)
+            .build();
+    public static final Item INKCAP_STEW = register(
+            "inkcap_stew",
+            Item::new,
+            new Item.Settings().maxCount(1).food(INKCAP_STEW_COMPONENT).useRemainder(Items.BOWL)
+    );
+
     /* Add an item to the item group indicated by one of the following functions' names. */
     /* To be clear, since these are vanilla groups, these are not handled in ModItemGroups.java. */
     private static void addItemsToToolsItemGroup(FabricItemGroupEntries entries) {
@@ -152,6 +165,7 @@ public class ModItems {
                 FROG_TOE,
                 GARLIC,
                 GLASS_JAR,
+                ModBlocks.INKCAP.asItem(),
                 ModBlocks.PALE_PUMPKIN.asItem(),
                 PALLID_APPLE,
                 POTION_ESSENCE_BERRY_MIX,
@@ -159,6 +173,7 @@ public class ModItems {
                 SCULK_POWDER,
                 SOLANDRA,
                 WEEPING_POWDER,
+                WITCHCAP,
                 WOLFSBANE,
         };
         for (Item item : items) {
@@ -171,9 +186,11 @@ public class ModItems {
                 ARTICHOKE_SEEDS,
                 BELLADONNA_SEEDS,
                 GARLIC_CLOVE,
+                ModBlocks.INKCAP.asItem(),
                 ModBlocks.PALE_PUMPKIN.asItem(),
                 PALE_PUMPKIN_SEEDS,
                 SOLANDRA_SEEDS,
+                WITCHCAP_SPORES,
                 WOLFSBANE_SEEDS,
 
                 ModBlocks.DEEPSLATE_RUBY_ORE.asItem(),
@@ -206,6 +223,7 @@ public class ModItems {
     private static void addItemsToFoodDrinkItemGroup(FabricItemGroupEntries entries) {
         Item[] items = {
                 BLEAK_BERRIES,
+                INKCAP_STEW,
                 PALE_PUMPKIN_PIE,
                 PALLID_APPLE,
         };

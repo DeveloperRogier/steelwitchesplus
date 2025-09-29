@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.condition.BlockStatePropertyLootCondition;
+import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.function.ApplyBonusLootFunction;
@@ -20,10 +21,7 @@ import net.minecraft.predicate.StatePredicate;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
-import net.sneezewipe.steelwitchesplus.block.custom.ArtichokeCropBlock;
-import net.sneezewipe.steelwitchesplus.block.custom.GarlicCropBlock;
-import net.sneezewipe.steelwitchesplus.block.custom.SolandraCropBlock;
-import net.sneezewipe.steelwitchesplus.block.custom.WolfsbaneCropBlock;
+import net.sneezewipe.steelwitchesplus.block.custom.*;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
 import java.util.concurrent.CompletableFuture;
@@ -39,6 +37,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 ModBlocks.BRAMBLE_EMBER_CROP,
                 ModBlocks.BRAMBLE_WILD_CROP,
                 ModBlocks.DISTILLERY_BLOCK,
+                ModBlocks.INKCAP,
                 ModBlocks.PALE_PUMPKIN,
                 ModBlocks.RUBY_BLOCK,
                 ModBlocks.TRIM_QUARTZ_BLOCK,
@@ -69,6 +68,10 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         BlockStatePropertyLootCondition.Builder builderSolandra = BlockStatePropertyLootCondition.builder(ModBlocks.SOLANDRA_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(SolandraCropBlock.AGE, SolandraCropBlock.MAX_AGE));
         addDrop(ModBlocks.SOLANDRA_CROP, cropDrops(ModBlocks.SOLANDRA_CROP, ModItems.SOLANDRA, ModItems.SOLANDRA_SEEDS, builderSolandra));
+
+        BlockStatePropertyLootCondition.Builder builderWitchcap = BlockStatePropertyLootCondition.builder(ModBlocks.WITCHCAP_CROP)
+                .properties(StatePredicate.Builder.create().exactMatch(WitchcapCropBlock.AGE, WitchcapCropBlock.MAX_AGE));
+        addDrop(ModBlocks.WITCHCAP_CROP, cropDrops(ModBlocks.WITCHCAP_CROP, ModItems.WITCHCAP, ModItems.WITCHCAP_SPORES, builderWitchcap));
 
         BlockStatePropertyLootCondition.Builder builderWolfsbane = BlockStatePropertyLootCondition.builder(ModBlocks.WOLFSBANE_CROP)
                 .properties(StatePredicate.Builder.create().exactMatch(WolfsbaneCropBlock.AGE, WolfsbaneCropBlock.MAX_AGE));

@@ -53,6 +53,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 /* Shapeless recipes items */
                 generateRecipeAetherFeather(recipeExporter);
                 generateRecipeGarlicClove(recipeExporter);
+                generateRecipeInkcapStew(recipeExporter);
                 generateRecipePalePumpkinPie(recipeExporter);
                 generateRecipePalePumpkinSeeds(recipeExporter);
                 generateRecipeWitherSword(recipeExporter);
@@ -193,7 +194,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 createShapeless(RecipeCategory.MISC, ModItems.GARLIC_CLOVE, 3)
                         .input(ModItems.GARLIC)
                         .criterion(hasItem(ModItems.GARLIC), conditionsFromItem(ModItems.GARLIC))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.GARLIC))));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.GARLIC_CLOVE))));
+            }
+
+            private void generateRecipeInkcapStew(RecipeExporter exporter) {
+                createShapeless(RecipeCategory.FOOD, ModItems.INKCAP_STEW, 1)
+                        .input(ModBlocks.INKCAP).input(ModItems.WITCHCAP).input(Items.BOWL)
+                        .criterion(hasItem(ModBlocks.INKCAP), conditionsFromItem(ModBlocks.INKCAP))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.INKCAP_STEW))));
             }
 
             private void generateRecipePalePumpkinPie(RecipeExporter exporter) {

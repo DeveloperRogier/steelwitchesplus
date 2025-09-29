@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_garlic": {
+    "has_inkcap": {
       "conditions": {
         "items": [
           {
-            "items": "steelwitchesplus:garlic"
+            "items": "steelwitchesplus:inkcap"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "steelwitchesplus:garlic"
+        "recipe": "steelwitchesplus:inkcap_stew"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_garlic"
+      "has_inkcap"
     ]
   ],
   "rewards": {
     "recipes": [
-      "steelwitchesplus:garlic"
+      "steelwitchesplus:inkcap_stew"
     ]
   }
 }

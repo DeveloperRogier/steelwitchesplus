@@ -16,10 +16,12 @@ public class SteelWitchesPlusClient implements ClientModInitializer {
                 ModBlocks.BRAMBLE_EMBER_CROP,
                 ModBlocks.BRAMBLE_WILD_CROP,
                 ModBlocks.GARLIC_CROP,
+                ModBlocks.INKCAP,
                 ModBlocks.PALE_PUMPKIN_STEM,
                 ModBlocks.PALE_ATTACHED_PUMPKIN_STEM,
                 ModBlocks.SKYWORT_CROP,
                 ModBlocks.SOLANDRA_CROP,
+                ModBlocks.WITCHCAP_CROP,
                 ModBlocks.WOLFSBANE_CROP);
         registerFeatureRenderers();
     }
