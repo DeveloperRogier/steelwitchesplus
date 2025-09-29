@@ -39,6 +39,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
                 ModBlocks.BRAMBLE_EMBER_CROP,
                 ModBlocks.BRAMBLE_WILD_CROP,
                 ModBlocks.DISTILLERY_BLOCK,
+                ModBlocks.PALE_PUMPKIN,
                 ModBlocks.RUBY_BLOCK,
                 ModBlocks.TRIM_QUARTZ_BLOCK,
                 ModBlocks.SKYWORT_CROP,

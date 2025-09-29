@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "steelwitchesplus:block/pale_attached_pumpkin_stem", "y": 90 },
+    "facing=east":  { "model": "steelwitchesplus:block/pale_attached_pumpkin_stem", "y": 180 },
+    "facing=south": { "model": "steelwitchesplus:block/pale_attached_pumpkin_stem", "y": 270 },
+    "facing=west":  { "model": "steelwitchesplus:block/pale_attached_pumpkin_stem", "y": 0 }
+  }
+}

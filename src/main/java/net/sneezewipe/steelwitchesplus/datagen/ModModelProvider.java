@@ -41,7 +41,6 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(ModBlocks.SKYWORT_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
 
         blockStateModelGenerator.registerSingleton(ModBlocks.PALE_PUMPKIN, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
-
     }
 
     @Override
@@ -61,6 +60,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.GARLIC, Models.GENERATED);
         itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.PALE_PUMPKIN_PIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PALE_PUMPKIN_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.PALLID_APPLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCULK_POWDER, Models.GENERATED);

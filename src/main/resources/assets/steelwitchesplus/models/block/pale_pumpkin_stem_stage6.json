@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/stem_growth6",
+  "textures": {
+    "stem": "steelwitchesplus:block/pale_pumpkin_stem"
+  }
+}

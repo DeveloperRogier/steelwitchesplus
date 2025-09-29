@@ -61,6 +61,30 @@ public class ModBlocks {
     public static final Block WOLFSBANE_CROP = register("wolfsbane", WolfsbaneCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
 
+    public static final Block PALE_PUMPKIN_STEM = register(
+            "pale_pumpkin_stem",
+            settings -> new StemBlock(
+                    RegistryKey.of(RegistryKeys.BLOCK, Identifier.of("steelwitchesplus", "pale_pumpkin")),
+                    RegistryKey.of(RegistryKeys.BLOCK, Identifier.of("steelwitchesplus", "pale_attached_pumpkin_stem")),
+                    RegistryKey.of(RegistryKeys.ITEM, Identifier.of("steelwitchesplus", "pale_pumpkin_seeds")),
+                    settings
+            ),
+            AbstractBlock.Settings.copy(Blocks.PUMPKIN_STEM),
+            false
+    );
+
+    public static final Block PALE_ATTACHED_PUMPKIN_STEM = register(
+            "pale_attached_pumpkin_stem",
+            settings -> new AttachedStemBlock(
+                    RegistryKey.of(RegistryKeys.BLOCK, Identifier.of("steelwitchesplus", "pale_pumpkin")),
+                    RegistryKey.of(RegistryKeys.BLOCK, Identifier.of("steelwitchesplus", "pale_pumpkin_stem")),
+                    RegistryKey.of(RegistryKeys.ITEM, Identifier.of("steelwitchesplus", "pale_pumpkin_seeds")),
+                    settings
+            ),
+            AbstractBlock.Settings.copy(Blocks.ATTACHED_PUMPKIN_STEM),
+            false
+    );
+
     /* HELPERS */
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {
         RegistryKey<Block> blockKey = keyOfBlock(name);

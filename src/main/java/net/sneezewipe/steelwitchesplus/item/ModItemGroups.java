@@ -38,6 +38,7 @@ public class ModItemGroups {
                                 ModItems.GARLIC_CLOVE,
                                 ModItems.GLASS_JAR,
                                 ModItems.PALE_PUMPKIN_PIE,
+                                ModItems.PALE_PUMPKIN_SEEDS,
                                 ModItems.PALLID_APPLE,
                                 ModItems.SCULK_POWDER,
                                 ModItems.WEEPING_POWDER,

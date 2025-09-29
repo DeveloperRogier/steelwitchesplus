@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "steelwitchesplus:pale_pumpkin"
+  ],
+  "result": {
+    "count": 4,
+    "id": "steelwitchesplus:pale_pumpkin_seeds"
+  }
+}

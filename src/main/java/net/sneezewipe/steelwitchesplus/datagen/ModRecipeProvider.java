@@ -54,6 +54,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 generateRecipeAetherFeather(recipeExporter);
                 generateRecipeGarlicClove(recipeExporter);
                 generateRecipePalePumpkinPie(recipeExporter);
+                generateRecipePalePumpkinSeeds(recipeExporter);
                 generateRecipeWitherSword(recipeExporter);
 
                 /* Shapeless recipes blocks */
@@ -200,6 +201,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .input(Items.SUGAR).input(Items.EGG).input(ModBlocks.PALE_PUMPKIN)
                         .criterion(hasItem(ModBlocks.PALE_PUMPKIN), conditionsFromItem(ModBlocks.PALE_PUMPKIN))
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.PALE_PUMPKIN_PIE))));
+            }
+
+            private void generateRecipePalePumpkinSeeds(RecipeExporter exporter) {
+                createShapeless(RecipeCategory.MISC, ModItems.PALE_PUMPKIN_SEEDS, 4)
+                        .input(ModBlocks.PALE_PUMPKIN)
+                        .criterion(hasItem(ModBlocks.PALE_PUMPKIN), conditionsFromItem(ModBlocks.PALE_PUMPKIN))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName((ModItems.PALE_PUMPKIN_SEEDS)))));
             }
 
             private void generateRecipeWitherSword(RecipeExporter exporter) {
