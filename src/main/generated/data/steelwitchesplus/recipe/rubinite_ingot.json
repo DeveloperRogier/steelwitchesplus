@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:netherite_ingot",
+    "steelwitchesplus:ruby"
+  ],
+  "result": {
+    "count": 1,
+    "id": "steelwitchesplus:rubinite_ingot"
+  }
+}

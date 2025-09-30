@@ -9,6 +9,7 @@ import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
 import net.minecraft.client.data.TexturedModel;
+import net.minecraft.item.equipment.ArmorMaterials;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.block.custom.*;
 import net.sneezewipe.steelwitchesplus.item.ModArmorMaterials;
@@ -56,6 +57,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FROG_TOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GARLIC, Models.GENERATED);
         itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.RUBINITE_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCULK_POWDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.SOLANDRA, Models.GENERATED);
@@ -73,6 +75,15 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.registerArmor(ModItems.QUARTZ_LEGGINGS, ModArmorMaterials.QUARTZ_KEY,
                 ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
         itemModelGenerator.registerArmor(ModItems.QUARTZ_BOOTS, ModArmorMaterials.QUARTZ_KEY,
+                ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
+
+        itemModelGenerator.registerArmor(ModItems.RUBINITE_HELMET, ModArmorMaterials.RUBINITE_KEY,
+                ItemModelGenerator.HELMET_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.RUBINITE_CHESTPLATE, ModArmorMaterials.RUBINITE_KEY,
+                ItemModelGenerator.CHESTPLATE_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.RUBINITE_LEGGINGS, ModArmorMaterials.RUBINITE_KEY,
+                ItemModelGenerator.LEGGINGS_TRIM_ID_PREFIX, false);
+        itemModelGenerator.registerArmor(ModItems.RUBINITE_BOOTS, ModArmorMaterials.RUBINITE_KEY,
                 ItemModelGenerator.BOOTS_TRIM_ID_PREFIX, false);
 
         itemModelGenerator.registerArmor(ModItems.RUBY_HELMET, ModArmorMaterials.RUBY_KEY,

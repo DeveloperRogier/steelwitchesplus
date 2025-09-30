@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "steelwitchesplus:rubinite"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "steelwitchesplus:rubinite"
+      }
+    ]
+  }
+}
