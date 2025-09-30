@@ -194,7 +194,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 createShapeless(RecipeCategory.MISC, ModItems.GARLIC_CLOVE, 3)
                         .input(ModItems.GARLIC)
                         .criterion(hasItem(ModItems.GARLIC), conditionsFromItem(ModItems.GARLIC))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.GARLIC))));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.GARLIC_CLOVE))));
             }
 
             private void generateRecipeRubiniteIngot(RecipeExporter exporter) {

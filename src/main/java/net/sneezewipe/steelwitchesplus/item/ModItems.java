@@ -74,18 +74,18 @@ public class ModItems {
             new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.BASE_DURABILITY)));
     public static final List<Item> QUARTZ_ARMOR_SET = List.of(QUARTZ_HELMET, QUARTZ_CHESTPLATE, QUARTZ_LEGGINGS, QUARTZ_BOOTS);
 
-    public static final Item RUBINITE_HELMET = register("rubinite_helmet", Item::new,
-            new Item.Settings().armor(ModArmorMaterials.RUBINITE_ARMOR_MATERIAL, EquipmentType.HELMET)
-                    .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBINITE_DURABILITY)));
-    public static final Item RUBINITE_CHESTPLATE = register("rubinite_chestplate", Item::new,
-            new Item.Settings().armor(ModArmorMaterials.RUBINITE_ARMOR_MATERIAL, EquipmentType.CHESTPLATE)
-                    .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBINITE_DURABILITY)));
-    public static final Item RUBINITE_LEGGINGS = register("rubinite_leggings", Item::new,
-            new Item.Settings().armor(ModArmorMaterials.RUBINITE_ARMOR_MATERIAL, EquipmentType.LEGGINGS)
-                    .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBINITE_DURABILITY)));
-    public static final Item RUBINITE_BOOTS = register("rubinite_boots", Item::new,
-            new Item.Settings().armor(ModArmorMaterials.RUBINITE_ARMOR_MATERIAL, EquipmentType.BOOTS)
-                    .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBINITE_DURABILITY)));
+    public static final Item RUBINITE_HELMET = register("rubinite_helmet",
+            settings -> new ModArmorItem(ModArmorMaterials.RUBINITE_ARMOR_MATERIAL, EquipmentType.HELMET, settings),
+            new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBINITE_DURABILITY)));
+    public static final Item RUBINITE_CHESTPLATE = register("rubinite_chestplate",
+            settings -> new ModArmorItem(ModArmorMaterials.RUBINITE_ARMOR_MATERIAL, EquipmentType.CHESTPLATE, settings),
+            new Item.Settings().maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(ModArmorMaterials.RUBINITE_DURABILITY)));
+    public static final Item RUBINITE_LEGGINGS = register("rubinite_leggings",
+            settings -> new ModArmorItem(ModArmorMaterials.RUBINITE_ARMOR_MATERIAL, EquipmentType.LEGGINGS, settings),
+            new Item.Settings().maxDamage(EquipmentType.LEGGINGS.getMaxDamage(ModArmorMaterials.RUBINITE_DURABILITY)));
+    public static final Item RUBINITE_BOOTS = register("rubinite_boots",
+            settings -> new ModArmorItem(ModArmorMaterials.RUBINITE_ARMOR_MATERIAL, EquipmentType.BOOTS, settings),
+            new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(ModArmorMaterials.RUBINITE_DURABILITY)));
     public static final List<Item> RUBINITE_ARMOR_SET = List.of(RUBINITE_HELMET, RUBINITE_CHESTPLATE, RUBINITE_LEGGINGS, RUBINITE_BOOTS);
 
     public static final Item RUBY_HELMET = register("ruby_helmet", Item::new,
@@ -93,13 +93,13 @@ public class ModItems {
                     .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
     public static final Item RUBY_CHESTPLATE = register("ruby_chestplate", Item::new,
             new Item.Settings().armor(ModArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentType.CHESTPLATE)
-                    .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
+                    .maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
     public static final Item RUBY_LEGGINGS = register("ruby_leggings", Item::new,
             new Item.Settings().armor(ModArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentType.LEGGINGS)
-                    .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
+                    .maxDamage(EquipmentType.LEGGINGS.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
     public static final Item RUBY_BOOTS = register("ruby_boots", Item::new,
             new Item.Settings().armor(ModArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentType.BOOTS)
-                    .maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
+                    .maxDamage(EquipmentType.BOOTS.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
     public static final List<Item> RUBY_ARMOR_SET = List.of(RUBY_HELMET, RUBY_CHESTPLATE, RUBY_LEGGINGS, RUBY_BOOTS);
 
     /* Add an item to the item group indicated by one of the following functions' names. */

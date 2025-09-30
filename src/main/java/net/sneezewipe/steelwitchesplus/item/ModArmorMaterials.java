@@ -26,8 +26,8 @@ public class ModArmorMaterials {
             BASE_DURABILITY,
             Map.of(
                     EquipmentType.HELMET, 2,
-                    EquipmentType.CHESTPLATE, 6,
-                    EquipmentType.LEGGINGS, 4,
+                    EquipmentType.CHESTPLATE, 5,
+                    EquipmentType.LEGGINGS, 3,
                     EquipmentType.BOOTS, 2
             ),
             5, /* enchantability */
@@ -40,7 +40,13 @@ public class ModArmorMaterials {
 
     public static final ArmorMaterial RUBINITE_ARMOR_MATERIAL = new ArmorMaterial(
             RUBINITE_DURABILITY,
-            ArmorMaterials.NETHERITE.defense(),
+//            ArmorMaterials.NETHERITE.defense(),
+            Map.of(
+                    EquipmentType.HELMET, 5,
+                    EquipmentType.CHESTPLATE, 11,
+                    EquipmentType.LEGGINGS, 9,
+                    EquipmentType.BOOTS, 5
+            ),
             ArmorMaterials.NETHERITE.enchantmentValue()+2,
             SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE,
             ArmorMaterials.NETHERITE.toughness()+5,

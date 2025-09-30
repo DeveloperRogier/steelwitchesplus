@@ -25,11 +25,18 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 public class ModArmorItem extends Item {
+    private static final List<StatusEffectInstance> QUARTZ_EFFECTS = List.of(
+            new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 200, 0, false, false, false)
+    );
+    private static final List<StatusEffectInstance> RUBINITE_EFFECTS = List.of(
+            new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 200, 0, false, false, false),
+            new StatusEffectInstance(StatusEffects.SLOWNESS, 200, 0, false, false, false)
+    );
     private static final Map<ArmorMaterial, List<StatusEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, List<StatusEffectInstance>>())
-                    .put(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL,
-                            List.of(new StatusEffectInstance(
-                            StatusEffects.FIRE_RESISTANCE, 200, 1, false, false, false))).build();
+                    .put(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL, QUARTZ_EFFECTS)
+                    .put(ModArmorMaterials.RUBINITE_ARMOR_MATERIAL, RUBINITE_EFFECTS)
+                    .build();
 
     public ModArmorItem(ArmorMaterial material, EquipmentType type, Settings settings) {
         super(settings.armor(material, type));
