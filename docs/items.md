@@ -9,7 +9,7 @@ Used in [Wiccan Sands](gear/tools#wiccan-sands). This item lacks a recipe.
 
 # Rubinite Ingot
 
-<img style="border-radius:10px;height:50px;" src="/steelwitchesplus/_media/recipes/recipe_rubinite_ingot.png">
+<img style="border-radius:10px;" src="/steelwitchesplus/_media/recipes/recipe_rubinite_ingot.png">
 
 Used in [Rubinite Armor](gear/armor#rubinite).
 
