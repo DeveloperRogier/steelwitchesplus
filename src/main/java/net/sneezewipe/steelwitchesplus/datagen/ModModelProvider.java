@@ -74,6 +74,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.WOLFSBANE, Models.GENERATED);
         itemModelGenerator.register(ModItems.WICCAN_SANDS, Models.GENERATED);
 
+        itemModelGenerator.register(ModItems.DAINTY_SLIPPERS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.INFERNAL_BLADE, Models.GENERATED);
+
         itemModelGenerator.register(ModItems.QUARTZ_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WITHER_SWORD, Models.HANDHELD);
 

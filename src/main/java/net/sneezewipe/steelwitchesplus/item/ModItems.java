@@ -93,6 +93,13 @@ public class ModItems {
     public static final List<Item> RUBY_ARMOR_SET = List.of(RUBY_HELMET, RUBY_CHESTPLATE, RUBY_LEGGINGS, RUBY_BOOTS);
 
     /*
+     * CUSTOM ITEMS
+     */
+    public static final Item DAINTY_SLIPPERS = register("dainty_slippers", Item::new, new Item.Settings());
+    public static final Item INFERNAL_BLADE = register("infernal_blade",
+            settings -> new InfernalBladeItem(ToolMaterial.DIAMOND, 3, -2.4f, settings), new Item.Settings());
+
+    /*
      * FOOD
      */
     public static final ConsumableComponent WEAKNESS_FOOD_CONSUMABLE_COMPONENT = ConsumableComponents.food()
@@ -204,6 +211,7 @@ public class ModItems {
     private static void addItemsToCombatItemGroup(FabricItemGroupEntries entries) {
         Item[] items = {
                 AMETHYST_GREATSWORD,
+                INFERNAL_BLADE,
                 QUARTZ_BOOTS,
                 QUARTZ_CHESTPLATE,
                 QUARTZ_HELMET,
