@@ -2,6 +2,7 @@ package net.sneezewipe.steelwitchesplus;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
@@ -11,9 +12,12 @@ import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.Potions;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import net.sneezewipe.steelwitchesplus.block.ModBlockEntityTypes;
+import net.sneezewipe.steelwitchesplus.effect.ModEffects;
 import net.sneezewipe.steelwitchesplus.item.ModItemGroups;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
@@ -35,8 +39,13 @@ public class SteelWitchesPlus implements ModInitializer {
 		ModBlockEntityTypes.registerBlockEntityTypes();
 		ModPotions.registerPotions();
 		ModBiomeModification.registerBiomeModifications();
+		ModEffects.registerEffects();
 
 		registerLootTableListener(EntityType.FROG, ModItems.FROG_TOE);
+
+		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+			builder.registerPotionRecipe(Potions.WATER, ModBlocks.INKCAP.asItem(), ModPotions.DELIRIUM_POTION);
+		});
 	}
 
 	private void registerLootTableListener(EntityType entity, Item newDrop) {

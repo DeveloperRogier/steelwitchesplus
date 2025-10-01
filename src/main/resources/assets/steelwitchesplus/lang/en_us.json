@@ -1,4 +1,6 @@
 {
+  "effect.steelwitchesplus.delirium": "Delirium",
+
   "item.steelwitchesplus.aethereal_feather": "Aethereal Feather",
   "item.steelwitchesplus.aethereal_elytra": "Aethereal Elytra",
   "item.steelwitchesplus.amethyst_dust": "Amethyst Dust",
@@ -71,5 +73,9 @@
   "item.steelwitchesplus.quartz_armor.tooltip.1": "A full set of this §4infernal§r armor",
   "item.steelwitchesplus.quartz_armor.tooltip.2": "grants §l§cfire resistance§r.",
 
-  "itemgroup.steelwitchesplus": "Steel Witches Plus"
+  "itemgroup.steelwitchesplus": "Steel Witches Plus",
+
+  "item.minecraft.potion.effect.potion.steelwitchesplus.delirium": "Potion of Delirium",
+  "item.minecraft.splash_potion.effect.potion.steelwitchesplus.delirium": "Splash Potion of Delirium",
+  "item.minecraft.lingering_potion.effect.potion.steelwitchesplus.delirium": "Lingering Potion of Delirium"
 }
