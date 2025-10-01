@@ -1,8 +1,6 @@
 package net.sneezewipe.steelwitchesplus.block;
 
 import net.minecraft.block.*;
-import net.minecraft.block.enums.NoteBlockInstrument;
-import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -50,6 +48,12 @@ public class ModBlocks {
     public static final Block INKCAP = register("inkcap", (settings) -> new FlowerBlock(
             StatusEffects.BLINDNESS, 1.5F, settings),
             AbstractBlock.Settings.copy(Blocks.CORNFLOWER), true);
+    public static final Block GHOST_LARKSPUR = register("ghost_larkspur", TallFlowerBlock::new,
+            AbstractBlock.Settings.copy(Blocks.ROSE_BUSH), true);
+    public static final Block GRASP_GRASS = register("grasp_grass", TallFlowerBlock::new,
+            AbstractBlock.Settings.copy(Blocks.ROSE_BUSH), true);
+    public static final Block GYPSOPHILA = register("gypsophila", FlowerbedBlock::new,
+            AbstractBlock.Settings.copy(Blocks.WILDFLOWERS), true);
 
     /* CROPS */
     public static final Block ARTICHOKE_CROP = register("artichoke", ArtichokeCropBlock::new,

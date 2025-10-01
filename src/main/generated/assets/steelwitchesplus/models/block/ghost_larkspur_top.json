@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "steelwitchesplus:block/ghost_larkspur_top"
+  }
+}

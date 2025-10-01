@@ -1,4 +1,8 @@
 {
+  "block.steelwitchesplus.ghost_larkspur": "Ghost Larkspur",
+  "block.steelwitchesplus.grasp_grass": "Grasp Grass",
+  "block.steelwitchesplus.gypsophila": "Gypsophila",
+
   "effect.steelwitchesplus.delirium": "Delirium",
 
   "item.steelwitchesplus.aethereal_feather": "Aethereal Feather",
@@ -22,7 +26,10 @@
   "item.steelwitchesplus.frog_toe": "Toe of Frog",
   "item.steelwitchesplus.garlic": "Garlic",
   "item.steelwitchesplus.garlic_clove": "Garlic Clove",
+  "item.steelwitchesplus.ghost_larkspur": "Ghost Larkspur",
   "item.steelwitchesplus.glass_jar": "Glass Jar",
+  "item.steelwitchesplus.grasp_grass": "Grasp Grass",
+  "item.steelwitchesplus.gypsophila": "Gypsophila",
   "item.steelwitchesplus.inkcap": "Inkcap",
   "item.steelwitchesplus.inkcap_stew": "Inkcap Stew",
   "item.steelwitchesplus.pale_pumpkin": "Pale Pumpkin",

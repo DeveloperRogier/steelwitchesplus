@@ -44,6 +44,11 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(ModBlocks.SKYWORT_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
 
         blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.INKCAP, Blocks.POTTED_AZALEA_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED);
+
+        blockStateModelGenerator.registerDoubleBlock(ModBlocks.GHOST_LARKSPUR, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(ModBlocks.GRASP_GRASS, BlockStateModelGenerator.CrossType.NOT_TINTED);
+
+        blockStateModelGenerator.registerFlowerbed(ModBlocks.GYPSOPHILA);
     }
 
     @Override
@@ -61,7 +66,10 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FOREST_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.FROG_TOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GARLIC, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.GHOST_LARKSPUR.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.GRASP_GRASS.asItem(), Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.INKCAP.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModItems.INKCAP_STEW, Models.GENERATED);
         itemModelGenerator.register(ModItems.PALE_PUMPKIN_PIE, Models.GENERATED);
         itemModelGenerator.register(ModItems.PALE_PUMPKIN_SEEDS, Models.GENERATED);

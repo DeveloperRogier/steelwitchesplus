@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "steelwitchesplus:block/grasp_grass_bottom"
+    },
+    "half=upper": {
+      "model": "steelwitchesplus:block/grasp_grass_top"
+    }
+  }
+}
