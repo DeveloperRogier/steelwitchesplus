@@ -69,6 +69,9 @@ public class ModBlocks {
     public static final Block WOLFSBANE_CROP = register("wolfsbane", WolfsbaneCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
 
+    //public static final Block BLEAK_BERRY_BUSH = register("bleak_berry_bush", BleakBerryBushBlock::new,
+    //        AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH), false);
+
     public static final Block PALE_PUMPKIN_STEM = register(
             "pale_pumpkin_stem",
             settings -> new StemBlock(

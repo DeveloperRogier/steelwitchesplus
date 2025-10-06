@@ -6,6 +6,8 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.biome.Biome;
+import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
@@ -23,6 +25,8 @@ public class ModPlacedFeature {
     public static final RegistryKey<PlacedFeature> ORE_RUBY_MEDIUM = registerKey("ore_ruby_medium");
     public static final RegistryKey<PlacedFeature> ORE_RUBY_LARGE = registerKey("ore_ruby_large");
     public static final RegistryKey<PlacedFeature> ORE_RUBY_BURIED = registerKey("ore_ruby_buried");
+
+    public static final RegistryKey<PlacedFeature> PALE_PUMPKIN_PATCH_PLACED_KEY = registerKey("pale_pumpkin_patch_placed");
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> registryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);

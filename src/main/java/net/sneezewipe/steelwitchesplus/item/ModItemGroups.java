@@ -65,6 +65,7 @@ public class ModItemGroups {
                                 ModItems.WOLFSBANE_SEEDS,
 
                                 /* Blocks */
+                                //ModBlocks.BLEAK_BERRY_BUSH,
                                 ModBlocks.BRAMBLE_EMBER_CROP,
                                 ModBlocks.BRAMBLE_WILD_CROP,
                                 ModBlocks.DEEPSLATE_RUBY_ORE,

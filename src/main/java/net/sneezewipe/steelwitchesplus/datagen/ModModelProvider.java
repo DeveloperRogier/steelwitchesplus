@@ -39,6 +39,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCrop(ModBlocks.WITCHCAP_CROP, WitchcapCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.WOLFSBANE_CROP, WolfsbaneCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
+        //blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BLEAK_BERRY_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED,
+        //        BleakBerryBushBlock.AGE, 0, 1, 2, 3);
+
         blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_EMBER_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_WILD_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.SKYWORT_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);

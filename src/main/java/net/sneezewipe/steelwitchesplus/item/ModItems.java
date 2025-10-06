@@ -44,7 +44,8 @@ public class ModItems {
     public static final Item GARLIC = register("garlic", Item::new, new Item.Settings());
     public static final Item GARLIC_CLOVE = register("garlic_clove", settings -> new BlockItem(ModBlocks.GARLIC_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item GLASS_JAR = register("glass_jar", Item::new, new Item.Settings());
-    public static final Item PALE_PUMPKIN_SEEDS = register("pale_pumpkin_seeds", settings -> new BlockItem(ModBlocks.PALE_PUMPKIN_STEM, settings), new Item.Settings().useItemPrefixedTranslationKey());
+    public static final Item PALE_PUMPKIN_SEEDS = register("pale_pumpkin_seeds",
+            settings -> new BlockItem(ModBlocks.PALE_PUMPKIN_STEM, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item POTION_ESSENCE_BERRY_MIX = register("potion_essence_berry_mix", Item::new, new Item.Settings());
     public static final Item QUARTZ_SWORD = register("quartz_sword",
             settings -> new QuartzSwordItem(ModToolMaterials.QUARTZ, 3, -2.2f, settings), new Item.Settings());
@@ -124,6 +125,7 @@ public class ModItems {
     public static final Item BLEAK_BERRIES = register(
             "bleak_berries",
             Item::new,
+            //settings -> new BlockItem(ModBlocks.BLEAK_BERRY_BUSH, settings),
             new Item.Settings().food(WEAKNESS_BERRY_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
     );
 

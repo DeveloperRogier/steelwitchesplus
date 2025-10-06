@@ -1,13 +1,17 @@
 package net.sneezewipe.steelwitchesplus.worldgen;
 
+import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
+import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 
@@ -19,7 +23,9 @@ public class ModConfiguredFeature {
     public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_RUBY_LARGE = registerKey("ore_ruby_large");
     public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_RUBY_BURIED = registerKey("ore_ruby_buried");
 
-    public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PALE_PUMPKIN_PATCH = registerKey("pale_pumpkin_patch");
+
+        public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneOreReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateOreReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 
@@ -32,7 +38,12 @@ public class ModConfiguredFeature {
         register(context, ORE_RUBY_MEDIUM, Feature.ORE, new OreFeatureConfig(overworldRubyTargets, 8, 0.5F));
         register(context, ORE_RUBY_LARGE, Feature.ORE, new OreFeatureConfig(overworldRubyTargets, 12, 0.7F));
         register(context, ORE_RUBY_BURIED, Feature.ORE, new OreFeatureConfig(overworldRubyTargets, 8, 1.0F));
-    }
+
+        register(context, PALE_PUMPKIN_PATCH, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.PALE_PUMPKIN)), List.of(Blocks.GRASS_BLOCK)
+                ));
+     }
 
     private static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Identifier.of(SteelWitchesPlus.MOD_ID, name));
