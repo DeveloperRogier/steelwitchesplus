@@ -1,10 +1,7 @@
 package net.sneezewipe.steelwitchesplus.worldgen;
 
 import net.minecraft.block.Blocks;
-import net.minecraft.registry.Registerable;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.RuleTest;
@@ -23,6 +20,9 @@ public class ModConfiguredFeature {
     public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_RUBY_LARGE = registerKey("ore_ruby_large");
     public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_RUBY_BURIED = registerKey("ore_ruby_buried");
 
+    public static final RegistryKey<ConfiguredFeature<?, ?>> INKCAP_KEY = registerKey("inkcap");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> INKCAP_PATCH_KEY = registerKey("inkcap_patch");
+
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALE_PUMPKIN_PATCH = registerKey("pale_pumpkin_patch");
 
         public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
@@ -38,6 +38,19 @@ public class ModConfiguredFeature {
         register(context, ORE_RUBY_MEDIUM, Feature.ORE, new OreFeatureConfig(overworldRubyTargets, 8, 0.5F));
         register(context, ORE_RUBY_LARGE, Feature.ORE, new OreFeatureConfig(overworldRubyTargets, 12, 0.7F));
         register(context, ORE_RUBY_BURIED, Feature.ORE, new OreFeatureConfig(overworldRubyTargets, 8, 1.0F));
+
+        RegistryEntryLookup<PlacedFeature> registryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
+
+        register(context, INKCAP_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(
+                BlockStateProvider.of(ModBlocks.INKCAP)));
+
+        register(context, INKCAP_PATCH_KEY, Feature.FLOWER,
+                new RandomPatchFeatureConfig(
+                        64,
+                        4,
+                        4,
+                        registryLookup.getOrThrow(ModPlacedFeature.INKCAP_KEY)
+                ));
 
         register(context, PALE_PUMPKIN_PATCH, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
