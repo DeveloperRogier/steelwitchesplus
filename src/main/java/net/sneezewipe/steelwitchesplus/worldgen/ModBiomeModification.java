@@ -38,7 +38,7 @@ public class ModBiomeModification {
             BiomeModifications.addFeature(
                     BiomeSelectors.includeByKey(BiomeKeys.PALE_GARDEN),
                     GenerationStep.Feature.VEGETAL_DECORATION,
-                    ModPlacedFeature.GHOST_LARKSPUR_PATCH_PLACED_KEY
+                    ModPlacedFeature.BLEAK_BERRY_BUSH_PLACED_KEY
             );
         }
     }

@@ -8,7 +8,10 @@
           "to_place": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "steelwitchesplus:pale_pumpkin"
+              "Name": "steelwitchesplus:bleak_berry_bush",
+              "Properties": {
+                "age": "3"
+              }
             }
           }
         }
@@ -25,7 +28,10 @@
               },
               {
                 "type": "minecraft:matching_blocks",
-                "blocks": "minecraft:grass_block",
+                "blocks": [
+                  "minecraft:grass_block",
+                  "minecraft:pale_moss_block"
+                ],
                 "offset": [
                   0,
                   -1,

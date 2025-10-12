@@ -128,8 +128,7 @@ public class ModItems {
             .build();
     public static final Item BLEAK_BERRIES = register(
             "bleak_berries",
-            Item::new,
-            //settings -> new BlockItem(ModBlocks.BLEAK_BERRY_BUSH, settings),
+            settings -> new BlockItem(ModBlocks.BLEAK_BERRY_BUSH, settings),
             new Item.Settings().food(WEAKNESS_BERRY_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
     );
 

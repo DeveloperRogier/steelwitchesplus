@@ -1,6 +1,7 @@
 package net.sneezewipe.steelwitchesplus.worldgen;
 
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.registry.*;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.BlockTags;
@@ -23,9 +24,8 @@ public class ModConfiguredFeature {
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> INKCAP_KEY = registerKey("inkcap");
     public static final RegistryKey<ConfiguredFeature<?, ?>> INKCAP_PATCH_KEY = registerKey("inkcap_patch");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> GHOST_LARKSPUR_PATCH_KEY = registerKey("ghost_larkspur_patch");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> PALE_PUMPKIN_PATCH = registerKey("pale_pumpkin_patch");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BLEAK_BERRY_BUSH_KEY = registerKey("bleak_berry_bush");
 
         public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneOreReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -54,18 +54,12 @@ public class ModConfiguredFeature {
                         registryLookup.getOrThrow(ModPlacedFeature.INKCAP_KEY)
                 ));
 
-        register(context, GHOST_LARKSPUR_PATCH_KEY, Feature.FLOWER,
-                new RandomPatchFeatureConfig(
-                        64,
-                        4,
-                        4,
-                        registryLookup.getOrThrow(ModPlacedFeature.GHOST_LARKSPUR_PATCH_PLACED_KEY)
-                ));
-
-        register(context, PALE_PUMPKIN_PATCH, Feature.RANDOM_PATCH,
-                ConfiguredFeatures.createRandomPatchFeatureConfig(Feature.SIMPLE_BLOCK,
-                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.PALE_PUMPKIN)), List.of(Blocks.GRASS_BLOCK)
-                ));
+        register(context, BLEAK_BERRY_BUSH_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.BLEAK_BERRY_BUSH
+                                .getDefaultState().with(SweetBerryBushBlock.AGE, 3))),
+                        List.of(Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK)));
      }
 
     private static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

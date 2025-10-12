@@ -29,9 +29,10 @@ public class ModPlacedFeature {
 
     public static final RegistryKey<PlacedFeature> INKCAP_KEY = registerKey("inkcap");
     public static final RegistryKey<PlacedFeature> INKCAP_PATCH_KEY = registerKey("inkcap_patch");
-    public static final RegistryKey<PlacedFeature> GHOST_LARKSPUR_PATCH_PLACED_KEY = registerKey("ghost_larkspur_patch_placed");
 
-    public static final RegistryKey<PlacedFeature> PALE_PUMPKIN_PATCH_PLACED_KEY = registerKey("pale_pumpkin_patch_placed");
+    public static final RegistryKey<PlacedFeature> BLEAK_BERRY_BUSH_PLACED_KEY = registerKey("bleak_berry_bush_placed");
+
+
 
     public static void bootstrap(Registerable<PlacedFeature> context) {
         RegistryEntryLookup<ConfiguredFeature<?, ?>> registryLookup = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE);
@@ -82,16 +83,13 @@ public class ModPlacedFeature {
                         BiomePlacementModifier.of()
                 )
         );
-        RegistryEntry<ConfiguredFeature<?, ?>> ghostLarkspurConfig =
-                registryLookup.getOrThrow(ModConfiguredFeature.GHOST_LARKSPUR_PATCH_KEY);
 
         register(
                 context,
-                GHOST_LARKSPUR_PATCH_PLACED_KEY,
-                ghostLarkspurConfig,
+                BLEAK_BERRY_BUSH_PLACED_KEY,
+                registryLookup.getOrThrow(ModConfiguredFeature.BLEAK_BERRY_BUSH_KEY),
                 List.of(
-                        BlockFilterPlacementModifier.of(BlockPredicate.IS_AIR),
-                        RarityFilterPlacementModifier.of(2),
+                        RarityFilterPlacementModifier.of(32),
                         SquarePlacementModifier.of(),
                         PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                         BiomePlacementModifier.of()

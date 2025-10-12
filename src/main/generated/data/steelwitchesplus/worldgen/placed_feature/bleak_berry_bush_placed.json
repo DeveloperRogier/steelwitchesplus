@@ -1,16 +1,9 @@
 {
-  "feature": "steelwitchesplus:ghost_larkspur_patch",
+  "feature": "steelwitchesplus:bleak_berry_bush",
   "placement": [
     {
-      "type": "minecraft:block_predicate_filter",
-      "predicate": {
-        "type": "minecraft:matching_blocks",
-        "blocks": "minecraft:air"
-      }
-    },
-    {
       "type": "minecraft:rarity_filter",
-      "chance": 2
+      "chance": 32
     },
     {
       "type": "minecraft:in_square"

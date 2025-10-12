@@ -4,7 +4,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
@@ -39,8 +38,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCrop(ModBlocks.WITCHCAP_CROP, WitchcapCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.WOLFSBANE_CROP, WolfsbaneCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
-        //blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BLEAK_BERRY_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED,
-        //        BleakBerryBushBlock.AGE, 0, 1, 2, 3);
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BLEAK_BERRY_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED,
+                BleakBerryBushBlock.AGE, 0, 1, 2, 3);
 
         blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_EMBER_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_WILD_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
@@ -64,7 +63,6 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.ATTUNED_STONE_LIGHT, Models.GENERATED);
         itemModelGenerator.register(ModItems.BAKED_CLAY_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.BELLADONNA, Models.GENERATED);
-        itemModelGenerator.register(ModItems.BLEAK_BERRIES, Models.GENERATED);
         itemModelGenerator.register(ModItems.CLAY_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.FOREST_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.FROG_TOE, Models.GENERATED);
