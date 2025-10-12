@@ -19,7 +19,13 @@ public class ModPotions {
     public static final RegistryEntry<Potion> DELIRIUM_POTION = registerPotion(
             "delirium_potion",
             new Potion("potion.steelwitchesplus.delirium",
-                    new StatusEffectInstance(ModEffects.DELIRIUM, 20 * 20, 0))
+                    new StatusEffectInstance(ModEffects.DELIRIUM, 20 * 5, 0))
+    );
+
+    public static final RegistryEntry<Potion> BEWITCHED_POTION = registerPotion(
+            "bewitched_potion",
+            new Potion("potion.steelwitchesplus.bewitched",
+                    new StatusEffectInstance(ModEffects.BEWITCHED, 20*10, 0))
     );
 
 //    public static final RegistryEntry<Potion> POTION_BIG_REGENERATION = registerPotion("potion_big_regeneration",

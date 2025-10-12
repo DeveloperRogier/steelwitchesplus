@@ -4,6 +4,7 @@
   "block.steelwitchesplus.gypsophila": "Gypsophila",
 
   "effect.steelwitchesplus.delirium": "Delirium",
+  "effect.steelwitchesplus.bewitched": "Bewitched",
 
   "item.steelwitchesplus.aethereal_feather": "Aethereal Feather",
   "item.steelwitchesplus.aethereal_elytra": "Aethereal Elytra",
@@ -84,5 +85,11 @@
 
   "item.minecraft.potion.effect.potion.steelwitchesplus.delirium": "Potion of Delirium",
   "item.minecraft.splash_potion.effect.potion.steelwitchesplus.delirium": "Splash Potion of Delirium",
-  "item.minecraft.lingering_potion.effect.potion.steelwitchesplus.delirium": "Lingering Potion of Delirium"
+  "item.minecraft.lingering_potion.effect.potion.steelwitchesplus.delirium": "Lingering Potion of Delirium",
+  "item.minecraft.potion.effect.potion.steelwitchesplus.bewitched": "Potion of Bewitchment",
+  "item.minecraft.splash_potion.effect.potion.steelwitchesplus.bewitched": "Splash Potion of Bewitchment",
+  "item.minecraft.lingering_potion.effect.potion.steelwitchesplus.bewitched": "Lingering Potion of Bewitchment",
+
+  "item.minecraft.tipped_arrow.effect.potion.steelwitchesplus.bewitched": "Witch Arrow",
+  "item.minecraft.tipped_arrow.effect.potion.steelwitchesplus.delirium": "Delirium Arrow"
 }

@@ -34,6 +34,12 @@ public class ModBiomeModification {
                     GenerationStep.Feature.VEGETAL_DECORATION,
                     ModPlacedFeature.INKCAP_PATCH_KEY
             );
+
+            BiomeModifications.addFeature(
+                    BiomeSelectors.includeByKey(BiomeKeys.PALE_GARDEN),
+                    GenerationStep.Feature.VEGETAL_DECORATION,
+                    ModPlacedFeature.GHOST_LARKSPUR_PATCH_PLACED_KEY
+            );
         }
     }
 }

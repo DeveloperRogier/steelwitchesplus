@@ -9,6 +9,7 @@ import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 
@@ -22,6 +23,7 @@ public class ModConfiguredFeature {
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> INKCAP_KEY = registerKey("inkcap");
     public static final RegistryKey<ConfiguredFeature<?, ?>> INKCAP_PATCH_KEY = registerKey("inkcap_patch");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GHOST_LARKSPUR_PATCH_KEY = registerKey("ghost_larkspur_patch");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALE_PUMPKIN_PATCH = registerKey("pale_pumpkin_patch");
 
@@ -29,7 +31,7 @@ public class ModConfiguredFeature {
         RuleTest stoneOreReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateOreReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
 
-        List<OreFeatureConfig.Target> overworldRubyTargets = List.of(
+                List<OreFeatureConfig.Target> overworldRubyTargets = List.of(
                 OreFeatureConfig.createTarget(stoneOreReplaceables, ModBlocks.RUBY_ORE.getDefaultState()),
                 OreFeatureConfig.createTarget(deepslateOreReplaceables, ModBlocks.DEEPSLATE_RUBY_ORE.getDefaultState())
         );
@@ -46,10 +48,18 @@ public class ModConfiguredFeature {
 
         register(context, INKCAP_PATCH_KEY, Feature.FLOWER,
                 new RandomPatchFeatureConfig(
-                        64,
+                        48,
                         4,
                         4,
                         registryLookup.getOrThrow(ModPlacedFeature.INKCAP_KEY)
+                ));
+
+        register(context, GHOST_LARKSPUR_PATCH_KEY, Feature.FLOWER,
+                new RandomPatchFeatureConfig(
+                        64,
+                        4,
+                        4,
+                        registryLookup.getOrThrow(ModPlacedFeature.GHOST_LARKSPUR_PATCH_PLACED_KEY)
                 ));
 
         register(context, PALE_PUMPKIN_PATCH, Feature.RANDOM_PATCH,

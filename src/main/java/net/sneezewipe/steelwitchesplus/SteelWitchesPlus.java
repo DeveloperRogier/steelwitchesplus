@@ -48,6 +48,9 @@ public class SteelWitchesPlus implements ModInitializer {
 		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
 			builder.registerPotionRecipe(Potions.WATER, ModBlocks.INKCAP.asItem(), ModPotions.DELIRIUM_POTION);
 		});
+		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+			builder.registerPotionRecipe(Potions.WATER, ModItems.WITCHCAP, ModPotions.BEWITCHED_POTION);
+		});
 	}
 
 	private void registerLootTableListener(EntityType entity, Item newDrop) {

@@ -181,7 +181,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.WICCAN_SANDS))));
             }
 
-
             /* Shapeless recipes */
             private void generateRecipeAetherFeather(RecipeExporter exporter) {
                 createShapeless(RecipeCategory.MISC, ModItems.AETHEREAL_FEATHER, 1)

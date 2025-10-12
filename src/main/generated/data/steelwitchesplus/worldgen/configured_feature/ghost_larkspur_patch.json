@@ -1,8 +1,8 @@
 {
   "type": "minecraft:flower",
   "config": {
-    "feature": "steelwitchesplus:inkcap",
-    "tries": 48,
+    "feature": "steelwitchesplus:ghost_larkspur_patch_placed",
+    "tries": 64,
     "xz_spread": 4,
     "y_spread": 4
   }

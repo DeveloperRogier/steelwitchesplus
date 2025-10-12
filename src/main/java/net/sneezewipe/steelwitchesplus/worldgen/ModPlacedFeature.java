@@ -8,8 +8,6 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
@@ -31,6 +29,7 @@ public class ModPlacedFeature {
 
     public static final RegistryKey<PlacedFeature> INKCAP_KEY = registerKey("inkcap");
     public static final RegistryKey<PlacedFeature> INKCAP_PATCH_KEY = registerKey("inkcap_patch");
+    public static final RegistryKey<PlacedFeature> GHOST_LARKSPUR_PATCH_PLACED_KEY = registerKey("ghost_larkspur_patch_placed");
 
     public static final RegistryKey<PlacedFeature> PALE_PUMPKIN_PATCH_PLACED_KEY = registerKey("pale_pumpkin_patch_placed");
 
@@ -78,6 +77,21 @@ public class ModPlacedFeature {
                 registryLookup.getOrThrow(ModConfiguredFeature.INKCAP_PATCH_KEY),
                 List.of(
                         RarityFilterPlacementModifier.of(1),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                        BiomePlacementModifier.of()
+                )
+        );
+        RegistryEntry<ConfiguredFeature<?, ?>> ghostLarkspurConfig =
+                registryLookup.getOrThrow(ModConfiguredFeature.GHOST_LARKSPUR_PATCH_KEY);
+
+        register(
+                context,
+                GHOST_LARKSPUR_PATCH_PLACED_KEY,
+                ghostLarkspurConfig,
+                List.of(
+                        BlockFilterPlacementModifier.of(BlockPredicate.IS_AIR),
+                        RarityFilterPlacementModifier.of(2),
                         SquarePlacementModifier.of(),
                         PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                         BiomePlacementModifier.of()
