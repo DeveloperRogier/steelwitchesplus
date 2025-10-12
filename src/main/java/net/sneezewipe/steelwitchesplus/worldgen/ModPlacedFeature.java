@@ -30,7 +30,11 @@ public class ModPlacedFeature {
     public static final RegistryKey<PlacedFeature> INKCAP_KEY = registerKey("inkcap");
     public static final RegistryKey<PlacedFeature> INKCAP_PATCH_KEY = registerKey("inkcap_patch");
 
+    public static final RegistryKey<PlacedFeature> GHOST_LARKSPUR_PLACED_KEY = registerKey("ghost_larkspur_placed");
+    public static final RegistryKey<PlacedFeature> GRASP_GRASS_PLACED_KEY = registerKey("grasp_grass_placed");
+
     public static final RegistryKey<PlacedFeature> BLEAK_BERRY_BUSH_PLACED_KEY = registerKey("bleak_berry_bush_placed");
+    public static final RegistryKey<PlacedFeature> PALE_PUMPKIN_PATCH_PLACED_KEY = registerKey("pale_pumpkin_patch_placed");
 
 
 
@@ -62,34 +66,58 @@ public class ModPlacedFeature {
                 modifiersCount(4, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80)))
         );
 
-        register(
-                context,
-                INKCAP_KEY,
+        register(context, INKCAP_KEY,
                 registryLookup.getOrThrow(ModConfiguredFeature.INKCAP_KEY),
                 List.of(
                         BlockFilterPlacementModifier.of(
                                 BlockPredicate.matchingBlocks(new BlockPos(0, -1, 0), Blocks.PALE_MOSS_BLOCK)),
-                        RarityFilterPlacementModifier.of(1)
+                        RarityFilterPlacementModifier.of(6)
                 )
         );
-        register(
-                context,
-                INKCAP_PATCH_KEY,
+        register(context, INKCAP_PATCH_KEY,
                 registryLookup.getOrThrow(ModConfiguredFeature.INKCAP_PATCH_KEY),
                 List.of(
-                        RarityFilterPlacementModifier.of(1),
+                        RarityFilterPlacementModifier.of(4),
                         SquarePlacementModifier.of(),
                         PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                         BiomePlacementModifier.of()
                 )
         );
 
-        register(
-                context,
-                BLEAK_BERRY_BUSH_PLACED_KEY,
+        register(context, GHOST_LARKSPUR_PLACED_KEY,
+                registryLookup.getOrThrow(ModConfiguredFeature.GHOST_LARKSPUR_KEY),
+                List.of(
+                        RarityFilterPlacementModifier.of(2),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                        BiomePlacementModifier.of()
+                )
+        );
+
+        register(context, GRASP_GRASS_PLACED_KEY,
+                registryLookup.getOrThrow(ModConfiguredFeature.GRASP_GRASS_KEY),
+                List.of(
+                        RarityFilterPlacementModifier.of(2),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                        BiomePlacementModifier.of()
+                )
+        );
+
+        register(context, BLEAK_BERRY_BUSH_PLACED_KEY,
                 registryLookup.getOrThrow(ModConfiguredFeature.BLEAK_BERRY_BUSH_KEY),
                 List.of(
-                        RarityFilterPlacementModifier.of(32),
+                        RarityFilterPlacementModifier.of(12),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                        BiomePlacementModifier.of()
+                )
+        );
+
+        register(context, PALE_PUMPKIN_PATCH_PLACED_KEY,
+                registryLookup.getOrThrow(ModConfiguredFeature.PALE_PUMPKIN_PATCH_KEY),
+                List.of(
+                        RarityFilterPlacementModifier.of(20),
                         SquarePlacementModifier.of(),
                         PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                         BiomePlacementModifier.of()

@@ -40,6 +40,24 @@ public class ModBiomeModification {
                     GenerationStep.Feature.VEGETAL_DECORATION,
                     ModPlacedFeature.BLEAK_BERRY_BUSH_PLACED_KEY
             );
+
+            BiomeModifications.addFeature(
+                    BiomeSelectors.includeByKey(BiomeKeys.PALE_GARDEN),
+                    GenerationStep.Feature.VEGETAL_DECORATION,
+                    ModPlacedFeature.PALE_PUMPKIN_PATCH_PLACED_KEY
+            );
+
+            BiomeModifications.addFeature(
+                    BiomeSelectors.includeByKey(BiomeKeys.PALE_GARDEN),
+                    GenerationStep.Feature.VEGETAL_DECORATION,
+                    ModPlacedFeature.GHOST_LARKSPUR_PLACED_KEY
+            );
+
+            BiomeModifications.addFeature(
+                    BiomeSelectors.includeByKey(BiomeKeys.PALE_GARDEN),
+                    GenerationStep.Feature.VEGETAL_DECORATION,
+                    ModPlacedFeature.GRASP_GRASS_PLACED_KEY
+            );
         }
     }
 }

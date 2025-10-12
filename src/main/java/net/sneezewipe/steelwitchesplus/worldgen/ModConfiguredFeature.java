@@ -25,7 +25,11 @@ public class ModConfiguredFeature {
     public static final RegistryKey<ConfiguredFeature<?, ?>> INKCAP_KEY = registerKey("inkcap");
     public static final RegistryKey<ConfiguredFeature<?, ?>> INKCAP_PATCH_KEY = registerKey("inkcap_patch");
 
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GHOST_LARKSPUR_KEY = registerKey("ghost_larkspur");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GRASP_GRASS_KEY = registerKey("grasp_grass");
+
     public static final RegistryKey<ConfiguredFeature<?, ?>> BLEAK_BERRY_BUSH_KEY = registerKey("bleak_berry_bush");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> PALE_PUMPKIN_PATCH_KEY = registerKey("pale_pumpkin_patch");
 
         public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneOreReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
@@ -59,7 +63,29 @@ public class ModConfiguredFeature {
                         Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.BLEAK_BERRY_BUSH
                                 .getDefaultState().with(SweetBerryBushBlock.AGE, 3))),
-                        List.of(Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK)));
+                        List.of(Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK)
+                ));
+
+        register(context, PALE_PUMPKIN_PATCH_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.PALE_PUMPKIN)),
+                        List.of(Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK)
+                ));
+
+        register(context, GHOST_LARKSPUR_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.GHOST_LARKSPUR)),
+                        List.of(Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK)
+                ));
+
+            register(context, GRASP_GRASS_KEY, Feature.RANDOM_PATCH,
+                    ConfiguredFeatures.createRandomPatchFeatureConfig(
+                            Feature.SIMPLE_BLOCK,
+                            new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.GRASP_GRASS)),
+                            List.of(Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK)
+                    ));
      }
 
     private static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
