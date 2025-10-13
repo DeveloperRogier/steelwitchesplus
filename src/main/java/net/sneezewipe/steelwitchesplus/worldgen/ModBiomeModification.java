@@ -16,6 +16,7 @@ public class ModBiomeModification {
                 ModPlacedFeature.ORE_RUBY_MEDIUM,
                 ModPlacedFeature.ORE_RUBY_LARGE,
                 ModPlacedFeature.ORE_RUBY_BURIED,
+
                 ModPlacedFeature.INKCAP_KEY,
                 ModPlacedFeature.INKCAP_PATCH_KEY
         )) {
@@ -32,19 +33,7 @@ public class ModBiomeModification {
             BiomeModifications.addFeature(
                     BiomeSelectors.includeByKey(BiomeKeys.PALE_GARDEN),
                     GenerationStep.Feature.VEGETAL_DECORATION,
-                    ModPlacedFeature.INKCAP_PATCH_KEY
-            );
-
-            BiomeModifications.addFeature(
-                    BiomeSelectors.includeByKey(BiomeKeys.PALE_GARDEN),
-                    GenerationStep.Feature.VEGETAL_DECORATION,
                     ModPlacedFeature.BLEAK_BERRY_BUSH_PLACED_KEY
-            );
-
-            BiomeModifications.addFeature(
-                    BiomeSelectors.includeByKey(BiomeKeys.PALE_GARDEN),
-                    GenerationStep.Feature.VEGETAL_DECORATION,
-                    ModPlacedFeature.PALE_PUMPKIN_PATCH_PLACED_KEY
             );
 
             BiomeModifications.addFeature(
@@ -64,6 +53,20 @@ public class ModBiomeModification {
                     GenerationStep.Feature.VEGETAL_DECORATION,
                     ModPlacedFeature.GYPSOPHILA_PLACED_KEY
             );
+
+            BiomeModifications.addFeature(
+                    BiomeSelectors.includeByKey(BiomeKeys.PALE_GARDEN),
+                    GenerationStep.Feature.VEGETAL_DECORATION,
+                    ModPlacedFeature.INKCAP_PATCH_KEY
+            );
+
+            BiomeModifications.addFeature(
+                    BiomeSelectors.includeByKey(BiomeKeys.PALE_GARDEN),
+                    GenerationStep.Feature.VEGETAL_DECORATION,
+                    ModPlacedFeature.PALE_PUMPKIN_PATCH_PLACED_KEY
+            );
+
+
         }
     }
 }

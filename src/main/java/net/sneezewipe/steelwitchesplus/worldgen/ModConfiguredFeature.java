@@ -24,14 +24,12 @@ public class ModConfiguredFeature {
     public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_RUBY_LARGE = registerKey("ore_ruby_large");
     public static final RegistryKey<ConfiguredFeature<?, ?>> ORE_RUBY_BURIED = registerKey("ore_ruby_buried");
 
-    public static final RegistryKey<ConfiguredFeature<?, ?>> INKCAP_KEY = registerKey("inkcap");
-    public static final RegistryKey<ConfiguredFeature<?, ?>> INKCAP_PATCH_KEY = registerKey("inkcap_patch");
-
+    public static final RegistryKey<ConfiguredFeature<?, ?>> BLEAK_BERRY_BUSH_KEY = registerKey("bleak_berry_bush");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GHOST_LARKSPUR_KEY = registerKey("ghost_larkspur");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GRASP_GRASS_KEY = registerKey("grasp_grass");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GYPSOPHILA_KEY = registerKey("gypsophila");
-
-    public static final RegistryKey<ConfiguredFeature<?, ?>> BLEAK_BERRY_BUSH_KEY = registerKey("bleak_berry_bush");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> INKCAP_KEY = registerKey("inkcap");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> INKCAP_PATCH_KEY = registerKey("inkcap_patch");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALE_PUMPKIN_PATCH_KEY = registerKey("pale_pumpkin_patch");
 
         public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
@@ -50,29 +48,11 @@ public class ModConfiguredFeature {
 
         RegistryEntryLookup<PlacedFeature> registryLookup = context.getRegistryLookup(RegistryKeys.PLACED_FEATURE);
 
-        register(context, INKCAP_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(
-                BlockStateProvider.of(ModBlocks.INKCAP)));
-
-        register(context, INKCAP_PATCH_KEY, Feature.FLOWER,
-                new RandomPatchFeatureConfig(
-                        48,
-                        4,
-                        4,
-                        registryLookup.getOrThrow(ModPlacedFeature.INKCAP_KEY)
-                ));
-
         register(context, BLEAK_BERRY_BUSH_KEY, Feature.RANDOM_PATCH,
                 ConfiguredFeatures.createRandomPatchFeatureConfig(
                         Feature.SIMPLE_BLOCK,
                         new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.BLEAK_BERRY_BUSH
                                 .getDefaultState().with(SweetBerryBushBlock.AGE, 3))),
-                        List.of(Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK)
-                ));
-
-        register(context, PALE_PUMPKIN_PATCH_KEY, Feature.RANDOM_PATCH,
-                ConfiguredFeatures.createRandomPatchFeatureConfig(
-                        Feature.SIMPLE_BLOCK,
-                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.PALE_PUMPKIN)),
                         List.of(Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK)
                 ));
 
@@ -100,6 +80,23 @@ public class ModConfiguredFeature {
                                         flowerbed(ModBlocks.GYPSOPHILA)))
                 ));
 
+        register(context, INKCAP_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(
+                BlockStateProvider.of(ModBlocks.INKCAP)));
+
+        register(context, INKCAP_PATCH_KEY, Feature.FLOWER,
+                new RandomPatchFeatureConfig(
+                        48,
+                        4,
+                        4,
+                        registryLookup.getOrThrow(ModPlacedFeature.INKCAP_KEY)
+                ));
+
+        register(context, PALE_PUMPKIN_PATCH_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.PALE_PUMPKIN)),
+                        List.of(Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK)
+                ));
      }
 
     private static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

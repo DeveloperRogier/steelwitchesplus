@@ -23,8 +23,6 @@ public class ModBlocks {
             AbstractBlock.Settings.copy(Blocks.SUGAR_CANE), true);
     public static final Block DISTILLERY_BLOCK = register("distillery_block", // TODO: recipe & texture
             DistilleryBlock::new, AbstractBlock.Settings.create().strength(1.5F, 6.0F).requiresTool(), true);
-    public static final Block PALE_PUMPKIN = register("pale_pumpkin",
-            PumpkinBlock::new, AbstractBlock.Settings.copy(Blocks.PUMPKIN), true);
     public static final Block QUARTZ_WALL = register("quartz_wall",
             WallBlock::new, AbstractBlock.Settings.copy(Blocks.QUARTZ_BLOCK), true);
     public static final Block RUBY_BLOCK = register("ruby_block",
@@ -45,21 +43,23 @@ public class ModBlocks {
             PillarBlock::new, AbstractBlock.Settings.copy(Blocks.CHISELED_QUARTZ_BLOCK), true);
 
     /* FLOWERS */
-    public static final Block INKCAP = register("inkcap", (settings) -> new FlowerBlock(
-            StatusEffects.BLINDNESS, 1.5F, settings),
-            AbstractBlock.Settings.copy(Blocks.CORNFLOWER), true);
-    public static final Block GHOST_LARKSPUR = register("ghost_larkspur", TallFlowerBlock::new,
+        public static final Block GHOST_LARKSPUR = register("ghost_larkspur", TallFlowerBlock::new,
             AbstractBlock.Settings.copy(Blocks.ROSE_BUSH), true);
     public static final Block GRASP_GRASS = register("grasp_grass", TallFlowerBlock::new,
             AbstractBlock.Settings.copy(Blocks.ROSE_BUSH), true);
     public static final Block GYPSOPHILA = register("gypsophila", FlowerbedBlock::new,
             AbstractBlock.Settings.copy(Blocks.WILDFLOWERS), true);
+    public static final Block INKCAP = register("inkcap", (settings) -> new FlowerBlock(
+                    StatusEffects.BLINDNESS, 1.5F, settings),
+            AbstractBlock.Settings.copy(Blocks.CORNFLOWER), true);
 
     /* CROPS */
     public static final Block ARTICHOKE_CROP = register("artichoke", ArtichokeCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
     public static final Block BELLADONNA_CROP = register("belladonna", BelladonnaCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
+    public static final Block BLEAK_BERRY_BUSH = register("bleak_berry_bush", BleakBerryBushBlock::new,
+            AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH), false);
     public static final Block GARLIC_CROP = register("garlic", GarlicCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
     public static final Block SOLANDRA_CROP = register("solandra", SolandraCropBlock::new,
@@ -68,18 +68,16 @@ public class ModBlocks {
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
     public static final Block WOLFSBANE_CROP = register("wolfsbane", WolfsbaneCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
-
-    public static final Block BLEAK_BERRY_BUSH = register("bleak_berry_bush", BleakBerryBushBlock::new,
-            AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH), false);
-
+    /* PALE PUMPKIN */
+    public static final Block PALE_PUMPKIN = register("pale_pumpkin",
+            PumpkinBlock::new, AbstractBlock.Settings.copy(Blocks.PUMPKIN), true);
     public static final Block PALE_PUMPKIN_STEM = register(
             "pale_pumpkin_stem",
             settings -> new StemBlock(
                     RegistryKey.of(RegistryKeys.BLOCK, Identifier.of("steelwitchesplus", "pale_pumpkin")),
                     RegistryKey.of(RegistryKeys.BLOCK, Identifier.of("steelwitchesplus", "pale_attached_pumpkin_stem")),
                     RegistryKey.of(RegistryKeys.ITEM, Identifier.of("steelwitchesplus", "pale_pumpkin_seeds")),
-                    settings
-            ),
+                    settings),
             AbstractBlock.Settings.copy(Blocks.PUMPKIN_STEM),
             false);
     public static final Block PALE_ATTACHED_PUMPKIN_STEM = register(
@@ -88,12 +86,11 @@ public class ModBlocks {
                     RegistryKey.of(RegistryKeys.BLOCK, Identifier.of("steelwitchesplus", "pale_pumpkin")),
                     RegistryKey.of(RegistryKeys.BLOCK, Identifier.of("steelwitchesplus", "pale_pumpkin_stem")),
                     RegistryKey.of(RegistryKeys.ITEM, Identifier.of("steelwitchesplus", "pale_pumpkin_seeds")),
-                    settings
-            ),
+                    settings),
             AbstractBlock.Settings.copy(Blocks.ATTACHED_PUMPKIN_STEM),
             false);
 
-    /* HELPERS */
+        /* HELPERS */
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {
         RegistryKey<Block> blockKey = keyOfBlock(name);
         Block block = blockFactory.apply(settings.registryKey(blockKey));
