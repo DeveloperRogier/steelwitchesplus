@@ -134,7 +134,7 @@ public class ModItems {
 
     public static final FoodComponent PALE_PUMPKIN_PIE_COMPONENT = new FoodComponent.Builder()
             .nutrition(9)
-            .saturationModifier(0.2F)
+            .saturationModifier(0.3F)
             .build();
     public static final Item PALE_PUMPKIN_PIE = register(
             "pale_pumpkin_pie",

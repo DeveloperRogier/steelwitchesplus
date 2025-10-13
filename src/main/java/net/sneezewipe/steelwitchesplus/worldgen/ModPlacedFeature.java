@@ -32,6 +32,7 @@ public class ModPlacedFeature {
 
     public static final RegistryKey<PlacedFeature> GHOST_LARKSPUR_PLACED_KEY = registerKey("ghost_larkspur_placed");
     public static final RegistryKey<PlacedFeature> GRASP_GRASS_PLACED_KEY = registerKey("grasp_grass_placed");
+    public static final RegistryKey<PlacedFeature> GYPSOPHILA_PLACED_KEY = registerKey("gypsophila_placed");
 
     public static final RegistryKey<PlacedFeature> BLEAK_BERRY_BUSH_PLACED_KEY = registerKey("bleak_berry_bush_placed");
     public static final RegistryKey<PlacedFeature> PALE_PUMPKIN_PATCH_PLACED_KEY = registerKey("pale_pumpkin_patch_placed");
@@ -118,6 +119,18 @@ public class ModPlacedFeature {
                 registryLookup.getOrThrow(ModConfiguredFeature.PALE_PUMPKIN_PATCH_KEY),
                 List.of(
                         RarityFilterPlacementModifier.of(20),
+                        SquarePlacementModifier.of(),
+                        PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
+                        BiomePlacementModifier.of()
+                )
+        );
+
+        register(
+                context,
+                GYPSOPHILA_PLACED_KEY,
+                registryLookup.getOrThrow(ModConfiguredFeature.GYPSOPHILA_KEY),
+                List.of(
+                        RarityFilterPlacementModifier.of(1),
                         SquarePlacementModifier.of(),
                         PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
                         BiomePlacementModifier.of()

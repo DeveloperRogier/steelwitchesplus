@@ -1,16 +1,18 @@
 package net.sneezewipe.steelwitchesplus.worldgen;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.registry.*;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
+import net.minecraft.util.collection.Pool;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 
@@ -27,6 +29,7 @@ public class ModConfiguredFeature {
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> GHOST_LARKSPUR_KEY = registerKey("ghost_larkspur");
     public static final RegistryKey<ConfiguredFeature<?, ?>> GRASP_GRASS_KEY = registerKey("grasp_grass");
+    public static final RegistryKey<ConfiguredFeature<?, ?>> GYPSOPHILA_KEY = registerKey("gypsophila");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> BLEAK_BERRY_BUSH_KEY = registerKey("bleak_berry_bush");
     public static final RegistryKey<ConfiguredFeature<?, ?>> PALE_PUMPKIN_PATCH_KEY = registerKey("pale_pumpkin_patch");
@@ -80,12 +83,23 @@ public class ModConfiguredFeature {
                         List.of(Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK)
                 ));
 
-            register(context, GRASP_GRASS_KEY, Feature.RANDOM_PATCH,
-                    ConfiguredFeatures.createRandomPatchFeatureConfig(
-                            Feature.SIMPLE_BLOCK,
-                            new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.GRASP_GRASS)),
-                            List.of(Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK)
-                    ));
+        register(context, GRASP_GRASS_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig(
+                        Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.GRASP_GRASS)),
+                        List.of(Blocks.GRASS_BLOCK, Blocks.PALE_MOSS_BLOCK)
+                ));
+
+        register(context, GYPSOPHILA_KEY, Feature.FLOWER,
+                new RandomPatchFeatureConfig(
+                        96,
+                        6,
+                        2,
+                        PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+                                new SimpleBlockFeatureConfig(
+                                        flowerbed(ModBlocks.GYPSOPHILA)))
+                ));
+
      }
 
     private static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
@@ -98,5 +112,13 @@ public class ModConfiguredFeature {
             F feature,
             FC featureConfig) {
         context.register(key, new ConfiguredFeature<>(feature, featureConfig));
+    }
+
+    private static WeightedBlockStateProvider flowerbed(Block... blocks) {
+        Pool.Builder<BlockState> builder = Pool.builder();
+        for (Block b : blocks) {
+            builder.add(b.getDefaultState(), 1);
+        }
+        return new WeightedBlockStateProvider(builder.build());
     }
 }
