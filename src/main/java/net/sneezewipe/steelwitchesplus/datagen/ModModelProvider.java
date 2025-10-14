@@ -28,6 +28,7 @@ public class ModModelProvider extends FabricModelProvider {
 
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DISTILLERY_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_RUBY_ORE);
+        blockStateModelGenerator.registerSingleton(ModBlocks.PALE_PUMPKIN, TexturedModel.END_FOR_TOP_CUBE_COLUMN);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RUBY_BLOCK);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.RUBY_ORE);
 
@@ -35,11 +36,22 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCrop(ModBlocks.BELLADONNA_CROP, BelladonnaCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.GARLIC_CROP, GarlicCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.SOLANDRA_CROP, SolandraCropBlock.AGE, 0, 1, 2, 3, 4);
+        blockStateModelGenerator.registerCrop(ModBlocks.WITCHCAP_CROP, WitchcapCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.WOLFSBANE_CROP, WolfsbaneCropBlock.AGE, 0, 1, 2, 3, 4, 5);
+
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BLEAK_BERRY_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED,
+                BleakBerryBushBlock.AGE, 0, 1, 2, 3);
 
         blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_EMBER_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_WILD_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.SKYWORT_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
+
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.INKCAP, Blocks.POTTED_AZALEA_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED);
+
+        blockStateModelGenerator.registerDoubleBlock(ModBlocks.GHOST_LARKSPUR, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerDoubleBlock(ModBlocks.GRASP_GRASS, BlockStateModelGenerator.CrossType.NOT_TINTED);
+
+        blockStateModelGenerator.registerFlowerbed(ModBlocks.GYPSOPHILA);
     }
 
     @Override
@@ -56,14 +68,25 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.FOREST_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.FROG_TOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GARLIC, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.GHOST_LARKSPUR.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.GRASP_GRASS.asItem(), Models.GENERATED);
+        itemModelGenerator.register(ModBlocks.INKCAP.asItem(), Models.GENERATED);
+        itemModelGenerator.register(ModItems.INKCAP_STEW, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PALE_PUMPKIN_PIE, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PALE_PUMPKIN_SEEDS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.PALLID_APPLE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBINITE_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.SCULK_POWDER, Models.GENERATED);
         itemModelGenerator.register(ModItems.SOLANDRA, Models.GENERATED);
         itemModelGenerator.register(ModItems.WEEPING_POWDER, Models.GENERATED);
+        itemModelGenerator.register(ModItems.WITCHCAP, Models.GENERATED);
         itemModelGenerator.register(ModItems.WOLFSBANE, Models.GENERATED);
         itemModelGenerator.register(ModItems.WICCAN_SANDS, Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.DAINTY_SLIPPERS, Models.GENERATED);
+        itemModelGenerator.register(ModItems.INFERNAL_BLADE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.QUARTZ_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WITHER_SWORD, Models.HANDHELD);

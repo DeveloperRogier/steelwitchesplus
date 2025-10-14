@@ -2,14 +2,20 @@ package net.sneezewipe.steelwitchesplus.item;
 
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.component.type.ConsumableComponent;
+import net.minecraft.component.type.ConsumableComponents;
+import net.minecraft.component.type.FoodComponent;
+import net.minecraft.entity.effect.StatusEffect;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
-import net.minecraft.item.equipment.ArmorMaterial;
-import net.minecraft.item.equipment.ArmorMaterials;
+import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 import net.minecraft.item.equipment.EquipmentType;
-import net.minecraft.registry.Registries;
+import net.minecraft.potion.Potion;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
@@ -42,6 +48,8 @@ public class ModItems {
     public static final Item GARLIC = register("garlic", Item::new, new Item.Settings());
     public static final Item GARLIC_CLOVE = register("garlic_clove", settings -> new BlockItem(ModBlocks.GARLIC_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item GLASS_JAR = register("glass_jar", Item::new, new Item.Settings());
+    public static final Item PALE_PUMPKIN_SEEDS = register("pale_pumpkin_seeds",
+            settings -> new BlockItem(ModBlocks.PALE_PUMPKIN_STEM, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item POTION_ESSENCE_BERRY_MIX = register("potion_essence_berry_mix", Item::new, new Item.Settings());
     public static final Item QUARTZ_SWORD = register("quartz_sword",
             settings -> new QuartzSwordItem(ModToolMaterials.QUARTZ, 3, -2.2f, settings), new Item.Settings());
@@ -52,6 +60,8 @@ public class ModItems {
     public static final Item SOLANDRA_SEEDS = register("solandra_seeds", settings -> new BlockItem(ModBlocks.SOLANDRA_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item WEEPING_POWDER = register("weeping_powder", Item::new, new Item.Settings());
     public static final Item WICCAN_SANDS = register("wiccan_sands", WiccanSandsItem::new, new Item.Settings().rarity(Rarity.UNCOMMON));
+    public static final Item WITCHCAP = register("witchcap", Item::new, new Item.Settings());
+    public static final Item WITCHCAP_SPORES = register("witchcap_spores", settings -> new BlockItem(ModBlocks.WITCHCAP_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item WOLFSBANE = register("wolfsbane", WolfsbaneItem::new, new Item.Settings());
     public static final Item WOLFSBANE_SEEDS = register("wolfsbane_seeds", settings -> new BlockItem(ModBlocks.WOLFSBANE_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item WITHER_SWORD = register("wither_sword",
@@ -102,6 +112,61 @@ public class ModItems {
                     .maxDamage(EquipmentType.BOOTS.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
     public static final List<Item> RUBY_ARMOR_SET = List.of(RUBY_HELMET, RUBY_CHESTPLATE, RUBY_LEGGINGS, RUBY_BOOTS);
 
+    /*
+     * CUSTOM ITEMS
+     */
+    public static final Item DAINTY_SLIPPERS = register("dainty_slippers", Item::new, new Item.Settings());
+    public static final Item INFERNAL_BLADE = register("infernal_blade",
+            settings -> new InfernalBladeItem(ToolMaterial.DIAMOND, 3, -2.4f, settings), new Item.Settings());
+
+    /*
+     * FOOD
+     */
+    public static final ConsumableComponent WEAKNESS_FOOD_CONSUMABLE_COMPONENT = ConsumableComponents.food()
+            .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 10*20,0),0.7F))
+            .build();
+
+    public static final FoodComponent WEAKNESS_FOOD_COMPONENT = new FoodComponent.Builder()
+            .nutrition(5)
+            .saturationModifier(0.2F)
+            .build();
+    public static final Item PALLID_APPLE = register(
+            "pallid_apple",
+            Item::new,
+            new Item.Settings().food(WEAKNESS_FOOD_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
+    );
+
+    public static final FoodComponent WEAKNESS_BERRY_COMPONENT = new FoodComponent.Builder()
+            .nutrition(3)
+            .saturationModifier(0.05F)
+            .alwaysEdible()
+            .build();
+    public static final Item BLEAK_BERRIES = register(
+            "bleak_berries",
+            settings -> new BlockItem(ModBlocks.BLEAK_BERRY_BUSH, settings),
+            new Item.Settings().food(WEAKNESS_BERRY_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
+    );
+
+    public static final FoodComponent PALE_PUMPKIN_PIE_COMPONENT = new FoodComponent.Builder()
+            .nutrition(9)
+            .saturationModifier(0.3F)
+            .build();
+    public static final Item PALE_PUMPKIN_PIE = register(
+            "pale_pumpkin_pie",
+            Item::new,
+            new Item.Settings().food(PALE_PUMPKIN_PIE_COMPONENT,WEAKNESS_FOOD_CONSUMABLE_COMPONENT)
+    );
+
+    public static final FoodComponent INKCAP_STEW_COMPONENT = new FoodComponent.Builder()
+            .nutrition(5)
+            .saturationModifier(0.1F)
+            .build();
+    public static final Item INKCAP_STEW = register(
+            "inkcap_stew",
+            Item::new,
+            new Item.Settings().maxCount(1).food(INKCAP_STEW_COMPONENT).useRemainder(Items.BOWL)
+    );
+
     /* Add an item to the item group indicated by one of the following functions' names. */
     /* To be clear, since these are vanilla groups, these are not handled in ModItemGroups.java. */
     private static void addItemsToToolsItemGroup(FabricItemGroupEntries entries) {
@@ -121,17 +186,22 @@ public class ModItems {
                 AMETHYST_DUST,
                 BAKED_CLAY_JAR,
                 BELLADONNA,
+                BLEAK_BERRIES,
                 CLAY_JAR,
                 FOREST_ESSENCE,
                 FROG_TOE,
                 GARLIC,
                 GLASS_JAR,
+                ModBlocks.INKCAP.asItem(),
+                ModBlocks.PALE_PUMPKIN.asItem(),
+                PALLID_APPLE,
                 POTION_ESSENCE_BERRY_MIX,
                 RUBINITE_INGOT,
                 RUBY,
                 SCULK_POWDER,
                 SOLANDRA,
                 WEEPING_POWDER,
+                WITCHCAP,
                 WOLFSBANE,
         };
         for (Item item : items) {
@@ -144,7 +214,14 @@ public class ModItems {
                 ARTICHOKE_SEEDS,
                 BELLADONNA_SEEDS,
                 GARLIC_CLOVE,
+                ModBlocks.GHOST_LARKSPUR.asItem(),
+                ModBlocks.GRASP_GRASS.asItem(),
+                ModBlocks.GYPSOPHILA.asItem(),
+                ModBlocks.INKCAP.asItem(),
+                ModBlocks.PALE_PUMPKIN.asItem(),
+                PALE_PUMPKIN_SEEDS,
                 SOLANDRA_SEEDS,
+                WITCHCAP_SPORES,
                 WOLFSBANE_SEEDS,
 
                 ModBlocks.DEEPSLATE_RUBY_ORE.asItem(),
@@ -158,6 +235,7 @@ public class ModItems {
     private static void addItemsToCombatItemGroup(FabricItemGroupEntries entries) {
         Item[] items = {
                 AMETHYST_GREATSWORD,
+                INFERNAL_BLADE,
                 QUARTZ_BOOTS,
                 QUARTZ_CHESTPLATE,
                 QUARTZ_HELMET,
@@ -172,6 +250,18 @@ public class ModItems {
                 RUBY_HELMET,
                 RUBY_LEGGINGS,
                 WITHER_SWORD,
+        };
+        for (Item item : items) {
+            entries.add(item);
+        }
+    }
+
+    private static void addItemsToFoodDrinkItemGroup(FabricItemGroupEntries entries) {
+        Item[] items = {
+                BLEAK_BERRIES,
+                INKCAP_STEW,
+                PALE_PUMPKIN_PIE,
+                PALLID_APPLE,
         };
         for (Item item : items) {
             entries.add(item);
@@ -197,6 +287,7 @@ public class ModItems {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(ModItems::addItemsToToolsItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register(ModItems::addItemsToIngredientsItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(ModItems::addItemsToNaturalItemGroup);
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.FOOD_AND_DRINK).register(ModItems::addItemsToFoodDrinkItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToCombatItemGroup);
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(ModItems::addItemsToBuildingBlocksItemGroup);
     }

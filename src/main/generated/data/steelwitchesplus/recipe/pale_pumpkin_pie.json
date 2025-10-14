@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:sugar",
+    "minecraft:egg",
+    "steelwitchesplus:pale_pumpkin"
+  ],
+  "result": {
+    "count": 1,
+    "id": "steelwitchesplus:pale_pumpkin_pie"
+  }
+}

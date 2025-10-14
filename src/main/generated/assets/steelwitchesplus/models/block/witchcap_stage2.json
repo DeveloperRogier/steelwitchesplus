@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "steelwitchesplus:block/witchcap_stage2"
+  }
+}

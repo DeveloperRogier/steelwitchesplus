@@ -55,6 +55,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 /* Shapeless recipes items */
                 generateRecipeAetherFeather(recipeExporter);
                 generateRecipeGarlicClove(recipeExporter);
+                generateRecipeInkcapStew(recipeExporter);
+                generateRecipePalePumpkinPie(recipeExporter);
+                generateRecipePalePumpkinSeeds(recipeExporter);
                 generateRecipeWitherSword(recipeExporter);
                 generateRecipeRubiniteIngot(recipeExporter);
 
@@ -181,7 +184,6 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.WICCAN_SANDS))));
             }
 
-
             /* Shapeless recipes */
             private void generateRecipeAetherFeather(RecipeExporter exporter) {
                 createShapeless(RecipeCategory.MISC, ModItems.AETHEREAL_FEATHER, 1)
@@ -195,6 +197,27 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .input(ModItems.GARLIC)
                         .criterion(hasItem(ModItems.GARLIC), conditionsFromItem(ModItems.GARLIC))
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.GARLIC_CLOVE))));
+            }
+
+            private void generateRecipeInkcapStew(RecipeExporter exporter) {
+                createShapeless(RecipeCategory.FOOD, ModItems.INKCAP_STEW, 1)
+                        .input(ModBlocks.INKCAP).input(ModItems.WITCHCAP).input(Items.BOWL)
+                        .criterion(hasItem(ModBlocks.INKCAP), conditionsFromItem(ModBlocks.INKCAP))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.INKCAP_STEW))));
+            }
+
+            private void generateRecipePalePumpkinPie(RecipeExporter exporter) {
+                createShapeless(RecipeCategory.FOOD, ModItems.PALE_PUMPKIN_PIE, 1)
+                        .input(Items.SUGAR).input(Items.EGG).input(ModBlocks.PALE_PUMPKIN)
+                        .criterion(hasItem(ModBlocks.PALE_PUMPKIN), conditionsFromItem(ModBlocks.PALE_PUMPKIN))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.PALE_PUMPKIN_PIE))));
+            }
+
+            private void generateRecipePalePumpkinSeeds(RecipeExporter exporter) {
+                createShapeless(RecipeCategory.MISC, ModItems.PALE_PUMPKIN_SEEDS, 4)
+                        .input(ModBlocks.PALE_PUMPKIN)
+                        .criterion(hasItem(ModBlocks.PALE_PUMPKIN), conditionsFromItem(ModBlocks.PALE_PUMPKIN))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName((ModItems.PALE_PUMPKIN_SEEDS)))));
             }
 
             private void generateRecipeRubiniteIngot(RecipeExporter exporter) {

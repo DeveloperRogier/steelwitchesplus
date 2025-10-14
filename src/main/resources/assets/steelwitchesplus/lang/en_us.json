@@ -1,4 +1,11 @@
 {
+  "block.steelwitchesplus.ghost_larkspur": "Larkspur",
+  "block.steelwitchesplus.grasp_grass": "Grasp Grass",
+  "block.steelwitchesplus.gypsophila": "Gypsophila",
+
+  "effect.steelwitchesplus.bewitched": "Bewitched",
+  "effect.steelwitchesplus.delirium": "Delirium",
+
   "item.steelwitchesplus.aethereal_feather": "Aethereal Feather",
   "item.steelwitchesplus.aethereal_elytra": "Aethereal Elytra",
   "item.steelwitchesplus.amethyst_dust": "Amethyst Dust",
@@ -10,6 +17,7 @@
   "item.steelwitchesplus.baked_clay_jar": "Baked Clay Jar",
   "item.steelwitchesplus.belladonna": "Belladonna",
   "item.steelwitchesplus.belladonna_seeds": "Belladonna Seeds",
+  "item.steelwitchesplus.bleak_berries": "Sour Berries",
   "item.steelwitchesplus.bramble_ember": "Ember Bramble",
   "item.steelwitchesplus.bramble_wild": "Wild Bramble",
   "item.steelwitchesplus.clay_jar": "Clay Jar",
@@ -19,7 +27,16 @@
   "item.steelwitchesplus.frog_toe": "Toe of Frog",
   "item.steelwitchesplus.garlic": "Garlic",
   "item.steelwitchesplus.garlic_clove": "Garlic Clove",
+  "item.steelwitchesplus.ghost_larkspur": "Larkspur",
   "item.steelwitchesplus.glass_jar": "Glass Jar",
+  "item.steelwitchesplus.grasp_grass": "Grasp Grass",
+  "item.steelwitchesplus.gypsophila": "Gypsophila",
+  "item.steelwitchesplus.inkcap": "Inkcap",
+  "item.steelwitchesplus.inkcap_stew": "Inkcap Stew",
+  "item.steelwitchesplus.pale_pumpkin": "Pale Pumpkin",
+  "item.steelwitchesplus.pale_pumpkin_pie": "Pale Pumpkin Pie",
+  "item.steelwitchesplus.pale_pumpkin_seeds": "Pale Pumpkin Seeds",
+  "item.steelwitchesplus.pallid_apple": "Pallid Apple",
   "item.steelwitchesplus.quartz_sword": "Quartz Sword",
   "item.steelwitchesplus.rubinite_ingot": "Rubinite Ingot",
   "item.steelwitchesplus.ruby": "Ruby",
@@ -33,10 +50,14 @@
   "item.steelwitchesplus.quartz_wall": "Quartz Wall",
   "item.steelwitchesplus.weeping_powder": "Weeping Powder",
   "item.steelwitchesplus.wiccan_sands": "Wiccan Sands",
+  "item.steelwitchesplus.witchcap": "Witchcap",
+  "item.steelwitchesplus.witchcap_spores": "Witchcap Spores",
+  "item.steelwitchesplus.wither_sword": "Wither Sword",
   "item.steelwitchesplus.wolfsbane": "Wolfsbane",
   "item.steelwitchesplus.wolfsbane_seeds": "Wolfsbane Seeds",
-  "item.steelwitchesplus.wither_sword": "Wither Sword",
 
+  "item.steelwitchesplus.dainty_slippers": "Dainty Slippers",
+  "item.steelwitchesplus.infernal_blade": "Infernal Blade",
   "item.steelwitchesplus.quartz_helmet": "Quartz Helmet",
   "item.steelwitchesplus.quartz_chestplate": "Quartz Chestplate",
   "item.steelwitchesplus.quartz_leggings": "Quartz Leggings",
@@ -65,5 +86,15 @@
   "item.steelwitchesplus.quartz_armor.tooltip.1": "A full set of this §4infernal§r armor",
   "item.steelwitchesplus.quartz_armor.tooltip.2": "grants §l§cfire resistance§r.",
 
-  "itemgroup.steelwitchesplus": "Steel Witches Plus"
+  "itemgroup.steelwitchesplus": "Steel Witches Plus",
+
+  "item.minecraft.potion.effect.potion.steelwitchesplus.bewitched": "Potion of Bewitchment",
+  "item.minecraft.splash_potion.effect.potion.steelwitchesplus.bewitched": "Splash Potion of Bewitchment",
+  "item.minecraft.lingering_potion.effect.potion.steelwitchesplus.bewitched": "Lingering Potion of Bewitchment",
+  "item.minecraft.potion.effect.potion.steelwitchesplus.delirium": "Potion of Delirium",
+  "item.minecraft.splash_potion.effect.potion.steelwitchesplus.delirium": "Splash Potion of Delirium",
+  "item.minecraft.lingering_potion.effect.potion.steelwitchesplus.delirium": "Lingering Potion of Delirium",
+
+  "item.minecraft.tipped_arrow.effect.potion.steelwitchesplus.bewitched": "Witch Arrow",
+  "item.minecraft.tipped_arrow.effect.potion.steelwitchesplus.delirium": "Delirium Arrow"
 }
