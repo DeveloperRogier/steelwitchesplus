@@ -10,6 +10,7 @@ import net.minecraft.data.recipe.StonecuttingRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.RepairItemRecipe;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -42,6 +43,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 generateRecipeWiccanSands(recipeExporter);
                 try {
                     generateRecipeBasicArmor(recipeExporter, ModItems.QUARTZ_ARMOR_SET, Items.QUARTZ);
+                    generateRecipeBasicArmor(recipeExporter, ModItems.RUBINITE_ARMOR_SET, ModItems.RUBINITE_INGOT);
                     generateRecipeBasicArmor(recipeExporter, ModItems.RUBY_ARMOR_SET, ModItems.RUBY);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
@@ -57,6 +59,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 generateRecipePalePumpkinPie(recipeExporter);
                 generateRecipePalePumpkinSeeds(recipeExporter);
                 generateRecipeWitherSword(recipeExporter);
+                generateRecipeRubiniteIngot(recipeExporter);
 
                 /* Shapeless recipes blocks */
                 generateStonecutterRecipeQuartzTrimBlock(recipeExporter);
@@ -217,6 +220,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName((ModItems.PALE_PUMPKIN_SEEDS)))));
             }
 
+            private void generateRecipeRubiniteIngot(RecipeExporter exporter) {
+                createShapeless(RecipeCategory.MISC, ModItems.RUBINITE_INGOT, 1)
+                        .input(Items.NETHERITE_INGOT).input(ModItems.RUBY)
+                        .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
+                        .criterion(hasItem(ModItems.RUBY), conditionsFromItem(ModItems.RUBY))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.RUBINITE_INGOT))));
+            }
+
             private void generateRecipeWitherSword(RecipeExporter exporter) {
                 createShapeless(RecipeCategory.COMBAT, ModItems.WITHER_SWORD, 1)
                         .input(Items.WITHER_ROSE).input(Items.WITHER_SKELETON_SKULL).input(Items.NETHERITE_SWORD)
@@ -224,6 +235,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.WITHER_SWORD))));
             }
 
+            /* Miscellaneous recipes */
             private void generateStonecutterRecipeQuartzTrimBlock(RecipeExporter exporter) {
                 StonecuttingRecipeJsonBuilder.createStonecutting(
                                 Ingredient.ofItems(Blocks.QUARTZ_BLOCK), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TRIM_QUARTZ_BLOCK, 1)
@@ -250,6 +262,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(ModItems.CLAY_JAR), conditionsFromItem(ModItems.CLAY_JAR))
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.BAKED_CLAY_JAR))));
             }
+
         };
     }
 

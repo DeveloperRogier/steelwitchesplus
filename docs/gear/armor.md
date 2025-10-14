@@ -2,7 +2,7 @@
 
 # Quartz
 
-A full set of quartz armor grants the Fire Resistance II status effect. Quartz armor does not
+A full set of Quartz Armor grants the Fire Resistance status effect. Quartz armor does not
 enchant particularly well ([Enchantability](https://minecraft.wiki/w/Enchanting_mechanics#Enchantability) = 5;
 compare diamond at 10 and iron at 9).
 
@@ -29,6 +29,38 @@ Ingredients:
 * 4x Nether Quartz
 
 <img style="border-radius:10px;" src="/steelwitchesplus/_media/recipes/recipe_quartz_boots.png">
+
+----
+
+# Rubinite
+
+A full set of Rubinite Armor grants the Fire Resistance status effect. However, as it's very heavy,
+its wearer is slowed down as well. This ruby-infused armor is stronger than Netherite, and thus it
+comes at a hefty cost.
+
+## Helmet
+Ingredients:
+* 5x [Rubinite Ingot](items#rubinite-ingot)
+
+<img style="border-radius:10px;" src="/steelwitchesplus/_media/recipes/recipe_rubinite_helmet.png">
+
+## Chestplate
+Ingredients:
+* 8x [Rubinite Ingot](items#rubinite-ingot)
+
+<img style="border-radius:10px;" src="/steelwitchesplus/_media/recipes/recipe_rubinite_chestplate.png">
+
+## Leggings
+Ingredients:
+* 7x [Rubinite Ingot](items#rubinite-ingot)
+
+<img style="border-radius:10px;" src="/steelwitchesplus/_media/recipes/recipe_rubinite_leggings.png">
+
+## Boots
+Ingredients:
+* 4x [Rubinite Ingot](items#rubinite-ingot)
+
+<img style="border-radius:10px;" src="/steelwitchesplus/_media/recipes/recipe_rubinite_boots.png">
 
 ----
 
