@@ -7,7 +7,6 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 public class AetherealFeatherItem extends Item {

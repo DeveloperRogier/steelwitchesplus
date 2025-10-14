@@ -17,7 +17,6 @@ import net.minecraft.world.World;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 // TODO: add a crafting recipe.

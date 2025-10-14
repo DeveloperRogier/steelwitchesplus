@@ -5,17 +5,13 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.component.type.ConsumableComponents;
 import net.minecraft.component.type.FoodComponent;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.*;
 import net.minecraft.item.consume.ApplyEffectsConsumeEffect;
 import net.minecraft.item.equipment.EquipmentType;
-import net.minecraft.potion.Potion;
-import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
@@ -40,14 +36,17 @@ public class ModItems {
     public static final Item AMETHYST_GREATSWORD = register("amethyst_greatsword",
             settings -> new AmethystGreatswordItem(ModToolMaterials.AMETHYST, 1, 8.0f,-3.0f, settings), new Item.Settings());
     public static final Item BAKED_CLAY_JAR = register("baked_clay_jar", BakedClayJarItem::new, new Item.Settings().maxCount(16)); // Custom class necessary?
-    public static final Item BELLADONNA = register("belladonna", Item::new, new Item.Settings()); // TODO: delete artichoke class
+    public static final Item BELLADONNA = register("belladonna", Item::new, new Item.Settings());
     public static final Item BELLADONNA_SEEDS = register("belladonna_seeds", settings -> new BlockItem(ModBlocks.BELLADONNA_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item CLAY_JAR = register("clay_jar", ClayJarItem::new, new Item.Settings().maxCount(16)); // Custom class necessary?
+    public static final Item DAINTY_SLIPPERS = register("dainty_slippers", Item::new, new Item.Settings());
     public static final Item FOREST_ESSENCE = register("forest_essence", Item::new, new Item.Settings());
     public static final Item FROG_TOE = register("frog_toe", Item::new, new Item.Settings());
     public static final Item GARLIC = register("garlic", Item::new, new Item.Settings());
     public static final Item GARLIC_CLOVE = register("garlic_clove", settings -> new BlockItem(ModBlocks.GARLIC_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item GLASS_JAR = register("glass_jar", Item::new, new Item.Settings());
+    public static final Item INFERNAL_BLADE = register("infernal_blade",
+            settings -> new InfernalBladeItem(ToolMaterial.DIAMOND, 3, -2.4f, settings), new Item.Settings());
     public static final Item PALE_PUMPKIN_SEEDS = register("pale_pumpkin_seeds",
             settings -> new BlockItem(ModBlocks.PALE_PUMPKIN_STEM, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item POTION_ESSENCE_BERRY_MIX = register("potion_essence_berry_mix", Item::new, new Item.Settings());
@@ -113,19 +112,11 @@ public class ModItems {
     public static final List<Item> RUBY_ARMOR_SET = List.of(RUBY_HELMET, RUBY_CHESTPLATE, RUBY_LEGGINGS, RUBY_BOOTS);
 
     /*
-     * CUSTOM ITEMS
-     */
-    public static final Item DAINTY_SLIPPERS = register("dainty_slippers", Item::new, new Item.Settings());
-    public static final Item INFERNAL_BLADE = register("infernal_blade",
-            settings -> new InfernalBladeItem(ToolMaterial.DIAMOND, 3, -2.4f, settings), new Item.Settings());
-
-    /*
      * FOOD
      */
     public static final ConsumableComponent WEAKNESS_FOOD_CONSUMABLE_COMPONENT = ConsumableComponents.food()
             .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 10*20,0),0.7F))
             .build();
-
     public static final FoodComponent WEAKNESS_FOOD_COMPONENT = new FoodComponent.Builder()
             .nutrition(5)
             .saturationModifier(0.2F)

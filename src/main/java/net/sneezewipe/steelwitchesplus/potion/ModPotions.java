@@ -1,18 +1,13 @@
 package net.sneezewipe.steelwitchesplus.potion;
 
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
-import net.minecraft.block.Portal;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.Potions;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.sneezewipe.steelwitchesplus.SteelWitchesPlus;
 import net.sneezewipe.steelwitchesplus.effect.ModEffects;
-import net.sneezewipe.steelwitchesplus.item.ModItems;
 
 public class ModPotions {
 
