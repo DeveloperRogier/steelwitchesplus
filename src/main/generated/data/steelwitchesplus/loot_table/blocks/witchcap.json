@@ -19,7 +19,7 @@
                   "block": "steelwitchesplus:witchcap",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "age": "5"
+                    "age": "4"
                   }
                 }
               ],
@@ -41,7 +41,7 @@
           "block": "steelwitchesplus:witchcap",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "age": "5"
+            "age": "4"
           }
         }
       ],
