@@ -248,8 +248,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             }
 
             private void generateRecipeCleanedFlesh(RecipeExporter exporter) {
-                createShapeless(RecipeCategory.MISC, ModItems.CLEANED_FLESH, 1)
-                        .input(Items.ROTTEN_FLESH).input(ModItems.DISINFECTANT)
+                createShapeless(RecipeCategory.MISC, ModItems.CLEANED_FLESH, 8)
+                        .input(Items.ROTTEN_FLESH, 8).input(ModItems.DISINFECTANT)
                         .criterion(hasItem(Items.ROTTEN_FLESH), conditionsFromItem(Items.ROTTEN_FLESH))
                         .criterion(hasItem(ModItems.DISINFECTANT), conditionsFromItem(ModItems.DISINFECTANT))
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.CLEANED_FLESH))));
