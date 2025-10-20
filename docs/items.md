@@ -30,8 +30,8 @@ Used in [Disinfectant](items#disinfectant).
 # Rubinite Ingot
 
 Ingredients:
-1x Netherite Ingot
-1x [Ruby](items#ruby)
+* 1x Netherite Ingot
+* 1x [Ruby](items#ruby)
 
 <img style="border-radius:10px;" src="/steelwitchesplus/_media/recipes/recipe_rubinite_ingot.png">
 
@@ -39,15 +39,15 @@ Used in [Rubinite Armor](gear/armor#rubinite).
 
 # Ruby
 
-<img style="border-radius:10px;height:50px;" src="/steelwitchesplus/_media/misc/ruby.png">
+<img style="border-radius:10px;height:50px;image-rendering:pixelated" src="/steelwitchesplus/_media/misc/ruby.png">
 
 Obtained from [Ruby Ore](blocks#ruby-ore). Used in [Ruby Armor](gear/armor#ruby).
 
 # Sterilized Flesh
 
 Ingredients:
-1x [Disinfectant](items#disinfectant)
-1x Rotten Flesh
+* 1x [Disinfectant](items#disinfectant)
+* 1x Rotten Flesh
 
 <img style="border-radius:10px;" src="/steelwitchesplus/_media/recipes/recipe_cleaned_flesh.png">
 
