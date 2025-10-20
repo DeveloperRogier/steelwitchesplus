@@ -88,6 +88,11 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.INFERNAL_BLADE, Models.GENERATED);
 
         itemModelGenerator.register(ModItems.QUARTZ_SWORD, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.RUBY_AXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.RUBY_HOE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.RUBY_PICKAXE, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.RUBY_SHOVEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.RUBY_SWORD, Models.HANDHELD);
         itemModelGenerator.register(ModItems.WITHER_SWORD, Models.HANDHELD);
 
         itemModelGenerator.registerArmor(ModItems.QUARTZ_HELMET, ModArmorMaterials.QUARTZ_KEY,

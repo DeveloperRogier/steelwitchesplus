@@ -44,6 +44,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     generateRecipeBasicArmor(recipeExporter, ModItems.QUARTZ_ARMOR_SET, Items.QUARTZ);
                     generateRecipeBasicArmor(recipeExporter, ModItems.RUBINITE_ARMOR_SET, ModItems.RUBINITE_INGOT);
                     generateRecipeBasicArmor(recipeExporter, ModItems.RUBY_ARMOR_SET, ModItems.RUBY);
+                    generateRecipeBasicToolset(recipeExporter, ModItems.RUBY_TOOL_SET, ModItems.RUBY);
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
@@ -63,6 +64,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 /* Shapeless recipes blocks */
                 generateStonecutterRecipeQuartzTrimBlock(recipeExporter);
                 generateStonecutterRecipeQuartzWall(recipeExporter);
+                generateRecipeRubyBlock(recipeExporter);
 
                 /* (Blast) furnace recipes */
                 generateBlastFurnaceRecipeWitchesPowders(recipeExporter, Map.of(
@@ -158,6 +160,52 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.get(3)))));
             }
 
+            private void generateRecipeBasicToolset(RecipeExporter exporter, List<Item> toolSet, Item ingredient) throws Exception {
+                if (toolSet.size() != 5) {
+                    throw new Exception("parameter `toolSet` must contain exactly 5 elements in order: axe, hoe, pickaxe, shovel, sword");
+                }
+
+                createShaped(RecipeCategory.TOOLS, toolSet.get(0), 1)
+                        .pattern("##")
+                        .pattern("#S")
+                        .pattern(" S")
+                        .input('#', ingredient).input('S', Items.STICK)
+                        .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.get(0)))));
+
+                createShaped(RecipeCategory.TOOLS, toolSet.get(1), 1)
+                        .pattern("##")
+                        .pattern(" S")
+                        .pattern(" S")
+                        .input('#', ingredient).input('S', Items.STICK)
+                        .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.get(1)))));
+
+                createShaped(RecipeCategory.TOOLS, toolSet.get(2), 1)
+                        .pattern("###")
+                        .pattern(" S ")
+                        .pattern(" S ")
+                        .input('#', ingredient).input('S', Items.STICK)
+                        .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.get(2)))));
+
+                createShaped(RecipeCategory.TOOLS, toolSet.get(3), 1)
+                        .pattern("#")
+                        .pattern("S")
+                        .pattern("S")
+                        .input('#', ingredient).input('S', Items.STICK)
+                        .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.get(3)))));
+
+                createShaped(RecipeCategory.COMBAT, toolSet.get(4), 1)
+                        .pattern("#")
+                        .pattern("#")
+                        .pattern("S")
+                        .input('#', ingredient).input('S', Items.STICK)
+                        .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.get(4)))));
+            }
+
             private void generateRecipeQuartzSword(RecipeExporter exporter) {
                 createShaped(RecipeCategory.COMBAT, ModItems.QUARTZ_SWORD, 1)
                         .pattern(" Q ")
@@ -225,6 +273,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
                         .criterion(hasItem(ModItems.RUBY), conditionsFromItem(ModItems.RUBY))
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.RUBINITE_INGOT))));
+            }
+
+            private void generateRecipeRubyBlock(RecipeExporter exporter) {
+                createShapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.RUBY_BLOCK, 1)
+                        .input(ModItems.RUBY, 9)
+                        .criterion(hasItem(ModItems.RUBY), conditionsFromItem(ModItems.RUBY))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModBlocks.RUBY_BLOCK))));
             }
 
             private void generateRecipeWitherSword(RecipeExporter exporter) {
