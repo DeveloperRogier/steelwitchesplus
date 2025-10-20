@@ -10,5 +10,5 @@ Ingredients:
 
 <img style="border-radius:10px;height:50px;" src="/steelwitchesplus/_media/misc/ruby_ore.png">
 
-Drops 1x [Ruby](items#ruby) when mined. Is identical to diamond ore in all regards,
-so it spawns from Y=[-64,16]
+Drops 1x [Ruby](items#ruby) when mined. Is slightly rarer than diamond,
+but spawns identically to diamond from Y=[-64,16]
