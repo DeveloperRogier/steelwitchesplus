@@ -9,7 +9,7 @@ Used in [Wiccan Sands](gear/tools#wiccan-sands). This item lacks a recipe.
 
 # Disinfectant
 
-Ingredients:
+Ingredients (Furnace):
 * 1x [Disinfectant Base](items#disinfectant-base)
 
 <img style="border-radius:10px;" src="/steelwitchesplus/_media/recipes/recipe_disinfectant.png">
