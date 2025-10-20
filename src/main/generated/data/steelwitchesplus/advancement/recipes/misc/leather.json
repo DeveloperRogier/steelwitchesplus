@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cleaned_flesh": {
+      "conditions": {
+        "items": [
+          {
+            "items": "steelwitchesplus:cleaned_flesh"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "steelwitchesplus:leather"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cleaned_flesh"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "steelwitchesplus:leather"
+    ]
+  }
+}

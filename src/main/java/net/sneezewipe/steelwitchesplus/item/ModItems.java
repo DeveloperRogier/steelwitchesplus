@@ -39,7 +39,10 @@ public class ModItems {
     public static final Item BELLADONNA = register("belladonna", Item::new, new Item.Settings());
     public static final Item BELLADONNA_SEEDS = register("belladonna_seeds", settings -> new BlockItem(ModBlocks.BELLADONNA_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item CLAY_JAR = register("clay_jar", ClayJarItem::new, new Item.Settings().maxCount(16)); // Custom class necessary?
+    public static final Item CLEANED_FLESH = register("cleaned_flesh", Item::new, new Item.Settings());
     public static final Item DAINTY_SLIPPERS = register("dainty_slippers", Item::new, new Item.Settings());
+    public static final Item DISINFECTANT = register("disinfectant", Item::new, new Item.Settings().recipeRemainder(Items.GLASS_BOTTLE).maxCount(16));
+    public static final Item DISINFECTANT_BASE = register("disinfectant_base", Item::new, new Item.Settings().maxCount(16));
     public static final Item FOREST_ESSENCE = register("forest_essence", Item::new, new Item.Settings());
     public static final Item FROG_TOE = register("frog_toe", Item::new, new Item.Settings());
     public static final Item GARLIC = register("garlic", Item::new, new Item.Settings());
@@ -189,6 +192,9 @@ public class ModItems {
                 BELLADONNA,
                 BLEAK_BERRIES,
                 CLAY_JAR,
+                CLEANED_FLESH,
+                DISINFECTANT,
+                DISINFECTANT_BASE,
                 FOREST_ESSENCE,
                 FROG_TOE,
                 GARLIC,

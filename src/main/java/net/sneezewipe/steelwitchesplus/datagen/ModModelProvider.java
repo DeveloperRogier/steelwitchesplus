@@ -64,6 +64,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BAKED_CLAY_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.BELLADONNA, Models.GENERATED);
         itemModelGenerator.register(ModItems.CLAY_JAR, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CLEANED_FLESH, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DISINFECTANT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.DISINFECTANT_BASE, Models.GENERATED);
         itemModelGenerator.register(ModItems.FOREST_ESSENCE, Models.GENERATED);
         itemModelGenerator.register(ModItems.FROG_TOE, Models.GENERATED);
         itemModelGenerator.register(ModItems.GARLIC, Models.GENERATED);

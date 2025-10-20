@@ -2,6 +2,7 @@ package net.sneezewipe.steelwitchesplus.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.data.recipe.RecipeExporter;
@@ -9,6 +10,7 @@ import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.data.recipe.StonecuttingRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.potion.Potions;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKey;
@@ -36,6 +38,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 //                generateRecipeAetherealElytra(recipeExporter);
                 generateRecipeAmethystGreatsword(recipeExporter);
                 generateRecipeClayJar(recipeExporter);
+                generateRecipeDisinfectantBase(recipeExporter);
                 generateRecipeForestEssence(recipeExporter);
                 generateRecipeGlassJar(recipeExporter);
                 generateRecipeQuartzSword(recipeExporter);
@@ -54,6 +57,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 /* Shapeless recipes items */
                 generateRecipeAetherFeather(recipeExporter);
+                generateRecipeCleanedFlesh(recipeExporter);
                 generateRecipeGarlicClove(recipeExporter);
                 generateRecipeInkcapStew(recipeExporter);
                 generateRecipePalePumpkinPie(recipeExporter);
@@ -73,6 +77,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         Items.ECHO_SHARD, ModItems.SCULK_POWDER
                 ));
                 generateFurnaceRecipeBakedClayJar(recipeExporter);
+                generateFurnaceRecipeDisinfectant(recipeExporter);
+
+                /* Smoker recipes */
+                generateSmokerRecipeLeather(recipeExporter);
             }
 
             /* Shaped recipes */
@@ -239,6 +247,21 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.AETHEREAL_FEATHER))));
             }
 
+            private void generateRecipeCleanedFlesh(RecipeExporter exporter) {
+                createShapeless(RecipeCategory.MISC, ModItems.CLEANED_FLESH, 1)
+                        .input(Items.ROTTEN_FLESH).input(ModItems.DISINFECTANT)
+                        .criterion(hasItem(Items.ROTTEN_FLESH), conditionsFromItem(Items.ROTTEN_FLESH))
+                        .criterion(hasItem(ModItems.DISINFECTANT), conditionsFromItem(ModItems.DISINFECTANT))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.CLEANED_FLESH))));
+            }
+
+            private void generateRecipeDisinfectantBase(RecipeExporter exporter) {
+                createShapeless(RecipeCategory.MISC, ModItems.DISINFECTANT_BASE, 1)
+                        .input(Items.GLASS_BOTTLE).input(Items.SLIME_BALL).input(Items.DANDELION)
+                        .criterion(hasItem(Items.SLIME_BALL), conditionsFromItem(Items.SLIME_BALL))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.DISINFECTANT_BASE))));
+            }
+
             private void generateRecipeGarlicClove(RecipeExporter exporter) {
                 createShapeless(RecipeCategory.MISC, ModItems.GARLIC_CLOVE, 3)
                         .input(ModItems.GARLIC)
@@ -292,7 +315,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             /* Miscellaneous recipes */
             private void generateStonecutterRecipeQuartzTrimBlock(RecipeExporter exporter) {
                 StonecuttingRecipeJsonBuilder.createStonecutting(
-                                Ingredient.ofItems(Blocks.QUARTZ_BLOCK), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TRIM_QUARTZ_BLOCK, 1)
+                        Ingredient.ofItems(Blocks.QUARTZ_BLOCK), RecipeCategory.BUILDING_BLOCKS, ModBlocks.TRIM_QUARTZ_BLOCK, 1)
                         .criterion(hasItem(Blocks.QUARTZ_BLOCK), conditionsFromItem(Blocks.QUARTZ_BLOCK))
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModBlocks.TRIM_QUARTZ_BLOCK)+"from_quartz_stonecutting")));
             }
@@ -304,19 +327,29 @@ public class ModRecipeProvider extends FabricRecipeProvider {
             private void generateBlastFurnaceRecipeWitchesPowders(RecipeExporter exporter, Map<Item, Item> ingredientToPowder) {
                 for (Map.Entry<Item, Item> entry : ingredientToPowder.entrySet()) {
                     CookingRecipeJsonBuilder.createBlasting(
-                                    Ingredient.ofItems(entry.getKey()), RecipeCategory.MISC, entry.getValue(), 0.5f, 300)
+                                Ingredient.ofItems(entry.getKey()), RecipeCategory.MISC, entry.getValue(), 0.5f, 300)
                             .criterion(hasItem(entry.getKey()), conditionsFromItem(entry.getKey()))
                             .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(entry.getValue()))));
                 }
             }
 
             private void generateFurnaceRecipeBakedClayJar(RecipeExporter exporter) {
-                CookingRecipeJsonBuilder.createSmelting(
-                                Ingredient.ofItems(ModItems.CLAY_JAR), RecipeCategory.BREWING, ModItems.BAKED_CLAY_JAR, 1.2f, 200)
+                CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItems(ModItems.CLAY_JAR), RecipeCategory.BREWING, ModItems.BAKED_CLAY_JAR, 1.2f, 200)
                         .criterion(hasItem(ModItems.CLAY_JAR), conditionsFromItem(ModItems.CLAY_JAR))
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.BAKED_CLAY_JAR))));
             }
 
+            private void generateFurnaceRecipeDisinfectant(RecipeExporter exporter) {
+                CookingRecipeJsonBuilder.createSmelting(Ingredient.ofItem(ModItems.DISINFECTANT_BASE), RecipeCategory.MISC, ModItems.DISINFECTANT, 1.2f, 200)
+                        .criterion(hasItem(ModItems.DISINFECTANT_BASE), conditionsFromItem(ModItems.DISINFECTANT_BASE))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.DISINFECTANT))));
+            }
+
+            private void generateSmokerRecipeLeather(RecipeExporter exporter) {
+                CookingRecipeJsonBuilder.createSmoking(Ingredient.ofItem(ModItems.CLEANED_FLESH), RecipeCategory.MISC, Items.LEATHER, 0.5f, 600)
+                        .criterion(hasItem(ModItems.CLEANED_FLESH), conditionsFromItem(ModItems.CLEANED_FLESH))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(Items.LEATHER))));
+            }
         };
     }
 

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:rotten_flesh",
+    "steelwitchesplus:disinfectant"
+  ],
+  "result": {
+    "count": 1,
+    "id": "steelwitchesplus:cleaned_flesh"
+  }
+}
