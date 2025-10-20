@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    "steelwitchesplus:ruby",
+    "steelwitchesplus:ruby",
+    "steelwitchesplus:ruby",
+    "steelwitchesplus:ruby",
+    "steelwitchesplus:ruby",
+    "steelwitchesplus:ruby",
+    "steelwitchesplus:ruby",
+    "steelwitchesplus:ruby",
+    "steelwitchesplus:ruby"
+  ],
+  "result": {
+    "count": 1,
+    "id": "steelwitchesplus:ruby_block"
+  }
+}

@@ -43,19 +43,19 @@ public class ModPlacedFeature {
                 context,
                 ORE_RUBY_SMALL,
                 registryLookup.getOrThrow(ModConfiguredFeature.ORE_RUBY_SMALL),
-                modifiersCount(7, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80)))
+                modifiersCount(2, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80)))
         );
         register(
                 context,
                 ORE_RUBY_MEDIUM,
                 registryLookup.getOrThrow(ModConfiguredFeature.ORE_RUBY_MEDIUM),
-                modifiersCount(2, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(-4)))
+                modifiersCount(5, HeightRangePlacementModifier.uniform(YOffset.fixed(-64), YOffset.fixed(-4)))
         );
         register(
                 context,
                 ORE_RUBY_LARGE,
                 registryLookup.getOrThrow(ModConfiguredFeature.ORE_RUBY_LARGE),
-                modifiersRarity(9, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80)))
+                modifiersRarity(7, HeightRangePlacementModifier.trapezoid(YOffset.aboveBottom(-80), YOffset.aboveBottom(80)))
         );
         register(
                 context,

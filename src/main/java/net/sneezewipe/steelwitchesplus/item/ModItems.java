@@ -54,6 +54,12 @@ public class ModItems {
             settings -> new QuartzSwordItem(ModToolMaterials.QUARTZ, 3, -2.2f, settings), new Item.Settings());
     public static final Item RUBINITE_INGOT = register("rubinite_ingot", Item::new, new Item.Settings());
     public static final Item RUBY = register("ruby", Item::new, new Item.Settings());
+    public static final Item RUBY_AXE = register("ruby_axe", Item::new, new Item.Settings().axe(ModToolMaterials.RUBY, 9, -2.7f));
+    public static final Item RUBY_HOE = register("ruby_hoe", Item::new, new Item.Settings().hoe(ModToolMaterials.RUBY, 1, 0.3f));
+    public static final Item RUBY_PICKAXE = register("ruby_pickaxe", Item::new, new Item.Settings().pickaxe(ModToolMaterials.RUBY, 5, -2.5f));
+    public static final Item RUBY_SHOVEL = register("ruby_shovel", Item::new, new Item.Settings().shovel(ModToolMaterials.RUBY, 5.5f, -2.7f));
+    public static final Item RUBY_SWORD = register("ruby_sword", Item::new, new Item.Settings().sword(ModToolMaterials.RUBY, 7, -2.1f));
+    public static final List<Item> RUBY_TOOL_SET = List.of(RUBY_AXE, RUBY_HOE, RUBY_PICKAXE, RUBY_SHOVEL, RUBY_SWORD);
     public static final Item SCULK_POWDER = register("sculk_powder", Item::new, new Item.Settings());
     public static final Item SOLANDRA = register("solandra", SolandraItem::new, new Item.Settings());
     public static final Item SOLANDRA_SEEDS = register("solandra_seeds", settings -> new BlockItem(ModBlocks.SOLANDRA_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
@@ -163,6 +169,10 @@ public class ModItems {
     private static void addItemsToToolsItemGroup(FabricItemGroupEntries entries) {
         Item[] items = {
 //                AETHEREAL_ELYTRA,
+                RUBY_AXE,
+                RUBY_HOE,
+                RUBY_PICKAXE,
+                RUBY_SHOVEL,
                 WICCAN_SANDS,
         };
         for (Item item : items) {
@@ -240,6 +250,7 @@ public class ModItems {
                 RUBY_CHESTPLATE,
                 RUBY_HELMET,
                 RUBY_LEGGINGS,
+                RUBY_SWORD,
                 WITHER_SWORD,
         };
         for (Item item : items) {

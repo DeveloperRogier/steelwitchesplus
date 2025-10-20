@@ -16,7 +16,7 @@ import java.util.Map;
 public class ModArmorMaterials {
     public static final int BASE_DURABILITY = 15; // Same as iron.
     public static final int RUBINITE_DURABILITY = ArmorMaterials.NETHERITE.durability()*3;
-    public static final int RUBY_DURABILITY = BASE_DURABILITY+5;
+    public static final int RUBY_DURABILITY = BASE_DURABILITY+3;
     static RegistryKey<? extends Registry<EquipmentAsset>> REGISTRY_KEY = RegistryKey.ofRegistry(Identifier.ofVanilla("equipment_asset"));
     public static final RegistryKey<EquipmentAsset> QUARTZ_KEY = RegistryKey.of(REGISTRY_KEY, Identifier.of(SteelWitchesPlus.MOD_ID, "quartz"));
     public static final RegistryKey<EquipmentAsset> RUBINITE_KEY = RegistryKey.of(REGISTRY_KEY, Identifier.of(SteelWitchesPlus.MOD_ID, "rubinite"));
