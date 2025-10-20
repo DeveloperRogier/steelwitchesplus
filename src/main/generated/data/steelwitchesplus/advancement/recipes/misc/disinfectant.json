@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_disinfectant_base": {
+      "conditions": {
+        "items": [
+          {
+            "items": "steelwitchesplus:disinfectant_base"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "steelwitchesplus:disinfectant"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_disinfectant_base"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "steelwitchesplus:disinfectant"
+    ]
+  }
+}

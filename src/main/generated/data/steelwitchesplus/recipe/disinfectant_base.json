@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:glass_bottle",
+    "minecraft:slime_ball",
+    "minecraft:dandelion"
+  ],
+  "result": {
+    "count": 1,
+    "id": "steelwitchesplus:disinfectant_base"
+  }
+}
