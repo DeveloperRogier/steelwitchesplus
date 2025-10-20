@@ -1,5 +1,6 @@
+- [Blocks](blocks)
 - Gear
   - [Armor](gear/armor.md)
   - [Tools](gear/tools.md)
 - [Items](items.md)
-- [Blocks](blocks)
+- [Processes](processes.md)
