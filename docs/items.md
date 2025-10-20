@@ -39,7 +39,7 @@ Used in [Rubinite Armor](gear/armor#rubinite).
 
 # Ruby
 
-<img style="border-radius:10px;height:50px;" src="/steelwitchesplus/_media/misc/ruby.png">
+<img style="border-radius:10px;height:50px;image-rendering:pixelated" src="/steelwitchesplus/_media/misc/ruby.png">
 
 Obtained from [Ruby Ore](blocks#ruby-ore). Used in [Ruby Armor](gear/armor#ruby).
 
