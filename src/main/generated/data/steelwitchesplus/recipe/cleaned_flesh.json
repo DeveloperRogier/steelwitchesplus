@@ -3,10 +3,17 @@
   "category": "misc",
   "ingredients": [
     "minecraft:rotten_flesh",
+    "minecraft:rotten_flesh",
+    "minecraft:rotten_flesh",
+    "minecraft:rotten_flesh",
+    "minecraft:rotten_flesh",
+    "minecraft:rotten_flesh",
+    "minecraft:rotten_flesh",
+    "minecraft:rotten_flesh",
     "steelwitchesplus:disinfectant"
   ],
   "result": {
-    "count": 1,
+    "count": 8,
     "id": "steelwitchesplus:cleaned_flesh"
   }
 }
