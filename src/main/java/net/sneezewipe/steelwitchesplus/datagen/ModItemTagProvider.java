@@ -26,6 +26,11 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.QUARTZ_ARMOR_SET.toArray(new Item[0]))
                 .add(ModItems.RUBINITE_ARMOR_SET.toArray(new Item[0]))
                 .add(ModItems.RUBY_ARMOR_SET.toArray(new Item[0]));
+        getOrCreateTagBuilder(ItemTags.AXES).add(ModItems.RUBY_AXE);
+        getOrCreateTagBuilder(ItemTags.HOES).add(ModItems.RUBY_HOE);
+        getOrCreateTagBuilder(ItemTags.PICKAXES).add(ModItems.RUBY_PICKAXE);
+        getOrCreateTagBuilder(ItemTags.SHOVELS).add(ModItems.RUBY_SHOVEL);
+        getOrCreateTagBuilder(ItemTags.SWORDS).add(ModItems.RUBY_SWORD);
         getOrCreateTagBuilder(ModTags.Items.AMETHYST_REPAIR).add(Items.AMETHYST_SHARD);
         getOrCreateTagBuilder(ModTags.Items.QUARTZ_REPAIR).add(Items.QUARTZ);
         getOrCreateTagBuilder(ModTags.Items.RUBINITE_REPAIR).add(ModItems.RUBINITE_INGOT);
