@@ -1,7 +1,25 @@
 {
   "variants": {
-    "": {
-      "model": "steelwitchesplus:block/inkcap"
+    "age=0": {
+      "model": "steelwitchesplus:block/inkcap_stage0"
+    },
+    "age=1": {
+      "model": "steelwitchesplus:block/inkcap_stage1"
+    },
+    "age=2": {
+      "model": "steelwitchesplus:block/inkcap_stage2"
+    },
+    "age=3": {
+      "model": "steelwitchesplus:block/inkcap_stage3"
+    },
+    "age=4": {
+      "model": "steelwitchesplus:block/inkcap_stage4"
+    },
+    "age=5": {
+      "model": "steelwitchesplus:block/inkcap_stage5"
+    },
+    "age=6": {
+      "model": "steelwitchesplus:block/inkcap_stage6"
     }
   }
 }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "steelwitchesplus:cooked_turnip_smoking"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_turnip": {
+      "conditions": {
+        "items": [
+          {
+            "items": "steelwitchesplus:turnip"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_turnip"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "steelwitchesplus:cooked_turnip_smoking"
+    ]
+  }
+}

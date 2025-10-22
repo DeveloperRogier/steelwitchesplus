@@ -19,15 +19,15 @@
                   "block": "steelwitchesplus:witchcap",
                   "condition": "minecraft:block_state_property",
                   "properties": {
-                    "age": "4"
+                    "age": "6"
                   }
                 }
               ],
-              "name": "steelwitchesplus:witchcap"
+              "name": "steelwitchesplus:witchcap_spores"
             },
             {
               "type": "minecraft:item",
-              "name": "steelwitchesplus:witchcap_spores"
+              "name": "steelwitchesplus:witchcap"
             }
           ]
         }
@@ -41,7 +41,7 @@
           "block": "steelwitchesplus:witchcap",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "age": "4"
+            "age": "6"
           }
         }
       ],
@@ -59,7 +59,7 @@
               }
             }
           ],
-          "name": "steelwitchesplus:witchcap_spores"
+          "name": "steelwitchesplus:witchcap"
         }
       ],
       "rolls": 1.0

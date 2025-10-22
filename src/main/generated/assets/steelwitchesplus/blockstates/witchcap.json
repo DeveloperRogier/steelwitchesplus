@@ -14,6 +14,12 @@
     },
     "age=4": {
       "model": "steelwitchesplus:block/witchcap_stage4"
+    },
+    "age=5": {
+      "model": "steelwitchesplus:block/witchcap_stage5"
+    },
+    "age=6": {
+      "model": "steelwitchesplus:block/witchcap_stage6"
     }
   }
 }

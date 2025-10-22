@@ -4,6 +4,7 @@ import net.minecraft.block.*;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -49,7 +50,7 @@ public class ModBlocks {
             AbstractBlock.Settings.copy(Blocks.ROSE_BUSH), true);
     public static final Block GYPSOPHILA = register("gypsophila", FlowerbedBlock::new,
             AbstractBlock.Settings.copy(Blocks.WILDFLOWERS), true);
-    public static final Block INKCAP = register("inkcap", (settings) -> new FlowerBlock(
+    public static final Block INKCAP_FLOWER = register("inkcap_flower", (settings) -> new FlowerBlock(
                     StatusEffects.BLINDNESS, 1.5F, settings),
             AbstractBlock.Settings.copy(Blocks.CORNFLOWER), true);
 
@@ -62,8 +63,12 @@ public class ModBlocks {
             AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH), false);
     public static final Block GARLIC_CROP = register("garlic", GarlicCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
+    public static final Block INKCAP_CROP = register("inkcap", InkcapCropBlock::new,
+            AbstractBlock.Settings.copy(Blocks.WHEAT), false);
     public static final Block SOLANDRA_CROP = register("solandra", SolandraCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
+    public static final Block TURNIP_CROP = register("turnip", TurnipCropBlock::new,
+            AbstractBlock.Settings.copy(Blocks.CARROTS), false);
     public static final Block WITCHCAP_CROP = register("witchcap", WitchcapCropBlock::new,
             AbstractBlock.Settings.copy(Blocks.WHEAT), false);
     public static final Block WOLFSBANE_CROP = register("wolfsbane", WolfsbaneCropBlock::new,

@@ -2,7 +2,6 @@ package net.sneezewipe.steelwitchesplus.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.block.Blocks;
 import net.minecraft.data.recipe.CookingRecipeJsonBuilder;
 import net.minecraft.data.recipe.RecipeExporter;
@@ -10,7 +9,6 @@ import net.minecraft.data.recipe.RecipeGenerator;
 import net.minecraft.data.recipe.StonecuttingRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
-import net.minecraft.potion.Potions;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryKey;
@@ -41,6 +39,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 generateRecipeDisinfectantBase(recipeExporter);
                 generateRecipeForestEssence(recipeExporter);
                 generateRecipeGlassJar(recipeExporter);
+                generateRecipeIronTurnip(recipeExporter);
                 generateRecipeQuartzSword(recipeExporter);
                 generateRecipeWiccanSands(recipeExporter);
                 try {
@@ -78,9 +77,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 ));
                 generateFurnaceRecipeBakedClayJar(recipeExporter);
                 generateFurnaceRecipeDisinfectant(recipeExporter);
+                generateFurnaceRecipeCookedTurnip(recipeExporter);
+                generateSmokerRecipeCookedTurnip(recipeExporter);
 
                 /* Smoker recipes */
                 generateSmokerRecipeLeather(recipeExporter);
+
+                /* Campfire recipes */
+                generateCampfireRecipeCookedTurnip(recipeExporter);
             }
 
             /* Shaped recipes */
@@ -130,6 +134,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .input('G', Items.GLASS)
                         .criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.GLASS_JAR))));
+            }
+
+            private void generateRecipeIronTurnip(RecipeExporter exporter) {
+                createShaped(RecipeCategory.FOOD, ModItems.IRON_TURNIP, 1)
+                        .pattern("III")
+                        .pattern("ITI")
+                        .pattern("III")
+                        .input('I', Items.IRON_NUGGET)
+                        .input('T', ModItems.TURNIP)
+                        .criterion(hasItem(ModItems.TURNIP), conditionsFromItem(ModItems.TURNIP))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.IRON_TURNIP))));
             }
 
             private void generateRecipeBasicArmor(RecipeExporter exporter, List<Item> armorSet, Item ingredient) throws Exception {
@@ -271,8 +286,8 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
             private void generateRecipeInkcapStew(RecipeExporter exporter) {
                 createShapeless(RecipeCategory.FOOD, ModItems.INKCAP_STEW, 1)
-                        .input(ModBlocks.INKCAP).input(ModItems.WITCHCAP).input(Items.BOWL)
-                        .criterion(hasItem(ModBlocks.INKCAP), conditionsFromItem(ModBlocks.INKCAP))
+                        .input(ModItems.INKCAP).input(ModItems.WITCHCAP).input(Items.BOWL)
+                        .criterion(hasItem(ModItems.INKCAP), conditionsFromItem(ModItems.INKCAP))
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.INKCAP_STEW))));
             }
 
@@ -349,6 +364,39 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 CookingRecipeJsonBuilder.createSmoking(Ingredient.ofItem(ModItems.CLEANED_FLESH), RecipeCategory.MISC, Items.LEATHER, 0.5f, 600)
                         .criterion(hasItem(ModItems.CLEANED_FLESH), conditionsFromItem(ModItems.CLEANED_FLESH))
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(Items.LEATHER))));
+            }
+
+            private void generateFurnaceRecipeCookedTurnip(RecipeExporter exporter) {
+                CookingRecipeJsonBuilder.createSmelting(
+                                Ingredient.ofItems(ModItems.TURNIP),
+                                RecipeCategory.FOOD,
+                                ModItems.COOKED_TURNIP,
+                                0.35f,  // XP
+                                200     // ticks (10 seconds)
+                        ).criterion(hasItem(ModItems.TURNIP), conditionsFromItem(ModItems.TURNIP))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.COOKED_TURNIP) + "_smelting")));
+            }
+
+            private void generateSmokerRecipeCookedTurnip(RecipeExporter exporter) {
+                CookingRecipeJsonBuilder.createSmoking(
+                                Ingredient.ofItems(ModItems.TURNIP),
+                                RecipeCategory.FOOD,
+                                ModItems.COOKED_TURNIP,
+                                0.35f,  // XP
+                                100     // ticks (5 seconds)
+                        ).criterion(hasItem(ModItems.TURNIP), conditionsFromItem(ModItems.TURNIP))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.COOKED_TURNIP) + "_smoking")));
+            }
+
+            private void generateCampfireRecipeCookedTurnip(RecipeExporter exporter) {
+                CookingRecipeJsonBuilder.createCampfireCooking(
+                                Ingredient.ofItems(ModItems.TURNIP),
+                                RecipeCategory.FOOD,
+                                ModItems.COOKED_TURNIP,
+                                0.35f,  // XP
+                                600     // ticks (30 seconds)
+                        ).criterion(hasItem(ModItems.TURNIP), conditionsFromItem(ModItems.TURNIP))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.COOKED_TURNIP) + "_campfire")));
             }
         };
     }

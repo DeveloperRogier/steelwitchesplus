@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/flower_pot_cross",
   "textures": {
-    "plant": "steelwitchesplus:block/inkcap"
+    "plant": "steelwitchesplus:block/inkcap_flower"
   }
 }

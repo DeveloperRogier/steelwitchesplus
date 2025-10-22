@@ -84,7 +84,7 @@ public class ModConfiguredFeature {
                 ));
 
         register(context, INKCAP_KEY, Feature.SIMPLE_BLOCK, new SimpleBlockFeatureConfig(
-                BlockStateProvider.of(ModBlocks.INKCAP)));
+                BlockStateProvider.of(ModBlocks.INKCAP_FLOWER)));
 
         register(context, INKCAP_PATCH_KEY, Feature.FLOWER,
                 new RandomPatchFeatureConfig(
