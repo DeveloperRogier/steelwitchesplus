@@ -20,11 +20,13 @@ public class SteelWitchesPlusClient implements ClientModInitializer {
                 ModBlocks.GHOST_LARKSPUR,
                 ModBlocks.GRASP_GRASS,
                 ModBlocks.GYPSOPHILA,
-                ModBlocks.INKCAP,
+                ModBlocks.INKCAP_FLOWER,
+                ModBlocks.INKCAP_CROP,
                 ModBlocks.PALE_PUMPKIN_STEM,
                 ModBlocks.PALE_ATTACHED_PUMPKIN_STEM,
                 ModBlocks.SKYWORT_CROP,
                 ModBlocks.SOLANDRA_CROP,
+                ModBlocks.TURNIP_CROP,
                 ModBlocks.WITCHCAP_CROP,
                 ModBlocks.WOLFSBANE_CROP);
         registerFeatureRenderers();

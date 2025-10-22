@@ -50,6 +50,8 @@ public class ModItems {
     public static final Item GLASS_JAR = register("glass_jar", Item::new, new Item.Settings());
     public static final Item INFERNAL_BLADE = register("infernal_blade",
             settings -> new InfernalBladeItem(ToolMaterial.DIAMOND, 3, -2.4f, settings), new Item.Settings());
+    public static final Item INKCAP = register("inkcap", settings -> new BlockItem(ModBlocks.INKCAP_FLOWER, settings), new Item.Settings());
+    public static final Item INKCAP_SPORES = register("inkcap_spores", settings -> new BlockItem(ModBlocks.INKCAP_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item PALE_PUMPKIN_SEEDS = register("pale_pumpkin_seeds",
             settings -> new BlockItem(ModBlocks.PALE_PUMPKIN_STEM, settings), new Item.Settings().useItemPrefixedTranslationKey());
     public static final Item POTION_ESSENCE_BERRY_MIX = register("potion_essence_berry_mix", Item::new, new Item.Settings());
@@ -159,13 +161,40 @@ public class ModItems {
 
     public static final FoodComponent INKCAP_STEW_COMPONENT = new FoodComponent.Builder()
             .nutrition(5)
-            .saturationModifier(0.1F)
+            .saturationModifier(0.3F)
             .build();
     public static final Item INKCAP_STEW = register(
             "inkcap_stew",
             Item::new,
             new Item.Settings().maxCount(1).food(INKCAP_STEW_COMPONENT).useRemainder(Items.BOWL)
     );
+
+    public static final FoodComponent TURNIP_COMPONENT = new FoodComponent.Builder()
+            .nutrition(7)
+            .saturationModifier(0.0F)
+            .build();
+    public static final Item TURNIP = register(
+            "turnip",
+            settings -> new BlockItem(ModBlocks.TURNIP_CROP, settings),
+            new Item.Settings().food(TURNIP_COMPONENT)
+    );
+
+    public static final FoodComponent COOKED_TURNIP_COMPONENT = new FoodComponent.Builder()
+            .nutrition(6)
+            .saturationModifier(0.6F)
+            .build();
+    public static final Item COOKED_TURNIP = register("cooked_turnip", Item::new, new Item.Settings().food(COOKED_TURNIP_COMPONENT)
+    );
+
+    public static final ConsumableComponent IRON_TURNIP_EFFECT = ConsumableComponents.food()
+            .consumeEffect(new ApplyEffectsConsumeEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 20*20,0),1F))
+            .build();
+    public static final FoodComponent IRON_TURNIP_COMPONENT = new FoodComponent.Builder()
+            .nutrition(6)
+            .saturationModifier(1.2f)
+            .build();
+    public static final Item IRON_TURNIP = register("iron_turnip", Item::new, new Item.Settings().food(IRON_TURNIP_COMPONENT, IRON_TURNIP_EFFECT));
+
 
     /* Add an item to the item group indicated by one of the following functions' names. */
     /* To be clear, since these are vanilla groups, these are not handled in ModItemGroups.java. */
@@ -199,7 +228,6 @@ public class ModItems {
                 FROG_TOE,
                 GARLIC,
                 GLASS_JAR,
-                ModBlocks.INKCAP.asItem(),
                 ModBlocks.PALE_PUMPKIN.asItem(),
                 PALLID_APPLE,
                 POTION_ESSENCE_BERRY_MIX,
@@ -207,6 +235,7 @@ public class ModItems {
                 RUBY,
                 SCULK_POWDER,
                 SOLANDRA,
+                TURNIP,
                 WEEPING_POWDER,
                 WITCHCAP,
                 WOLFSBANE,
@@ -224,7 +253,7 @@ public class ModItems {
                 ModBlocks.GHOST_LARKSPUR.asItem(),
                 ModBlocks.GRASP_GRASS.asItem(),
                 ModBlocks.GYPSOPHILA.asItem(),
-                ModBlocks.INKCAP.asItem(),
+                INKCAP_SPORES,
                 ModBlocks.PALE_PUMPKIN.asItem(),
                 PALE_PUMPKIN_SEEDS,
                 SOLANDRA_SEEDS,
@@ -270,6 +299,9 @@ public class ModItems {
                 INKCAP_STEW,
                 PALE_PUMPKIN_PIE,
                 PALLID_APPLE,
+                TURNIP,
+                COOKED_TURNIP,
+                IRON_TURNIP,
         };
         for (Item item : items) {
             entries.add(item);

@@ -10,6 +10,7 @@ import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.potion.Potions;
 import net.sneezewipe.steelwitchesplus.block.ModBlockEntityTypes;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
+import net.sneezewipe.steelwitchesplus.datagen.ModComposting;
 import net.sneezewipe.steelwitchesplus.effect.ModEffects;
 import net.sneezewipe.steelwitchesplus.item.ModItemGroups;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
@@ -34,11 +35,12 @@ public class SteelWitchesPlus implements ModInitializer {
 		ModBiomeModification.registerBiomeModifications();
 		ModEffects.registerEffects();
 		ModLootTableModifiers.modifyLootTables();
+        ModComposting.registerCompostables();
 
 		registerLootTableListener(EntityType.FROG, ModItems.FROG_TOE);
 
 		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
-			builder.registerPotionRecipe(Potions.WATER, ModBlocks.INKCAP.asItem(), ModPotions.DELIRIUM_POTION);
+			builder.registerPotionRecipe(Potions.WATER, ModItems.INKCAP, ModPotions.DELIRIUM_POTION);
 		});
 		FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
 			builder.registerPotionRecipe(Potions.WATER, ModItems.WITCHCAP, ModPotions.BEWITCHED_POTION);

@@ -26,6 +26,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.DEEPSLATE_RUBY_ORE);
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.RUBY_ORE);
 
+        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(ModBlocks.PALE_PUMPKIN);
+
         getOrCreateTagBuilder(BlockTags.WALLS).add(ModBlocks.QUARTZ_WALL);
 
         getOrCreateTagBuilder(ModTags.Blocks.DECAYABLE_BLOCKS)

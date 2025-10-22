@@ -34,8 +34,10 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerCrop(ModBlocks.ARTICHOKE_CROP, ArtichokeCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.BELLADONNA_CROP, BelladonnaCropBlock.AGE, 0, 1, 2, 3, 4);
         blockStateModelGenerator.registerCrop(ModBlocks.GARLIC_CROP, GarlicCropBlock.AGE, 0, 1, 2, 3, 4);
+        blockStateModelGenerator.registerCrop(ModBlocks.INKCAP_CROP, InkcapCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
         blockStateModelGenerator.registerCrop(ModBlocks.SOLANDRA_CROP, SolandraCropBlock.AGE, 0, 1, 2, 3, 4);
-        blockStateModelGenerator.registerCrop(ModBlocks.WITCHCAP_CROP, WitchcapCropBlock.AGE, 0, 1, 2, 3, 4);
+        blockStateModelGenerator.registerCrop(ModBlocks.TURNIP_CROP, TurnipCropBlock.AGE, 0, 1, 2, 3);
+        blockStateModelGenerator.registerCrop(ModBlocks.WITCHCAP_CROP, WitchcapCropBlock.AGE, 0, 1, 2, 3, 4, 5, 6);
         blockStateModelGenerator.registerCrop(ModBlocks.WOLFSBANE_CROP, WolfsbaneCropBlock.AGE, 0, 1, 2, 3, 4, 5);
 
         blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.BLEAK_BERRY_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED,
@@ -45,7 +47,7 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCross(ModBlocks.BRAMBLE_WILD_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCross(ModBlocks.SKYWORT_CROP, BlockStateModelGenerator.CrossType.NOT_TINTED);
 
-        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.INKCAP, Blocks.POTTED_AZALEA_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED);
+        blockStateModelGenerator.registerFlowerPotPlant(ModBlocks.INKCAP_FLOWER, Blocks.ROSE_BUSH, BlockStateModelGenerator.CrossType.NOT_TINTED);
 
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.GHOST_LARKSPUR, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.registerDoubleBlock(ModBlocks.GRASP_GRASS, BlockStateModelGenerator.CrossType.NOT_TINTED);
@@ -65,6 +67,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BELLADONNA, Models.GENERATED);
         itemModelGenerator.register(ModItems.CLAY_JAR, Models.GENERATED);
         itemModelGenerator.register(ModItems.CLEANED_FLESH, Models.GENERATED);
+        itemModelGenerator.register(ModItems.COOKED_TURNIP, Models.GENERATED);
         itemModelGenerator.register(ModItems.DISINFECTANT, Models.GENERATED);
         itemModelGenerator.register(ModItems.DISINFECTANT_BASE, Models.GENERATED);
         itemModelGenerator.register(ModItems.FOREST_ESSENCE, Models.GENERATED);
@@ -73,8 +76,9 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModBlocks.GHOST_LARKSPUR.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModItems.GLASS_JAR, Models.GENERATED);
         itemModelGenerator.register(ModBlocks.GRASP_GRASS.asItem(), Models.GENERATED);
-        itemModelGenerator.register(ModBlocks.INKCAP.asItem(), Models.GENERATED);
+        itemModelGenerator.register(ModItems.INKCAP, Models.GENERATED);
         itemModelGenerator.register(ModItems.INKCAP_STEW, Models.GENERATED);
+        itemModelGenerator.register(ModItems.IRON_TURNIP, Models.GENERATED);
         itemModelGenerator.register(ModItems.PALE_PUMPKIN_PIE, Models.GENERATED);
         itemModelGenerator.register(ModItems.PALE_PUMPKIN_SEEDS, Models.GENERATED);
         itemModelGenerator.register(ModItems.PALLID_APPLE, Models.GENERATED);
