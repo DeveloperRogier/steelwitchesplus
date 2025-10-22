@@ -16,7 +16,7 @@ import net.minecraft.village.TradedItem;
 import net.minecraft.village.VillagerProfession;
 import net.sneezewipe.steelwitchesplus.block.ModBlockEntityTypes;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
-import net.sneezewipe.steelwitchesplus.datagen.ModComposting;
+import net.sneezewipe.steelwitchesplus.datagen.ModCompostableProvider;
 import net.sneezewipe.steelwitchesplus.effect.ModEffects;
 import net.sneezewipe.steelwitchesplus.item.ModItemGroups;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
@@ -41,7 +41,7 @@ public class SteelWitchesPlus implements ModInitializer {
 		ModBiomeModification.registerBiomeModifications();
 		ModEffects.registerEffects();
 		ModLootTableModifiers.modifyLootTables();
-        ModComposting.registerCompostables();
+        ModCompostableProvider.registerCompostables();
 
 		registerBrewingRecipes();
 		registerLootTableListener(EntityType.FROG, ModItems.FROG_TOE);
