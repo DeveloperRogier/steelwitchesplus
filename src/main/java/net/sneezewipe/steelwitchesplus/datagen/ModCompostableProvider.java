@@ -4,7 +4,7 @@ import net.minecraft.block.ComposterBlock;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
 
-public class ModComposting {
+public class ModCompostableProvider {
     public static void registerCompostables(){
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModItems.BLEAK_BERRIES, 0.3f);
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ModBlocks.GYPSOPHILA.asItem(), 0.3F);
