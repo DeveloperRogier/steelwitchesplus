@@ -6,9 +6,9 @@
     "S": "minecraft:stick"
   },
   "pattern": [
-    " Q ",
-    " Q ",
-    " S "
+    "Q",
+    "Q",
+    "S"
   ],
   "result": {
     "count": 1,

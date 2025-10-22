@@ -17,8 +17,9 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 import net.sneezewipe.steelwitchesplus.item.ModItems;
+import net.sneezewipe.steelwitchesplus.item.ModItems.ArmorSet;
+import net.sneezewipe.steelwitchesplus.item.ModItems.ToolSet;
 
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -147,93 +148,85 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.IRON_TURNIP))));
             }
 
-            private void generateRecipeBasicArmor(RecipeExporter exporter, List<Item> armorSet, Item ingredient) throws Exception {
-                if (armorSet.size() != 4) {
-                    throw new Exception("parameter `armorSet` must contain exactly 4 elements in order: helmet, chestplate, leggings, boots");
-                }
-
-                createShaped(RecipeCategory.COMBAT, armorSet.get(0), 1)
+            private void generateRecipeBasicArmor(RecipeExporter exporter, ArmorSet armorSet, Item ingredient) {
+                createShaped(RecipeCategory.COMBAT, armorSet.helmet(), 1)
                         .pattern("###")
                         .pattern("# #")
                         .input('#', ingredient)
                         .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.get(0)))));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.helmet()))));
 
-                createShaped(RecipeCategory.COMBAT, armorSet.get(1), 1)
+                createShaped(RecipeCategory.COMBAT, armorSet.chestplate(), 1)
                         .pattern("# #")
                         .pattern("###")
                         .pattern("###")
                         .input('#', ingredient)
                         .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.get(1)))));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.chestplate()))));
 
-                createShaped(RecipeCategory.COMBAT, armorSet.get(2), 1)
+                createShaped(RecipeCategory.COMBAT, armorSet.leggings(), 1)
                         .pattern("###")
                         .pattern("# #")
                         .pattern("# #")
                         .input('#', ingredient)
                         .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.get(2)))));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.leggings()))));
 
-                createShaped(RecipeCategory.COMBAT, armorSet.get(3), 1)
+                createShaped(RecipeCategory.COMBAT, armorSet.boots(), 1)
                         .pattern("# #")
                         .pattern("# #")
                         .input('#', ingredient)
                         .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.get(3)))));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(armorSet.boots()))));
             }
 
-            private void generateRecipeBasicToolset(RecipeExporter exporter, List<Item> toolSet, Item ingredient) throws Exception {
-                if (toolSet.size() != 5) {
-                    throw new Exception("parameter `toolSet` must contain exactly 5 elements in order: axe, hoe, pickaxe, shovel, sword");
-                }
-
-                createShaped(RecipeCategory.TOOLS, toolSet.get(0), 1)
+            private void generateRecipeBasicToolset(RecipeExporter exporter, ToolSet toolSet, Item ingredient) {
+                createShaped(RecipeCategory.TOOLS, toolSet.axe(), 1)
                         .pattern("##")
                         .pattern("#S")
                         .pattern(" S")
                         .input('#', ingredient).input('S', Items.STICK)
                         .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.get(0)))));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.axe()))));
 
-                createShaped(RecipeCategory.TOOLS, toolSet.get(1), 1)
+                createShaped(RecipeCategory.TOOLS, toolSet.hoe(), 1)
                         .pattern("##")
                         .pattern(" S")
                         .pattern(" S")
                         .input('#', ingredient).input('S', Items.STICK)
                         .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.get(1)))));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.hoe()))));
 
-                createShaped(RecipeCategory.TOOLS, toolSet.get(2), 1)
+                createShaped(RecipeCategory.TOOLS, toolSet.pickaxe(), 1)
                         .pattern("###")
                         .pattern(" S ")
                         .pattern(" S ")
                         .input('#', ingredient).input('S', Items.STICK)
                         .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.get(2)))));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.pickaxe()))));
 
-                createShaped(RecipeCategory.TOOLS, toolSet.get(3), 1)
+                createShaped(RecipeCategory.TOOLS, toolSet.shovel(), 1)
                         .pattern("#")
                         .pattern("S")
                         .pattern("S")
                         .input('#', ingredient).input('S', Items.STICK)
                         .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.get(3)))));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.shovel()))));
 
-                createShaped(RecipeCategory.COMBAT, toolSet.get(4), 1)
+                createShaped(RecipeCategory.COMBAT, toolSet.sword(), 1)
                         .pattern("#")
                         .pattern("#")
                         .pattern("S")
                         .input('#', ingredient).input('S', Items.STICK)
                         .criterion(hasItem(ingredient), conditionsFromItem(ingredient))
-                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.get(4)))));
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(toolSet.sword()))));
             }
 
             private void generateRecipeQuartzSword(RecipeExporter exporter) {
                 createShaped(RecipeCategory.COMBAT, ModItems.QUARTZ_SWORD, 1)
-                        .pattern(" Q ")
-                        .pattern(" Q ")
-                        .pattern(" S ")
+                        .pattern("Q")
+                        .pattern("Q")
+                        .pattern("S")
                         .input('Q', Items.QUARTZ).input('S', Items.STICK)
                         .criterion(hasItem(Items.QUARTZ), conditionsFromItem(Items.QUARTZ))
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.QUARTZ_SWORD))));

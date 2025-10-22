@@ -22,6 +22,9 @@ import java.util.List;
 import java.util.function.Function;
 
 public class ModItems {
+    public record ArmorSet(Item helmet, Item chestplate, Item leggings, Item boots) {}
+    public record ToolSet(Item axe, Item hoe, Item pickaxe, Item shovel, Item sword) {}
+
     /*
      * ITEMS
      */
@@ -64,7 +67,7 @@ public class ModItems {
     public static final Item RUBY_PICKAXE = register("ruby_pickaxe", Item::new, new Item.Settings().pickaxe(ModToolMaterials.RUBY, 5, -2.5f));
     public static final Item RUBY_SHOVEL = register("ruby_shovel", Item::new, new Item.Settings().shovel(ModToolMaterials.RUBY, 5.5f, -2.7f));
     public static final Item RUBY_SWORD = register("ruby_sword", Item::new, new Item.Settings().sword(ModToolMaterials.RUBY, 7, -2.1f));
-    public static final List<Item> RUBY_TOOL_SET = List.of(RUBY_AXE, RUBY_HOE, RUBY_PICKAXE, RUBY_SHOVEL, RUBY_SWORD);
+    public static final ToolSet RUBY_TOOL_SET = new ToolSet(RUBY_AXE, RUBY_HOE, RUBY_PICKAXE, RUBY_SHOVEL, RUBY_SWORD);
     public static final Item SCULK_POWDER = register("sculk_powder", Item::new, new Item.Settings());
     public static final Item SOLANDRA = register("solandra", SolandraItem::new, new Item.Settings());
     public static final Item SOLANDRA_SEEDS = register("solandra_seeds", settings -> new BlockItem(ModBlocks.SOLANDRA_CROP, settings), new Item.Settings().useItemPrefixedTranslationKey());
@@ -92,7 +95,7 @@ public class ModItems {
     public static final Item QUARTZ_BOOTS = register("quartz_boots",
             settings -> new ModArmorItem(ModArmorMaterials.QUARTZ_ARMOR_MATERIAL, EquipmentType.BOOTS, settings),
             new Item.Settings().maxDamage(EquipmentType.HELMET.getMaxDamage(ModArmorMaterials.BASE_DURABILITY)));
-    public static final List<Item> QUARTZ_ARMOR_SET = List.of(QUARTZ_HELMET, QUARTZ_CHESTPLATE, QUARTZ_LEGGINGS, QUARTZ_BOOTS);
+    public static final ArmorSet QUARTZ_ARMOR_SET = new ArmorSet(QUARTZ_HELMET, QUARTZ_CHESTPLATE, QUARTZ_LEGGINGS, QUARTZ_BOOTS);
 
     public static final Item RUBINITE_HELMET = register("rubinite_helmet",
             settings -> new ModArmorItem(ModArmorMaterials.RUBINITE_ARMOR_MATERIAL, EquipmentType.HELMET, settings),
@@ -106,7 +109,7 @@ public class ModItems {
     public static final Item RUBINITE_BOOTS = register("rubinite_boots",
             settings -> new ModArmorItem(ModArmorMaterials.RUBINITE_ARMOR_MATERIAL, EquipmentType.BOOTS, settings),
             new Item.Settings().maxDamage(EquipmentType.BOOTS.getMaxDamage(ModArmorMaterials.RUBINITE_DURABILITY)));
-    public static final List<Item> RUBINITE_ARMOR_SET = List.of(RUBINITE_HELMET, RUBINITE_CHESTPLATE, RUBINITE_LEGGINGS, RUBINITE_BOOTS);
+    public static final ArmorSet RUBINITE_ARMOR_SET = new ArmorSet(RUBINITE_HELMET, RUBINITE_CHESTPLATE, RUBINITE_LEGGINGS, RUBINITE_BOOTS);
 
     public static final Item RUBY_HELMET = register("ruby_helmet", Item::new,
             new Item.Settings().armor(ModArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentType.HELMET)
@@ -120,7 +123,7 @@ public class ModItems {
     public static final Item RUBY_BOOTS = register("ruby_boots", Item::new,
             new Item.Settings().armor(ModArmorMaterials.RUBY_ARMOR_MATERIAL, EquipmentType.BOOTS)
                     .maxDamage(EquipmentType.BOOTS.getMaxDamage(ModArmorMaterials.RUBY_DURABILITY)));
-    public static final List<Item> RUBY_ARMOR_SET = List.of(RUBY_HELMET, RUBY_CHESTPLATE, RUBY_LEGGINGS, RUBY_BOOTS);
+    public static final ArmorSet RUBY_ARMOR_SET = new ArmorSet(RUBY_HELMET, RUBY_CHESTPLATE, RUBY_LEGGINGS, RUBY_BOOTS);
 
     /*
      * FOOD
