@@ -62,8 +62,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 generateRecipeInkcapStew(recipeExporter);
                 generateRecipePalePumpkinPie(recipeExporter);
                 generateRecipePalePumpkinSeeds(recipeExporter);
-                generateRecipeWitherSword(recipeExporter);
                 generateRecipeRubiniteIngot(recipeExporter);
+                generateRecipeRubyFromBlock(recipeExporter);
+                generateRecipeWitherSword(recipeExporter);
 
                 /* Shapeless recipes blocks */
                 generateStonecutterRecipeQuartzTrimBlock(recipeExporter);
@@ -296,6 +297,13 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .input(ModBlocks.PALE_PUMPKIN)
                         .criterion(hasItem(ModBlocks.PALE_PUMPKIN), conditionsFromItem(ModBlocks.PALE_PUMPKIN))
                         .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName((ModItems.PALE_PUMPKIN_SEEDS)))));
+            }
+
+            private void generateRecipeRubyFromBlock(RecipeExporter exporter) {
+                createShapeless(RecipeCategory.MISC, ModItems.RUBY, 9)
+                        .input(ModBlocks.RUBY_BLOCK)
+                        .criterion(hasItem(ModItems.RUBY), conditionsFromItem(ModItems.RUBY))
+                        .offerTo(exporter, RegistryKey.of(RegistryKeys.RECIPE, Identifier.of(getRecipeName(ModItems.RUBY))));
             }
 
             private void generateRecipeRubiniteIngot(RecipeExporter exporter) {
