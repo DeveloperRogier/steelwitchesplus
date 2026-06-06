@@ -12,7 +12,7 @@ import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.structure.rule.RuleTest;
 import net.minecraft.structure.rule.TagMatchRuleTest;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.collection.Pool;
+import net.minecraft.util.collection.WeightedPool;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
@@ -115,7 +115,7 @@ public class ModConfiguredFeature {
     }
 
     private static WeightedBlockStateProvider flowerbed(Block... blocks) {
-        Pool.Builder<BlockState> builder = Pool.builder();
+        WeightedPool.Builder<BlockState> builder = WeightedPool.builder();
         for (Block b : blocks) {
             builder.add(b.getDefaultState(), 1);
         }

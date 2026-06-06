@@ -13,6 +13,8 @@ import net.minecraft.loot.context.LootWorldContext;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.storage.ReadView;
+import net.minecraft.storage.WriteView;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -34,7 +36,7 @@ public class DistilleryBlockEntity extends BlockEntity implements TickableBlockE
 
     @Override
     public void tick() {
-        if (this.world == null || this.world.isClient) {
+        if (this.world == null || this.world.isClient()) {
             return;
         }
 
@@ -96,31 +98,16 @@ public class DistilleryBlockEntity extends BlockEntity implements TickableBlockE
     }
 
     @Override
-    protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        // this.counter = nbt.contains("counter", NbtElement.INT_TYPE) ? nbt.getInt("counter") : 0;
-
-        // This is the way to get the data if we stored it using the alternative way in `writeNbt`
-        /*if (nbt.contains(SteelWitchesPlus.MOD_ID, NbtElement.COMPOUND_TYPE)) {
-            var modIdData = nbt.getCompound(SteelWitchesPlus.MOD_ID);
-            this.counter = modIdData.contains("counter", NbtElement.INT_TYPE) ? modIdData.getInt("counter") : 0;
-        }*/
-
-        super.readNbt(nbt, registryLookup);
-        this.ticks = nbt.getInt("ticks").get();
-        this.miningPos = BlockPos.fromLong(nbt.getLong("miningPos").get());
+    protected void readData(ReadView view) {
+        super.readData(view);
+        this.ticks = view.getInt("ticks", 0);
+        this.miningPos = BlockPos.fromLong(view.getLong("miningPos", 0));
     }
 
     @Override
-    protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
-        // nbt.putInt("counter", this.counter);
-
-        // Alternative way to do this. Apparently, this should store the NBT data in a location that's guaranteed to be unique
-        /*var modIdData = new NbtCompound();
-        modIdData.putInt("counter", this.counter);
-        nbt.put(SteelWitchesPlus.MOD_ID, modIdData);*/
-
-        super.writeNbt(nbt, registryLookup);
-        nbt.putInt("ticks", this.ticks);
-        nbt.putLong("miningPos", this.miningPos.asLong());
+    protected void writeData(WriteView view) {
+        super.writeData(view);
+        view.putInt("ticks", this.ticks);
+        view.putLong("miningPos", this.miningPos.asLong());
     }
 }

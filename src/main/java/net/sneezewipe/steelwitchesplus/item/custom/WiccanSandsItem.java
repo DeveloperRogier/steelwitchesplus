@@ -43,11 +43,11 @@ public class WiccanSandsItem extends Item {
 
     @Override
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
-        if (world.isClient && world.isDay()) {
+        if (world.isClient() && world.isDay()) {
             return ActionResult.FAIL;
         }
 
-        if (!world.isClient) {
+        if (!world.isClient()) {
             SteelWitchesPlus.LOGGER.info(String.format("started using hourglass %s", user.getStackInHand(hand)));
 
             Scoreboard scoreboard = world.getScoreboard();
@@ -130,7 +130,7 @@ public class WiccanSandsItem extends Item {
     }
 
     private ItemStack stopUsing(ItemStack stack, World world) {
-        if (!world.isClient) {
+        if (!world.isClient()) {
             SteelWitchesPlus.LOGGER.info(String.format("decrementing scoreboard for %s", stack));
             Scoreboard scoreboard = world.getScoreboard();
             ScoreboardObjective objective = getOrCreateScoreboardObjective(scoreboard, OBJECTIVE_NAME);

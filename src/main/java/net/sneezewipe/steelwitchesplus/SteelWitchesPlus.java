@@ -68,7 +68,7 @@ public class SteelWitchesPlus implements ModInitializer {
 
 	private void registerTradeOffers() {
 		TradeOfferHelper.registerVillagerOffers(VillagerProfession.FARMER, 1, factories -> {
-			factories.add((entity, random) -> new TradeOffer(
+			factories.add((world, entity, random) -> new TradeOffer(
 					new TradedItem(Items.EMERALD, 3),
 					new ItemStack(ModItems.TURNIP, 1), 7, 2, 0.04f
 			));
