@@ -34,7 +34,7 @@ public AmethystGreatswordItem(ToolMaterial toolMaterial, int attackDamage, float
 
     @Override
     public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        ServerWorld world = (ServerWorld)target.getWorld();
+        ServerWorld world = (ServerWorld)target.getEntityWorld();
         stack.damage(1, attacker, EquipmentSlot.MAINHAND);
         target.damage(world, world.getDamageSources().magic(), this.magicDamage);
     }

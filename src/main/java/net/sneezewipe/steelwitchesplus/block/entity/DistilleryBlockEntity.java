@@ -36,7 +36,7 @@ public class DistilleryBlockEntity extends BlockEntity implements TickableBlockE
 
     @Override
     public void tick() {
-        if (this.world == null || this.world.isClient) {
+        if (this.world == null || this.world.isClient()) {
             return;
         }
 

@@ -14,7 +14,7 @@ public class BewitchedEffect extends StatusEffect {
 
     @Override
     public boolean applyUpdateEffect(ServerWorld world, LivingEntity entity, int amplifier) {
-        if (!world.isClient) {
+        if (!world.isClient()) {
             entity.addStatusEffect(new StatusEffectInstance(
                     StatusEffects.NAUSEA,
                     30,
