@@ -25,34 +25,34 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
 
         registerToolTags(ModItems.RUBY_TOOL_SET);
 
-        getOrCreateTagBuilder(ModTags.Items.AMETHYST_REPAIR).add(Items.AMETHYST_SHARD);
-        getOrCreateTagBuilder(ModTags.Items.QUARTZ_REPAIR).add(Items.QUARTZ);
-        getOrCreateTagBuilder(ModTags.Items.RUBINITE_REPAIR).add(ModItems.RUBINITE_INGOT);
-        getOrCreateTagBuilder(ModTags.Items.RUBY_REPAIR).add(ModItems.RUBY);
+        valueLookupBuilder(ModTags.Items.AMETHYST_REPAIR).add(Items.AMETHYST_SHARD);
+        valueLookupBuilder(ModTags.Items.QUARTZ_REPAIR).add(Items.QUARTZ);
+        valueLookupBuilder(ModTags.Items.RUBINITE_REPAIR).add(ModItems.RUBINITE_INGOT);
+        valueLookupBuilder(ModTags.Items.RUBY_REPAIR).add(ModItems.RUBY);
     }
 
     private void registerArmorTags(ArmorSet armorSet) {
-        getOrCreateTagBuilder(ItemTags.TRIMMABLE_ARMOR)
+        valueLookupBuilder(ItemTags.TRIMMABLE_ARMOR)
                 .add(armorSet.helmet())
                 .add(armorSet.chestplate())
                 .add(armorSet.leggings())
                 .add(armorSet.boots());
-        getOrCreateTagBuilder(ItemTags.ARMOR_ENCHANTABLE)
+        valueLookupBuilder(ItemTags.ARMOR_ENCHANTABLE)
                 .add(armorSet.helmet())
                 .add(armorSet.chestplate())
                 .add(armorSet.leggings())
                 .add(armorSet.boots());
-        getOrCreateTagBuilder(ItemTags.HEAD_ARMOR).add(armorSet.helmet());
-        getOrCreateTagBuilder(ItemTags.CHEST_ARMOR).add(armorSet.chestplate());
-        getOrCreateTagBuilder(ItemTags.LEG_ARMOR).add(armorSet.leggings());
-        getOrCreateTagBuilder(ItemTags.FOOT_ARMOR).add(armorSet.boots());
+        valueLookupBuilder(ItemTags.HEAD_ARMOR).add(armorSet.helmet());
+        valueLookupBuilder(ItemTags.CHEST_ARMOR).add(armorSet.chestplate());
+        valueLookupBuilder(ItemTags.LEG_ARMOR).add(armorSet.leggings());
+        valueLookupBuilder(ItemTags.FOOT_ARMOR).add(armorSet.boots());
     }
 
     private void registerToolTags(ToolSet toolSet) {
-        getOrCreateTagBuilder(ItemTags.AXES).add(toolSet.axe());
-        getOrCreateTagBuilder(ItemTags.HOES).add(toolSet.hoe());
-        getOrCreateTagBuilder(ItemTags.PICKAXES).add(toolSet.pickaxe());
-        getOrCreateTagBuilder(ItemTags.SHOVELS).add(toolSet.shovel());
-        getOrCreateTagBuilder(ItemTags.SWORDS).add(toolSet.sword());
+        valueLookupBuilder(ItemTags.AXES).add(toolSet.axe());
+        valueLookupBuilder(ItemTags.HOES).add(toolSet.hoe());
+        valueLookupBuilder(ItemTags.PICKAXES).add(toolSet.pickaxe());
+        valueLookupBuilder(ItemTags.SHOVELS).add(toolSet.shovel());
+        valueLookupBuilder(ItemTags.SWORDS).add(toolSet.sword());
     }
 }

@@ -17,20 +17,20 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
 
     @Override
     protected void configure(RegistryWrapper.WrapperLookup arg) {
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(ModBlocks.RUBY_BLOCK);
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(ModBlocks.DEEPSLATE_RUBY_ORE);
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(ModBlocks.RUBY_ORE);
-        getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE).add(ModBlocks.TRIM_QUARTZ_BLOCK);
+        valueLookupBuilder(BlockTags.PICKAXE_MINEABLE).add(ModBlocks.RUBY_BLOCK);
+        valueLookupBuilder(BlockTags.PICKAXE_MINEABLE).add(ModBlocks.DEEPSLATE_RUBY_ORE);
+        valueLookupBuilder(BlockTags.PICKAXE_MINEABLE).add(ModBlocks.RUBY_ORE);
+        valueLookupBuilder(BlockTags.PICKAXE_MINEABLE).add(ModBlocks.TRIM_QUARTZ_BLOCK);
 
-        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.RUBY_BLOCK);
-        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.DEEPSLATE_RUBY_ORE);
-        getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.RUBY_ORE);
+        valueLookupBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.RUBY_BLOCK);
+        valueLookupBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.DEEPSLATE_RUBY_ORE);
+        valueLookupBuilder(BlockTags.NEEDS_DIAMOND_TOOL).add(ModBlocks.RUBY_ORE);
 
-        getOrCreateTagBuilder(BlockTags.AXE_MINEABLE).add(ModBlocks.PALE_PUMPKIN);
+        valueLookupBuilder(BlockTags.AXE_MINEABLE).add(ModBlocks.PALE_PUMPKIN);
 
-        getOrCreateTagBuilder(BlockTags.WALLS).add(ModBlocks.QUARTZ_WALL);
+        valueLookupBuilder(BlockTags.WALLS).add(ModBlocks.QUARTZ_WALL);
 
-        getOrCreateTagBuilder(ModTags.Blocks.DECAYABLE_BLOCKS)
+        valueLookupBuilder(ModTags.Blocks.DECAYABLE_BLOCKS)
                 .add(Blocks.FERN)
                 .forceAddTag(BlockTags.LEAVES)
                 .forceAddTag(BlockTags.FLOWERS)

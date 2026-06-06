@@ -3,14 +3,14 @@ package net.sneezewipe.steelwitchesplus;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.client.render.RenderLayer;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
+import net.minecraft.client.render.BlockRenderLayer;
 import net.sneezewipe.steelwitchesplus.block.ModBlocks;
 
 @Environment(EnvType.CLIENT)
 public class SteelWitchesPlusClient implements ClientModInitializer {
     public void onInitializeClient() {
-        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+        BlockRenderLayerMap.putBlocks(BlockRenderLayer.CUTOUT,
                 ModBlocks.ARTICHOKE_CROP,
                 ModBlocks.BELLADONNA_CROP,
                 ModBlocks.BLEAK_BERRY_BUSH,
